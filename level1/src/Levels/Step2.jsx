@@ -17,7 +17,6 @@ const Step2 = () => {
     );
     
 }
-<<<<<<< HEAD:level1/src/Levels/Step2.jsx
+
 export default Step2;
-=======
->>>>>>> 10a2a04e8ad218f026fa77927751363619131d78:level1/src/Step2.js
+
