@@ -1,20 +1,24 @@
 import React from 'react';
+import logo from "./logo.svg";
+import "./App.css";
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Routes
 } from "react-router-dom";
-import Step1 from "./src"
+import Step1 from "./Levels"
 //import Step2 from "./src"
 
-const app = () => {
+const App = () => {
+  
   return (
     <Router>
-      <Switch> 
+      <Routes>
           <Route exact path = "/"><Step1 /></Route>
-      </Switch>
+          </Routes>
     </Router>
   );
+  
 
 }
 
