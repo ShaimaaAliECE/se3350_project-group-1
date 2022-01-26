@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const numbers = Array.from({length: 10}, () => Math.floor(Math.random() * 20));
+const numbers = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
 
 app.get('/',(req,res) => {
     res.send('<h1>Welcome to Level 2</h1> '
