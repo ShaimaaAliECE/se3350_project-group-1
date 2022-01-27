@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
  
-const Navigation = () => {
+const Navigation = () => {    //create constant that will navigate from page to page
     return (
        <div>
-         
-          <NavLink to="/Step1">Step1</NavLink>
-          <NavLink to="/Step2">Step2</NavLink>
+         <h1> Home Page</h1>
+         <p> Click the start button to begin the merge sort algorithm tutorial </p>
+          <NavLink to="/Step1">Start</NavLink>
        </div>
     );
 }
  
-export default Navigation;
+export default Navigation; //export constant

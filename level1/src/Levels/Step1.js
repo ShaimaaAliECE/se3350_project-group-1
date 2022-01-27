@@ -1,17 +1,20 @@
-import React from 'react';
+import React from 'react'; //import required libraries
 
 import {Link} from 'react-router-dom';
 
-const Step1 = () => {
+const Step1 = () => {  //create main page for step 1
     return (
         <div>
-          <h1>Home</h1>
-           <p>Home page body content</p>
+          <h1>Step 1/7</h1>
+           <p>This is step 1 of the algorithm</p>
+           <Link to="/" > Back </Link>
+           <Link to="/Step2" > Next </Link>
+           
        </div>   
     );
 }
 
-export default Step1;
+export default Step1; //export the constant
 
 
 /*
