@@ -1,21 +1,27 @@
 import React from 'react';
 import "./App.css";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes
 } from "react-router-dom";
-import Step1 from "./Levels"
+import Step1 from "./Levels/index"
+
+import Navigation from './Levels/Navigation';
 //import Step2 from "./src"
 
 const App = () => {
-  
+
   return (
-    <Router>
+    <BrowserRouter>
+    <div>
+    <Navigation />
       <Routes>
-          <Route exact path = "/"><Step1 /></Route>
+
+          <Route path="/" component={Step1} exact/>
           </Routes>
-    </Router>
+          </div>
+    </BrowserRouter>
   );
   
 
