@@ -1,10 +1,22 @@
-import React from "react";
+import React from 'react';
 
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 const Step1 = () => {
     return (
-        <div style="width: 100%;">
+        <div>
+          <h1>Home</h1>
+           <p>Home page body content</p>
+       </div>   
+    );
+}
+
+export default Step1;
+
+
+/*
+
+<div style="width: 100%;">
             <div style="width: 10%; height: 100px; float: left;"> 
                 <Link to="" > Back </Link> 
             </div>
@@ -14,8 +26,6 @@ const Step1 = () => {
             <div style="margin-left: 40%; height: 100px;"> 
                 <h1>Step 1/7</h1>
             </div>
-        </div>
-    );
-};
+        </div> 
 
-export default Step1;
+        */

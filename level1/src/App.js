@@ -1,30 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
+
 import "./App.css";
+
 import {
   BrowserRouter,
   Route,
-  Routes
-} from "react-router-dom";
-import Step1 from "./Levels/index"
+  Switch
+} from 'react-router-dom';
+
+import Step1 from './Levels/Step1';
+import Step2 from './Levels/Step2';
 
 import Navigation from './Levels/Navigation';
-//import Step2 from "./src"
 
-const App = () => {
 
-  return (
-    <BrowserRouter>
-    <div>
-    <Navigation />
-      <Routes>
+class App extends Component {
+  render(){
+    return (
+      <BrowserRouter>
+        <div>
+         <Navigation />
+            <Switch>
+              <Route path="/Step1" component={Step1} />
+              <Route path="/Step2" component={Step2} />
+            </Switch>
 
-          <Route path="/" component={Step1} exact/>
-          </Routes>
-          </div>
-    </BrowserRouter>
-  );
-  
-
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
-
 export default App;
