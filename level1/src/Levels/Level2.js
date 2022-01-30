@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 
 function Level2() {
-  let numbersR1 = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
+    const randomNumberArray  = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
   
+  const [numbersR1, updateR1]=useState(randomNumberArray)
   const [numbersR2, updateR2]=useState([1,1,1,1,1,1,1,1,1,1])
   function rowClick(val,index){
     
