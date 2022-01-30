@@ -100,17 +100,20 @@ function getSteps(arr) {
     res.pop()//had to be initialized with an extra space so im removing the left over here
     return(res)
 }
-    //const randomNumberArray  = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
+  //const randomNumberArray1  = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
 let randomNumberArr = []
 for(let i =0; i < 10; i++){
   randomNumberArr.push(Math.floor(Math.random()*20)+1)
 }
 const randomNumberArray = [...randomNumberArr]
-console.log(randomNumberArray)
-  const [numbersR1, updateR1]=useState(randomNumberArray)
-console.log(randomNumberArray)
-  const temp = [...randomNumberArray];
- console.log(getSteps(randomNumberArr),"test")
+//console.log(randomNumberArray)
+  const [numbersR1,updateR1]=useState(randomNumberArray)
+  //console.log(numbersR1)
+//console.log(randomNumberArr)
+  const temp = [...numbersR1];
+  
+  console.log(temp);
+ console.log(getSteps(temp),"test")
  
   const [numbersR2, updateR2]=useState([1,1,1,1,1,1,1,1,1,1])
 
