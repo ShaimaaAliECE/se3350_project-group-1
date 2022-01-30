@@ -58,12 +58,12 @@ function getSteps(arr) {
             //console.log(unmergedPairs[j][0], unmergedPairs[j][1])
             let tmp=[]
             if (!unmergedPairs[j][0]){
-            let tmp = merge([], unmergedPairs[j][1])
+            tmp = merge([], unmergedPairs[j][1])
             }
             else if (!unmergedPairs[j][1]){
-            let tmp = merge(unmergedPairs[j][0], [])
+            tmp = merge(unmergedPairs[j][0], [])
             }else{
-                 let tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
+                 tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
             }
             //console.log(tmp)
             combinedArr.push(tmp)
@@ -100,12 +100,17 @@ function getSteps(arr) {
     res.pop()//had to be initialized with an extra space so im removing the left over here
     return(res)
 }
-    const randomNumberArray  = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
-
+    //const randomNumberArray  = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
+let randomNumberArr = []
+for(let i =0; i < 10; i++){
+  randomNumberArr.push(Math.floor(Math.random()*20)+1)
+}
+const randomNumberArray = [...randomNumberArr]
+console.log(randomNumberArray)
   const [numbersR1, updateR1]=useState(randomNumberArray)
-
-  const temp = [...numbersR1];
- console.log(getSteps(temp),"test")
+console.log(randomNumberArray)
+  const temp = [...randomNumberArray];
+ console.log(getSteps(randomNumberArr),"test")
  
   const [numbersR2, updateR2]=useState([1,1,1,1,1,1,1,1,1,1])
 
