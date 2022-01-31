@@ -1,14 +1,14 @@
 import React from 'react'; //import required libraries
 
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Step1 = () => {  //create main page for step 1
     return (
         <div>
           <h1>Step 1/7</h1>
            <p>This is step 1 of the algorithm</p>
-           <Link to="/" > Back </Link>
-           <Link to="/Step2" > Next </Link>
+           <NavLink to="/" > Back </NavLink>
+           <NavLink to="/Step2" > Next </NavLink>
            
        </div>   
     );
