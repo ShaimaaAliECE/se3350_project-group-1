@@ -5,25 +5,22 @@ import {NavLink} from 'react-router-dom';
 const Step2 = () => { //create main page for step 2
 
     return(
-        <html>
-            <head></head>
-            <body>  
-                <h1> Step 2/7</h1>
-                <div style="width: 100%;">
-                    <div style="width: 20%; height: 100px; float: left; background: grey;">
-                        &emsp; 1  5  6  9  4 <br></br>
-                        &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
-                        1  5  6  &emsp; &emsp; 9  4
-                    </div>
-                    <div style="margin-left: 20%; height: 100px; background: grey;">
-                        &emsp; 8  3  7  2  10 <br></br>
-                        &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
-                        8  3  7  &emsp; 2  10
-                    </div>
-                </div>
+        <div>
+            &emsp; 1  5  6  9  4 <br></br>
+            &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
+            1  5  6  &emsp; &emsp; 9  4 <br></br>
+                   
+            
+            &emsp; 8  3  7  2  10 <br></br>
+            &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
+            8  3  7  &emsp; 2  10
+        
+                
             <p> Step 2: Split new subsets into two more sublists</p>
-            </body>
-        </html>        
+
+            <NavLink to="/Step1" > Back </NavLink>
+           <NavLink to="/Step2" > Next </NavLink>
+        </div>      
   );
     
 }
