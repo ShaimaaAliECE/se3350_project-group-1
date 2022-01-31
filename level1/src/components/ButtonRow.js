@@ -11,20 +11,37 @@ function ButtonRow(props) {
         props.rowClick(val,count);
         clicked(count+1);
     }
+
+    //use a JSON object to represent the buttons that have to be displayed. THis allows fo rthem to be genreated dynamically.
+    let buttonObj=[
+       ];
+
+    let j=0;
+    for(let i =0;i<props.length;i++){
+      let button={}
+      button.id=i;
+      if(props.spaces.length>j&&props.spaces[j]-1==i){
+        button.padding='20px';
+        j++;
+      }else{
+        button.padding='0px';
+      }
+      
+      buttonObj.push(button);
+    }
+      
+    
+   
+    
   return (
   <div>
-    
 
-    <Button value={props.numbers[0]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[1]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[2]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[3]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[4]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[5]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[6]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[7]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[8]}  rowClick={buttonRowClick}></Button>
-    <Button value={props.numbers[9]}  rowClick={buttonRowClick}></Button>
+    {buttonObj.map((button,index) => (
+        <Button value={props.numbers[button.id]}  rowClick={buttonRowClick} padding={button.padding}></Button>
+        
+      ))}
+
+    
     
   </div>
   );

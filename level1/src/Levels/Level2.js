@@ -115,12 +115,14 @@ const randomNumberArray = [...randomNumberArr]
   console.log(temp);
  console.log(getSteps(temp),"test")
  
-  const [numbersR2, updateR2]=useState([1,1,1,1,1,1,1,1,1,1])
+const [numbersR2, updateR2]=useState([null,null,null,null,null,null,null,null,null,null])
+const [numbersR3, updateR3]=useState([null,null,null,null,null,null,null,null,null,null])
+const [numbersR4, updateR4]=useState([null,null,null,null,null,null,null,null,null,null])
 
-  function rowClick(val,index){
+function rowClick1(val,index){
     
-    updateR2((numbersR2)=>{
-      return [
+updateR2((numbersR2)=>{
+    return [
         ...numbersR2.slice(0, index),
         numbersR2[index] =val,
         ...numbersR2.slice(index + 1),
@@ -128,12 +130,37 @@ const randomNumberArray = [...randomNumberArr]
     });
 
 }
+function rowClick2(val,index){
+    
+    updateR3((numbersR3)=>{
+        return [
+            ...numbersR3.slice(0, index),
+            numbersR3[index] =val,
+            ...numbersR3.slice(index + 1),
+          ]
+        });
+    
+    }
+    function rowClick3(val,index){
+    
+        updateR4((numbersR4)=>{
+            return [
+                ...numbersR4.slice(0, index),
+                numbersR4[index] =val,
+                ...numbersR4.slice(index + 1),
+              ]
+            });
+        
+        }
 
   return (
-  <div>
+  <div style={{alignContent:'centre'}}>
     <p>This is level 2</p>
-    <ButtonRow numbers={numbersR1}  rowClick={rowClick}></ButtonRow>
-    <ButtonRow numbers={numbersR2}  rowClick={rowClick}></ButtonRow>
+    <ButtonRow numbers={numbersR1}  rowClick={rowClick1} length={10} spaces={[]}></ButtonRow>
+    <ButtonRow numbers={numbersR2}  rowClick={rowClick2} length={10} spaces={[5]}></ButtonRow>
+    <ButtonRow numbers={numbersR3}  rowClick={rowClick3} length={10} spaces={[2,4,5,7,9,10]}></ButtonRow>
+    <ButtonRow numbers={numbersR4}  rowClick={rowClick1} length={10} spaces={[1,2,3,4,5,6,7,8,9,10]}></ButtonRow>
+    
     
   </div>
   );
