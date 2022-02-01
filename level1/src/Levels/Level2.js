@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
+import MultiPlayer from './Multiplayer.js';
 
 function Level2() {
   function merge(left, right) {
@@ -160,6 +161,14 @@ function rowClick2(val,index){
     <ButtonRow numbers={numbersR2}  rowClick={rowClick2} length={10} spaces={[5]}></ButtonRow>
     <ButtonRow numbers={numbersR3}  rowClick={rowClick3} length={10} spaces={[2,4,5,7,9,10]}></ButtonRow>
     <ButtonRow numbers={numbersR4}  rowClick={rowClick1} length={10} spaces={[1,2,3,4,5,6,7,8,9,10]}></ButtonRow>
+    <div className="App">
+      <MultiPlayer
+        urls={[
+          'http://streaming.tdiradio.com:8000/house.mp3',
+          'http://streaming.tdiradio.com:8000/house.mp3',
+        ]}
+      />
+    </div>
     
     
   </div>
