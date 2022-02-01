@@ -107,61 +107,58 @@ for(let i =0; i < 10; i++){
   randomNumberArr.push(Math.floor(Math.random()*20)+1)
 }
 const randomNumberArray = [...randomNumberArr]
-//console.log(randomNumberArray)
-  const [numbersR1,updateR1]=useState(randomNumberArray)
+
+const [numbersR1,updateR1]=useState(randomNumberArray)
   //console.log(numbersR1)
 //console.log(randomNumberArr)
   const temp = [...numbersR1];
   
   console.log(temp);
- console.log(getSteps(temp),"test")
+  let sortedArray=getSteps(temp);
+ //console.log(sortedArray,"test")
+ //console.log(sortedArray[0][0][1])
  
-const [numbersR2, updateR2]=useState([null,null,null,null,null,null,null,null,null,null])
-const [numbersR3, updateR3]=useState([null,null,null,null,null,null,null,null,null,null])
-const [numbersR4, updateR4]=useState([null,null,null,null,null,null,null,null,null,null])
+ 
 
-function rowClick1(val,index){
-    
-updateR2((numbersR2)=>{
-    return [
-        ...numbersR2.slice(0, index),
-        numbersR2[index] =val,
-        ...numbersR2.slice(index + 1),
-      ]
-    });
 
+let buttonStates=[];
+buttonStates.push(sortedArray[0][0]);
+let nullArray=[];
+for(let j =0;j<sortedArray[0][0].length;j++){
+    nullArray.push(null);
 }
-function rowClick2(val,index){
-    
-    updateR3((numbersR3)=>{
-        return [
-            ...numbersR3.slice(0, index),
-            numbersR3[index] =val,
-            ...numbersR3.slice(index + 1),
-          ]
-        });
-    
-    }
-    function rowClick3(val,index){
-    
-        updateR4((numbersR4)=>{
-            return [
-                ...numbersR4.slice(0, index),
-                numbersR4[index] =val,
-                ...numbersR4.slice(index + 1),
-              ]
-            });
-        
+for(let i =1;i<sortedArray.length;i++){
+    buttonStates.push(nullArray);
+    /*for(const e of sortedArray[i]){
+        for(const j of e){
+            tempArray.push(j);
         }
+    }*/
+}
+
+// This is now a 2d array that handles the states of all the buttons;
+const [btnStates, updateBtns]=useState(buttonStates);
+
+//called when a button is clicked and updates the state of the buttons so that a button
+//in the next row gets the value of the button clicked
+function rowClick(val,index,row){
+        let copy = [...btnStates];
+        let copyRow=[...copy[row]]
+        copyRow[index] = val;
+        copy[row]=copyRow;
+        updateBtns(copy);
+        console.log(btnStates);
+}
 
   return (
   <div style={{alignContent:'centre'}}>
     <p>This is level 2</p>
-    <ButtonRow numbers={numbersR1}  rowClick={rowClick1} length={10} spaces={[]}></ButtonRow>
-    <ButtonRow numbers={numbersR2}  rowClick={rowClick2} length={10} spaces={[5]}></ButtonRow>
-    <ButtonRow numbers={numbersR3}  rowClick={rowClick3} length={10} spaces={[2,4,5,7,9,10]}></ButtonRow>
-    <ButtonRow numbers={numbersR4}  rowClick={rowClick1} length={10} spaces={[1,2,3,4,5,6,7,8,9,10]}></ButtonRow>
-    <div className="App">
+
+    <ButtonRow numbers={btnStates[0]}  rowClick={rowClick} row={1} length={10} spaces={[]}></ButtonRow>
+    <ButtonRow numbers={btnStates[1]}  rowClick={rowClick} row={2} length={10} spaces={[5]}></ButtonRow>
+    <ButtonRow numbers={btnStates[2]}  rowClick={rowClick} row={3} length={10} spaces={[2,4,5,7,9,10]}></ButtonRow>
+    <ButtonRow numbers={btnStates[3]}  rowClick={rowClick} row={4} length={10} spaces={[1,2,3,4,5,6,7,8,9,10]}></ButtonRow>
+<div className="App">
       <MultiPlayer
         urls={[
           'http://streaming.tdiradio.com:8000/house.mp3',
