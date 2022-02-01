@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 import MultiPlayer from './Multiplayer.js';
+import CorrectSound from './correct.mp3';
+import WrongSound from './wrong.mp3';
 
 function Level2() {
   function merge(left, right) {
@@ -161,8 +163,8 @@ function rowClick(val,index,row){
 <div className="App">
       <MultiPlayer
         urls={[
-          'http://streaming.tdiradio.com:8000/house.mp3',
-          'http://streaming.tdiradio.com:8000/house.mp3',
+          CorrectSound,
+          WrongSound,
         ]}
       />
     </div>
