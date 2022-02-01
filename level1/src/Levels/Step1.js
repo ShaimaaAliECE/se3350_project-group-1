@@ -6,7 +6,17 @@ const Step1 = () => {  //create main page for step 1
     return (
         <div>
           <h1>Step 1/7</h1>
-           <p>This is step 1 of the algorithm</p>
+      
+
+&emsp; 1  5  6  9  4  8  3  7  2  10  <br></br>
+&ensp;  &emsp; &#8601; &emsp; &emsp; &emsp; &emsp; &#8600; <br></br>
+1  5  6  9  4&emsp; &emsp; 8  3  7  2  10 <br></br>
+       
+
+    
+<p> Step 1: Split Set into two new sublists</p>
+
+        
            <NavLink to="/" > Back </NavLink>
            <NavLink to="/Step2" > Next </NavLink>
            
@@ -16,19 +26,3 @@ const Step1 = () => {  //create main page for step 1
 
 export default Step1; //export the constant
 
-
-/*
-
-<div style="width: 100%;">
-            <div style="width: 10%; height: 100px; float: left;"> 
-                <Link to="" > Back </Link> 
-            </div>
-            <div style="width: 5%; height: 100px; float: right;"> 
-                <Link to="/Step2" > Next </Link>
-            </div>
-            <div style="margin-left: 40%; height: 100px;"> 
-                <h1>Step 1/7</h1>
-            </div>
-        </div> 
-
-        */

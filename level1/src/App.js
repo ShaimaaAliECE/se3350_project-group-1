@@ -10,8 +10,11 @@ import {
 
 import Step1 from './Levels/Step1'; //import required components from other js files
 import Step2 from './Levels/Step2';
+import Step3 from './Levels/Step3';
 import Step4 from './Levels/Step4';
+import Step5 from './Levels/Step5';
 import Step6 from './Levels/Step6';
+import Step7 from './Levels/Step7';
 
 import Navigation from './Levels/Navigation';
 
@@ -26,8 +29,11 @@ class App extends Component {
             <Switch>
               <Route exact path="/Step1" component={Step1} />
               <Route exact path="/Step2" component={Step2} />
+              <Route exact path="/Step3" component={Step3} />
               <Route exact path="/Step4" component={Step4} />
+              <Route exact path="/Step5" component={Step5} />
               <Route exact path="/Step6" component={Step6} />
+              <Route exact path="/Step7" component={Step7} />
 
               <Route exact path="/Level2" component={Level2} />//routing for level2
             </Switch>

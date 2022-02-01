@@ -6,7 +6,7 @@ const Step2 = () => { //create main page for step 2
 
     return(
         <div>
-            <h1>Step 2/7</h1>
+         <h1>Step 2/7</h1>
 
             &emsp; 1  5  6  9  4 <br></br>
             &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
@@ -20,7 +20,7 @@ const Step2 = () => { //create main page for step 2
                 
             <p> Step 2: Split new subsets into two more sublists</p>
 
-            <NavLink to="/Step1" > Back <br></br></NavLink>
+            <NavLink to="/Step1" > Back </NavLink>
            <NavLink to="/Step3" > Next </NavLink>
         </div>      
   );
