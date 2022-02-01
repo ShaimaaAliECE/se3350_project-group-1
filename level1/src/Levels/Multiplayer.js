@@ -75,7 +75,6 @@ const MultiPlayer = ({ urls }) => {
 
 const Player = ({ player, toggle }) => (
   <div>
-    <p>Stream URL: {player.url}</p>
     <button onClick={toggle}>{player.playing ? 'Pause' : 'Play'}</button>
   </div>
 )
