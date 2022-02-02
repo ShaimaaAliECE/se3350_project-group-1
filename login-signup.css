@@ -1,0 +1,86 @@
+
+.levelCompleteText{
+    text-align: center;
+    font-size: 30;
+    margin-top: 3.8%;
+
+}
+.midRectangle{
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    left: 17.5%;
+    right: 17.5%;
+    top: 25%;
+    mix-blend-mode: normal;
+}
+    
+.inputType{
+    position: absolute;
+    width:875px;
+    background-color: #E8E8E8;
+    border: 1px solid #E8E8E8;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-left: 8%;
+    align-content: center;
+    height:50px;
+
+    font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+
+/* Gray/03 */
+
+color: #BDBDBD;
+}
+.login{
+    position: absolute;
+    box-shadow: 0px 4px 4px white;
+    border-radius: 100px;
+    background-color: #D095F4;
+    color: white;
+    text-align: center;
+    width: 15%;
+    display: inline-block;
+    font-size: 16px;
+    margin: 34% 42%;
+    cursor: pointer;
+    padding: 16px 32px;
+    }
+
+.signup{
+    position: absolute;
+    box-shadow: 0px 4px 4px white;
+    border-radius: 100px;
+    background-color: #D095F4;
+    color: white;
+    text-align: center;
+    width: 15%;
+    display: inline-block;
+    font-size: 16px;
+    margin: 40% 42%;
+    cursor: pointer;
+    padding: 16px 32px;
+
+
+    
+    }
+.cancel{
+    position: absolute;
+    color: green;
+    text-align: center;
+    width: 15%;
+    display: inline-block;
+    font-size: 16px;
+    margin: 45% 42%;
+    cursor: pointer;
+    font-weight: normal;
+
+
+}
+.none{
+    position: absolute;
+    background-color: white;
+    border: white;
+}
