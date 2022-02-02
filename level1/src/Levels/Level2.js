@@ -4,8 +4,8 @@ import MultiPlayer from './Multiplayer.js';
 import CorrectSound from './correct.mp3';
 import WrongSound from './wrong.mp3';
 
-function Level2() {
-  function merge(left, right) {
+
+function merge(left, right) {
   
     let arr = []
     while (left.length && right.length) {
@@ -13,7 +13,6 @@ function Level2() {
     }
     return [...arr, ...left, ...right]
 }
-
 function getSteps(arr) {
     let arrayLength = arr.length
     let steps = []
@@ -103,24 +102,28 @@ function getSteps(arr) {
     res.pop()//had to be initialized with an extra space so im removing the left over here
     return(res)
 }
-  //const randomNumberArray1  = Array.from({length: 10}, () => Math.floor(Math.random() * 20)+ 1);
+
+
 let randomNumberArr = []
 for(let i =0; i < 10; i++){
   randomNumberArr.push(Math.floor(Math.random()*20)+1)
 }
 const randomNumberArray = [...randomNumberArr]
+let sortedArray=getSteps(randomNumberArray);
+console.log(sortedArray);
+let correctArray=[];
 
-const [numbersR1,updateR1]=useState(randomNumberArray)
-  //console.log(numbersR1)
-//console.log(randomNumberArr)
-  const temp = [...numbersR1];
-  
-  console.log(temp);
-  let sortedArray=getSteps(temp);
- //console.log(sortedArray,"test")
- //console.log(sortedArray[0][0][1])
+for (const row of sortedArray){
+    let tempArr=[];
+    for (const array of row){
+        for (const element of array){
+            tempArr.push(element);
+        }
+    }
+    correctArray.push(tempArr);
+}
  
- 
+
 
 
 let buttonStates=[];
@@ -131,12 +134,12 @@ for(let j =0;j<sortedArray[0][0].length;j++){
 }
 for(let i =1;i<sortedArray.length;i++){
     buttonStates.push(nullArray);
-    /*for(const e of sortedArray[i]){
-        for(const j of e){
-            tempArray.push(j);
-        }
-    }*/
+    
 }
+
+
+/////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+function Level2() {
 
 // This is now a 2d array that handles the states of all the buttons;
 const [btnStates, updateBtns]=useState(buttonStates);
@@ -149,7 +152,7 @@ function rowClick(val,index,row){
         copyRow[index] = val;
         copy[row]=copyRow;
         updateBtns(copy);
-        console.log(btnStates);
+        
 }
 
   return (
