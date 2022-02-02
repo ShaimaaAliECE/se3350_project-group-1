@@ -23,94 +23,111 @@ function getSteps(arr) {
   splitArr.push(arr)
   //does the first half of the merge sort (splitting down the array)
   for (let i = 0; i < numberOfCycles - 1; i++) {
-    arr = splitArr
-    for (let j = 0; j < arr.length; j++) {
-      steps.push([...arr[j]])
-    }
-    splitArr = []
-    for (let j = 0; j < arr.length; j++) {
-      let subArrayLength = arr[j].length
-      if (subArrayLength == 3) { arr[j].push([]) }
-      let firstHalf = arr[j].splice(0, (Math.ceil(subArrayLength / 2)))
-      splitArr.push(firstHalf)
-      splitArr.push(arr[j])
-    }
+      arr = splitArr
+      for(let j =0; j <arr.length;j++){
+          steps.push([...arr[j]])
+      }
+      splitArr = []
+      for (let j = 0; j < arr.length; j++) {
+          let subArrayLength = arr[j].length
+          if (subArrayLength == 3) { arr[j].push([]) }
+          let firstHalf = arr[j].splice(0, (Math.ceil(subArrayLength / 2)))
+          splitArr.push(firstHalf)
+          splitArr.push(arr[j])
+      }
   }
-  let combinedArr = []
+        let combinedArr = []
   //combining the split arrays
   for (let j = 0; j < splitArr.length; j++) {
-    for (let k = 0; k < splitArr[j].length; k++) {
-      (splitArr[j][k] == '') ? combinedArr.push([]) : combinedArr.push([splitArr[j][k]])
-    }
+      for (let k = 0; k < splitArr[j].length; k++) {
+          (splitArr[j][k] == '') ? combinedArr.push([]) : combinedArr.push([splitArr[j][k]])
+      }
   }
-  for (let i = 0; i < combinedArr.length; i++) {
-    if (combinedArr[i] != '') {
-      steps.push([...combinedArr[i]])
-    }
+for(let i =0; i <combinedArr.length;i++){
+  if (combinedArr[i]!=''){
+          steps.push([...combinedArr[i]])
   }
+      }
   //The second part of merge sort (merging)
   for (let i = 0; i < numberOfCycles; i++) {
-    let unmergedPairs = []
-    //initializing array
-    for (let j = 0; j < combinedArr.length / 2; j++) { unmergedPairs.push([]) }
-    for (let j = 0; j < combinedArr.length; j++) { unmergedPairs[j >> 1].push(combinedArr[j]) }
-    combinedArr = []
-    let flag = false
-    if (arrayLength % 5 == 0) {
-      for (let j = 0; j < unmergedPairs.length; j++) {
-        if (unmergedPairs[j][0].length + unmergedPairs[j][1].length == 3) {
-          flag = true
-        }
+      let unmergedPairs = []
+      //initializing array
+      for (let j = 0; j < combinedArr.length / 2; j++) { unmergedPairs.push([]) }
+      for (let j = 0; j < combinedArr.length; j++) { unmergedPairs[j >> 1].push(combinedArr[j]) }
+      combinedArr = []
+      let flag = false
+     
+  if(arrayLength%5==0 || arrayLength%3==0){
+      for (let j = 0; j<unmergedPairs.length;j++){
+      if (!unmergedPairs[j][0]){
+          unmergedPairs[j][0]=[]
       }
-    }
-    if (flag) {
-      let flaggedArr = []
-      for (let j = 0; j < unmergedPairs.length; j++) {
-        if (unmergedPairs[j][0].length != unmergedPairs[j][1].length) {
-          flaggedArr.push(unmergedPairs[j])
-        } else {
-          flaggedArr.push([unmergedPairs[j][0], []])
-          flaggedArr.push([unmergedPairs[j][1], []])
-        }
+       if (!unmergedPairs[j][1]){
+          unmergedPairs[j][1]=[]
       }
-      unmergedPairs = flaggedArr
-    }
-    for (let j = 0; j < unmergedPairs.length; j++) {
-
-      let tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
-      combinedArr.push(tmp)
-      steps.push([...tmp])
-    }
+          if(unmergedPairs[j][0].length+unmergedPairs[j][1].length==3){
+              flag = true
+         
+      }
+      }
+}
+      if (flag){
+          let flaggedArr=[]
+          for(let j = 0; j <unmergedPairs.length;j++ ){
+              //console.log(unmergedPairs[j])
+              if (unmergedPairs[j][0].length!=unmergedPairs[j][1].length){
+                  flaggedArr.push(unmergedPairs[j])
+              }else{
+                  flaggedArr.push([unmergedPairs[j][0],[]])
+                  flaggedArr.push([[],unmergedPairs[j][1]])
+              }
+          }
+          unmergedPairs = flaggedArr
+      }
+           
+      for (let j = 0; j < unmergedPairs.length; j++) {
+        let tmp = []
+          if (!unmergedPairs[j][0]){
+              tmp = merge([], unmergedPairs[j][1])
+          }
+          else if (!unmergedPairs[j][1]){
+              tmp = merge(unmergedPairs[j][0], [])
+          }else{
+          tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
+          }
+          combinedArr.push(tmp)
+          steps.push([...tmp])
+      }
   }
-  //3D->2D
-  let res = []
-  for (let i = 0; i < steps.length; i++) {
-    res.push([])
-    for (let j = 0; j < steps[i].length; j++) {
-      let curr = steps[i][j]
-
-      if (curr != '') {
-        res[i].push(curr)
+//3D->2D
+  let res =[]
+  for(let i = 0;i<steps.length; i++){
+      res.push([])
+      for(let j = 0; j<steps[i].length;j++){
+          let curr = steps[i][j]
+          
+          if(curr !=''){
+           res[i].push(curr)
+          }
       }
-    }
   }
   steps = res
-  res = []
+  res=[]
   let count = 0
-  let rowNum = 0
+  let rowNum =0
   res.push([])
   //getting the steps formatted into a 3d array of rows
-  for (let i = 0; i < steps.length; i++) {
-    res[rowNum].push(steps[i])
-    count += steps[i].length
-    if (count == arrayLength) {
-      res.push([])
-      count = 0
-      rowNum += 1
-    }
+  for(let i =0; i <steps.length;i++){
+      res[rowNum].push(steps[i])
+      count+=steps[i].length
+      if(count == arrayLength){
+          res.push([])
+          count = 0
+          rowNum+=1
+      }
   }
   res.pop()//had to be initialized with an extra space so im removing the left over here
-  return (res)
+  return(res)
 }
 
 
