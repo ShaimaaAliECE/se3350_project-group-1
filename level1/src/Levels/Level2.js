@@ -55,7 +55,26 @@ function getSteps(arr) {
         for (let j = 0; j < combinedArr.length / 2; j++) { unmergedPairs.push([]) }
         for (let j = 0; j < combinedArr.length; j++) { unmergedPairs[j >> 1].push(combinedArr[j]) }
         combinedArr = []
-
+        let flag = false
+        
+        for (let j = 0; j<unmergedPairs.length;j++){
+            if(unmergedPairs[j][0].length+unmergedPairs[j][1].length==3){
+                flag = true
+            }
+        }
+        if (flag){
+            let flaggedArr=[]
+            for(let j = 0; j <unmergedPairs.length;j++ ){
+                //console.log(unmergedPairs[j])
+                if (unmergedPairs[j][0].length!=unmergedPairs[j][1].length){
+                    flaggedArr.push(unmergedPairs[j])
+                }else{
+                    flaggedArr.push([unmergedPairs[j][0],[]])
+                    flaggedArr.push([[],unmergedPairs[j][1]])
+                }
+            }
+            unmergedPairs = flaggedArr
+        }
         for (let j = 0; j < unmergedPairs.length; j++) {
             //console.log(unmergedPairs[j][0], unmergedPairs[j][1])
             let tmp=[]
