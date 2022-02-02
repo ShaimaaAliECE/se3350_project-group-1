@@ -6,7 +6,7 @@ function Button(props) {
   const [enabled, setEnabled]=useState(true);
     
   function buttonClick(){
-    if(props.nextVal===props.value){
+    if(props.nextVal===props.btnId){
       setEnabled(false);
       setClicked(true);
       props.rowClick(props.value);

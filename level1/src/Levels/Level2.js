@@ -135,6 +135,23 @@ for (const row of sortedArray) {
   correctArray.push(tempArr);
 }
 
+//2D array that contains the order in which the buttons have to be pressed to be correct
+let correctOrder=[]
+
+for(let i =1;i<correctArray.length;i++){
+  let tempArr=[];
+  for(let j=0;j<correctArray[i].length;j++){
+      let target=correctArray[i][j];
+      for(let h=0;h<correctArray[i].length;h++){
+        if(target===correctArray[i-1][h]){
+          tempArr.push(h);
+          correctArray[i-1][h]=null;
+          break;
+        }
+      }
+  }
+  correctOrder.push(tempArr);
+}
 
 
 //2D array that maps to the button values
@@ -171,15 +188,15 @@ function Level2() {
     <div style={{ alignContent: 'centre' }}>
       <p>This is level 2</p>
 
-      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctArray[1]} spaces={[]}></ButtonRow>
-      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctArray[2]} spaces={[5]} ></ButtonRow>
-      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctArray[3]} spaces={[3, 5, 8]}></ButtonRow>
-      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctArray[4]} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
-      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctArray[5]} spaces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}></ButtonRow>
-      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctArray[6]} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
-      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctArray[7]} spaces={[3, 5, 8]}></ButtonRow>
-      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctArray[8]} spaces={[5]}></ButtonRow>
-      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctArray[8]} spaces={[]}></ButtonRow>
+      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} spaces={[]}></ButtonRow>
+      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} spaces={[5]} ></ButtonRow>
+      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} spaces={[3, 5, 8]}></ButtonRow>
+      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
+      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} spaces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}></ButtonRow>
+      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
+      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} spaces={[3, 5, 8]}></ButtonRow>
+      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} spaces={[5]}></ButtonRow>
+      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} spaces={[]}></ButtonRow>
 
       <div className="App">
         <MultiPlayer
