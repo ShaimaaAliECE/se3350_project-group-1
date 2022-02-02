@@ -65,28 +65,18 @@ function getSteps(arr) {
         if (flag){
             let flaggedArr=[]
             for(let j = 0; j <unmergedPairs.length;j++ ){
-                //console.log(unmergedPairs[j])
                 if (unmergedPairs[j][0].length!=unmergedPairs[j][1].length){
                     flaggedArr.push(unmergedPairs[j])
                 }else{
                     flaggedArr.push([unmergedPairs[j][0],[]])
-                    flaggedArr.push([[],unmergedPairs[j][1]])
+                    flaggedArr.push([unmergedPairs[j][1],[]])
                 }
             }
             unmergedPairs = flaggedArr
         }
         for (let j = 0; j < unmergedPairs.length; j++) {
-            //console.log(unmergedPairs[j][0], unmergedPairs[j][1])
-            let tmp=[]
-            if (!unmergedPairs[j][0]){
-            tmp = merge([], unmergedPairs[j][1])
-            }
-            else if (!unmergedPairs[j][1]){
-            tmp = merge(unmergedPairs[j][0], [])
-            }else{
-                 tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
-            }
-            //console.log(tmp)
+         
+            let tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
             combinedArr.push(tmp)
             steps.push([...tmp])
         }
