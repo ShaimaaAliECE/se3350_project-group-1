@@ -56,10 +56,11 @@ function getSteps(arr) {
     for (let j = 0; j < combinedArr.length; j++) { unmergedPairs[j >> 1].push(combinedArr[j]) }
     combinedArr = []
     let flag = false
-
-    for (let j = 0; j < unmergedPairs.length; j++) {
-      if (unmergedPairs[j][0].length + unmergedPairs[j][1].length == 3) {
-        flag = true
+    if (arrayLength % 5 == 0) {
+      for (let j = 0; j < unmergedPairs.length; j++) {
+        if (unmergedPairs[j][0].length + unmergedPairs[j][1].length == 3) {
+          flag = true
+        }
       }
     }
     if (flag) {
