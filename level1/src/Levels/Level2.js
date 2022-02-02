@@ -111,6 +111,8 @@ for(let i =0; i < 10; i++){
 const randomNumberArray = [...randomNumberArr]
 let sortedArray=getSteps(randomNumberArray);
 console.log(sortedArray);
+
+//2D array that has the values that the buttons should receive
 let correctArray=[];
 
 for (const row of sortedArray){
@@ -125,7 +127,7 @@ for (const row of sortedArray){
  
 
 
-
+//2D array that maps to the button values
 let buttonStates=[];
 buttonStates.push(sortedArray[0][0]);
 let nullArray=[];
@@ -159,10 +161,16 @@ function rowClick(val,index,row){
   <div style={{alignContent:'centre'}}>
     <p>This is level 2</p>
 
-    <ButtonRow numbers={btnStates[0]}  rowClick={rowClick} row={1} length={10} spaces={[]}></ButtonRow>
-    <ButtonRow numbers={btnStates[1]}  rowClick={rowClick} row={2} length={10} spaces={[5]}></ButtonRow>
-    <ButtonRow numbers={btnStates[2]}  rowClick={rowClick} row={3} length={10} spaces={[2,4,5,7,9,10]}></ButtonRow>
-    <ButtonRow numbers={btnStates[3]}  rowClick={rowClick} row={4} length={10} spaces={[1,2,3,4,5,6,7,8,9,10]}></ButtonRow>
+    <ButtonRow numbers={btnStates[0]}  rowClick={rowClick} row={1} length={10} correctRow={correctArray[1]} spaces={[]}></ButtonRow>
+    <ButtonRow numbers={btnStates[1]}  rowClick={rowClick} row={2} length={10} correctRow={correctArray[2]} spaces={[5]} ></ButtonRow>
+    <ButtonRow numbers={btnStates[2]}  rowClick={rowClick} row={3} length={10} correctRow={correctArray[3]} spaces={[3,5,8]}></ButtonRow>
+    <ButtonRow numbers={btnStates[3]}  rowClick={rowClick} row={4} length={10} correctRow={correctArray[4]} spaces={[2,3,4,5,7,8,9]}></ButtonRow>
+    <ButtonRow numbers={btnStates[4]}  rowClick={rowClick} row={5} length={10} correctRow={correctArray[5]} spaces={[1,2,3,4,5,6,7,8,9,10]}></ButtonRow>
+    <ButtonRow numbers={btnStates[5]}  rowClick={rowClick} row={6} length={10} correctRow={correctArray[6]} spaces={[2,3,4,5,7,8,9]}></ButtonRow>
+    <ButtonRow numbers={btnStates[6]}  rowClick={rowClick} row={7} length={10} correctRow={correctArray[7]} spaces={[3,5,8]}></ButtonRow>
+    <ButtonRow numbers={btnStates[7]}  rowClick={rowClick} row={8} length={10} correctRow={correctArray[8]} spaces={[5]}></ButtonRow>
+    <ButtonRow numbers={btnStates[8]}  rowClick={rowClick} row={9} length={10} correctRow={correctArray[8]} spaces={[]}></ButtonRow>
+   
 <div className="App">
       <MultiPlayer
         urls={[
