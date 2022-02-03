@@ -13,7 +13,7 @@ const Step6 = () => { //create main page for step 6
             <div class="thisText">
             &thinsp; &thinsp; 1  &thinsp; &thinsp;5  &emsp; &emsp;&emsp;6 &thinsp; &thinsp;9   &emsp; &emsp;&emsp;4  &thinsp; &thinsp;8  &emsp; &emsp;&ensp; 3   &thinsp;  7 &emsp; &emsp;&emsp;2  &emsp;10<br></br>
             &thinsp; &thinsp;&thinsp; &thinsp; &#8600; &emsp;&ensp;&emsp;&emsp;&emsp;&#8601;&emsp;&thinsp;&thinsp;&thinsp;&emsp;&emsp;&emsp; &#8600;&emsp;&emsp;&emsp;&emsp; &#8601;  &ensp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp; ↓ <br></br>
-            &thinsp; &thinsp; &thinsp; &thinsp; 1  &thinsp; &thinsp;5 &thinsp; 6 &thinsp; &thinsp;9   &emsp; &emsp; &emsp; &emsp;&emsp;3  &thinsp; &thinsp;4  &thinsp; &thinsp; 7 &thinsp; &thinsp;  8 &emsp; &emsp;&emsp;&thinsp; &thinsp;2  &emsp;10<br></br>
+            &thinsp; &thinsp; &thinsp; &thinsp; 1  &thinsp; &thinsp;5 &thinsp; 6 &thinsp; &thinsp;9   &emsp; &emsp; &emsp; &emsp;&emsp;3  &thinsp; &thinsp;4  &thinsp; &thinsp; 7 &thinsp; &thinsp;  8 &emsp; &emsp;&emsp;&thinsp; &thinsp;&ensp;2  &emsp;10<br></br>
 
            </div>
             <p> <i>&emsp;Step 6: Rejoin new subsets in chronological order into 4 element subsets where possible</i></p>

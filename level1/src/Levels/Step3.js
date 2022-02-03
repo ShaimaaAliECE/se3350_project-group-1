@@ -12,9 +12,9 @@ const Step3 = () => { //create main page for step 3
             <h1>&emsp;Step 3/8</h1>
             <div class="thisText">
            
-            &emsp;    1  5  6  &emsp; &emsp;&emsp;&emsp;&emsp;9  4  &emsp; &emsp;&emsp;&emsp;&emsp;8 3 7 &emsp; &emsp;&emsp;&emsp;&emsp;2 &emsp;10 <br></br>
-            &ensp; &#8601; &emsp;  &#8600; &emsp; &emsp; &emsp; &ensp; &#8601; &#8600;  &ensp;&emsp;&emsp;&emsp;&emsp; &#8601; &emsp;  &#8600; &ensp;&emsp;&emsp;&emsp;&emsp; &#8601; &emsp;  &#8600; <br></br>
-            1 5 &emsp;6 &emsp; &emsp;&emsp;&emsp; 9  &emsp;4  &emsp; &emsp;&emsp;&emsp;8 3  &emsp; 7 &emsp; &emsp;&emsp;&emsp;2  &emsp;&emsp;10<br></br>
+            &emsp;    1  5  6  &emsp; &emsp;&emsp;&emsp;&emsp;9 &ensp; 4  &emsp; &emsp;&emsp;&emsp;&emsp;8 3 7 &emsp; &emsp;&emsp;&emsp;&emsp;2 &emsp;10 <br></br>
+            &ensp; &#8601; &emsp; &#8600; &emsp; &emsp; &emsp; &ensp; &#8601; &ensp; &#8600;  &ensp;&emsp;&emsp;&emsp;&emsp; &#8601; &emsp;  &#8600; &ensp;&emsp;&emsp;&emsp;&emsp; &#8601; &emsp;  &#8600; <br></br>
+            1 5 &emsp; &ensp;6 &emsp; &emsp;&emsp;&emsp; 9  &emsp;4  &emsp; &emsp;&emsp;&emsp;8 3  &emsp; 7 &emsp; &emsp;&emsp;&emsp;2  &emsp;&emsp;10<br></br>
         
             </div>
                 
