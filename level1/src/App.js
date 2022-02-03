@@ -17,7 +17,6 @@ import Step6 from './Levels/Step6';
 import Step7 from './Levels/Step7';
 import Step8 from './Levels/Step8';
 
-import Navigation from './Levels/Navigation';
 import LevelsPage from './Levels/LevelsPage';
 
 
@@ -31,8 +30,7 @@ class App extends Component {
         <div>
         
             <Switch>
-             <Route path="/LevelsPage" component={LevelsPage} />
-             <Route path="/Navigation" component={Navigation} />
+             
               <Route exact path="/Step1" component={Step1} />
               <Route exact path="/Step2" component={Step2} />
               <Route exact path="/Step3" component={Step3} />
@@ -43,6 +41,8 @@ class App extends Component {
               <Route exact path="/Step8" component={Step8} />
 
               <Route exact path="/Level2" component={Level2} />
+
+              <Route path="/" component={LevelsPage} />
             </Switch>
 
         </div>
