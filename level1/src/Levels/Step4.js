@@ -6,7 +6,7 @@ const Step4 = () => { //create main page for step 4
 
     return(
         <div>
-            <h1>&emsp;Step 4/7</h1>
+            <h1>&emsp;Step 4/8</h1>
             <div class="thisText">
             &emsp;1 5 &emsp;6 &emsp; &emsp;&emsp;  &thinsp;9  &emsp;4  &emsp; &emsp;&emsp;&emsp;8 3  &emsp; 7 &emsp; &emsp;&emsp;&emsp;2  &emsp;10<br></br>
             &thinsp; &thinsp; &#8601;  &thinsp;  &thinsp; &thinsp; &#8600;  &emsp; &emsp; &ensp; &#8601; &thinsp; &thinsp; &#8600;  &ensp;&emsp;&emsp;&emsp;&emsp; &#8601; &emsp;  &#8600; &ensp;&emsp;&emsp;&emsp; &#8601;  &thinsp;&emsp;  &#8600; <br></br>

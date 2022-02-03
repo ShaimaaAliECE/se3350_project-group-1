@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 const Step1 = () => {  //create main page for step 1
     return (
         <div>
-          <h1>&emsp; Step 1/7</h1>
+          <h1>&emsp;Step 1/8</h1>
           <div class="thisText">
 
 &emsp; 1  5  6  9  4  8  3  7  2  10  <br></br>
