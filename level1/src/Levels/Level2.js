@@ -222,6 +222,9 @@ function Level2() {
 
   return (
     <div style={{ alignContent: 'centre' }}>
+    <div>
+         <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'>Quit</button> <button class='analyticsButton'>Analytics</button></h1>
+         </div>
       <p>This is level 2</p>
       <p>Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
       <h3>{instructionArray[instructionsNum]}</h3>

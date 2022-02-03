@@ -18,16 +18,20 @@ import Step7 from './Levels/Step7';
 import Step8 from './Levels/Step8';
 
 import Navigation from './Levels/Navigation';
+import LevelsPage from './Levels/LevelsPage';
+
 
 import Level2 from './Levels/Level2';
 //create class that will route to the beginning page
 class App extends Component {
+  
   render(){
     return (
       <BrowserRouter>
         <div>
-         <Navigation />
+        
             <Switch>
+             <Route path="/LevelsPage" component={LevelsPage} />
               <Route exact path="/Step1" component={Step1} />
               <Route exact path="/Step2" component={Step2} />
               <Route exact path="/Step3" component={Step3} />
