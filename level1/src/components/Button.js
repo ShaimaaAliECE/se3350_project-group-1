@@ -20,7 +20,7 @@ function Button(props) {
   }
   
   return (
-  <button   onClick={buttonClick} disabled={!enabled} style={{marginRight:props.padding}}>
+  <button   onClick={buttonClick} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
      {props.value}
   </button>
   
