@@ -11,6 +11,9 @@ function Button(props) {
       setClicked(true);
       props.rowClick(props.value);
     }
+    else{
+      alert("Wrong - Try Again");
+    }
 
      
       
