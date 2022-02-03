@@ -20,7 +20,7 @@ const Step1 = () => {  //create main page for step 1
 
 
         
-&emsp;<NavLink to="/" class='bttn'> Back </NavLink>&emsp; &emsp; 
+&emsp;<NavLink to="/LevelsPage" class='bttn'> Back </NavLink>&emsp; &emsp; 
            <NavLink to="/Step2" class='bttn' > Next </NavLink> &emsp; &emsp;
            <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink>
            
