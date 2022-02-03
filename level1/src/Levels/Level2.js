@@ -5,13 +5,16 @@ import CorrectSound from './correct.mp3';
 import WrongSound from './wrong.mp3';
 
 
-let instructionArray=[
-  "Instruction 1",
-  "Instruction 2",
-  "Instruction 3",
-  "Instruction 4",
-  "Instruction 5",
-  "Instruction 6",
+let instructionArray = [
+  "Divide the array down the middle into two parts",
+  "Repeat this division until in array is completely divided",
+  "Repeat this division until in array is completely divided",
+  "Repeat this division until in array is completely divided",
+  "Now that the array is in individual units merge the units together",
+  "Merge the two closest subarrays so they are in ascending order",
+  "Repeat this step for all subarrays until the array is rejoined",
+  "Repeat this step for all subarrays until the array is rejoined",
+  "Now the elements are sorted in ascending order",
 
 ];
 
@@ -198,9 +201,8 @@ function Level2() {
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
-  const [clicked,updateClick]=useState(0);
-  const [instructionsNum, updateInstructions]=useState(0);
-  
+  const [clicked, updateClick] = useState(0);
+  const [instructionsNum, updateInstructions] = useState(0);
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -211,11 +213,11 @@ function Level2() {
     updateBtns(copy);
 
     //updates how many of the buttons have been clicked so it knows when to change the instructions
-    updateClick(clicked+1);
+    updateClick(clicked + 1);
 
     //check to see if instructions should change
-    if((clicked+1)%10===0&&clicked>1){
-      updateInstructions(instructionsNum+1);
+    if ((clicked + 1) % 10 === 0 && clicked > 1) {
+      updateInstructions(instructionsNum + 1);
     }
 
   }
@@ -223,18 +225,18 @@ function Level2() {
   return (
     <div style={{ alignContent: 'centre' }}>
       <p>This is level 2</p>
-
+      <p>Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
       <h3>{instructionArray[instructionsNum]}</h3>
 
-      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} enabled={true}spaces={[]}></ButtonRow>
-      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} enabled={(clicked>9)?true:false} spaces={[5]} ></ButtonRow>
-      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} enabled={(clicked>19)?true:false} spaces={[3, 5, 8]}></ButtonRow>
-      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} enabled={(clicked>29)?true:false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
-      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} enabled={(clicked>39)?true:false} spaces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}></ButtonRow>
-      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked>49)?true:false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
-      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} enabled={(clicked>59)?true:false} spaces={[3, 5, 8]}></ButtonRow>
-      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked>69)?true:false} spaces={[5]}></ButtonRow>
-      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false)?true:false} spaces={[]}></ButtonRow>
+      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} enabled={true} spaces={[]}></ButtonRow>
+      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} enabled={(clicked > 9) ? true : false} spaces={[5]} ></ButtonRow>
+      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} enabled={(clicked > 19) ? true : false} spaces={[3, 5, 8]}></ButtonRow>
+      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} enabled={(clicked > 29) ? true : false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
+      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} enabled={(clicked > 39) ? true : false} spaces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}></ButtonRow>
+      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked > 49) ? true : false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
+      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} enabled={(clicked > 59) ? true : false} spaces={[3, 5, 7]}></ButtonRow>
+      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked > 69) ? true : false} spaces={[5]}></ButtonRow>
+      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={[]}></ButtonRow>
 
       <div className="App">
         <MultiPlayer
