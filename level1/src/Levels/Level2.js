@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
-import MultiPlayer from './Multiplayer.js';
-import CorrectSound from './correct.mp3';
-import WrongSound from './wrong.mp3';
+
 
 
 let instructionArray = [
@@ -238,14 +236,6 @@ function Level2() {
       <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked > 69) ? true : false} spaces={[5]}></ButtonRow>
       <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={[]}></ButtonRow>
 
-      <div className="App">
-        <MultiPlayer
-          urls={[
-            CorrectSound,
-            WrongSound,
-          ]}
-        />
-      </div>
 
 
     </div>

@@ -1,6 +1,6 @@
 import React ,{useState}from 'react';
-import CorrectSound from '../Levels/correct.mp3';
-import WrongSound from '../Levels/wrong.mp3';
+import CorrectSound from './correct.mp3';
+import WrongSound from './wrong.mp3';
 
 function Button(props) {
   
