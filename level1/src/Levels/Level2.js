@@ -5,6 +5,16 @@ import CorrectSound from './correct.mp3';
 import WrongSound from './wrong.mp3';
 
 
+let instructionArray=[
+  "Instruction 1",
+  "Instruction 2",
+  "Instruction 3",
+  "Instruction 4",
+  "Instruction 5",
+  "Instruction 6",
+
+];
+
 function merge(left, right) {
 
   let arr = []
@@ -172,7 +182,8 @@ function Level2() {
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
-
+  const [clicked,updateClick]=useState(0);
+  const [instructionsNum, updateInstructions]=useState(0);
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -182,11 +193,21 @@ function Level2() {
     copy[row] = copyRow;
     updateBtns(copy);
 
+    //updates how many of the buttons have been clicked so it knows when to change the instructions
+    updateClick(clicked+1);
+
+    //check to see if instructions should change
+    if((clicked+1)%10===0&&clicked>1){
+      updateInstructions(instructionsNum+1);
+    }
+
   }
 
   return (
     <div style={{ alignContent: 'centre' }}>
       <p>This is level 2</p>
+
+      <h3>{instructionArray[instructionsNum]}</h3>
 
       <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} spaces={[]}></ButtonRow>
       <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} spaces={[5]} ></ButtonRow>
