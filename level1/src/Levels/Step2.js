@@ -6,29 +6,33 @@ const Step2 = () => { //create main page for step 2
 
     return(
         <div>
-         <h1>Step 2/7</h1>
+         <h1>&emsp;Step 2/8</h1>
+            <div class="thisText">
+             &emsp; 1  5  6  9  4 &emsp; &emsp;  &emsp;  &emsp;&emsp; &emsp;8  3  7  2  10 <br></br>
+            &ensp; &#8601; &emsp; &emsp; &#8600;&emsp; &emsp; &emsp;&emsp; &emsp; &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
+            1  5  6  &emsp; &emsp; 9  4 &emsp;  &emsp;&emsp; &emsp;  8  3  7  &emsp; 2  10   
+            </div>    
+            <p> <i>&emsp;Step 2: Split new subsets into two more sublists</i></p>
 
-            &emsp; 1  5  6  9  4 <br></br>
-            &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
-            1  5  6  &emsp; &emsp; 9  4 <br></br>
-                   
-            
-            &emsp; 8  3  7  2  10 <br></br>
-            &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
-            8  3  7  &emsp; 2  10
-        
-                
-            <p> Step 2: Split new subsets into two more sublists</p>
-
-            <NavLink to="/Step1" > Back </NavLink>
-           <NavLink to="/Step3" > Next </NavLink>
+            &emsp;<NavLink to="/Step1" class="bttn" > Back </NavLink> &emsp;&emsp;
+           <NavLink to="/Step3" class="bttn"> Next </NavLink>
         </div>      
   );
     
 }
 
 
+/*
+ &emsp; 1  5  6  9  4 <br></br>
+            &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
+            1  5  6  &emsp; &emsp; 9  4 <br></br>
+                   
+            
+            &emsp; 8  3  7  2  10 <br></br>
+            &ensp; &#8601; &emsp; &emsp; &#8600; <br></br>
+            8  3  7  &emsp; 2  10       
 
+ */
 
 
 

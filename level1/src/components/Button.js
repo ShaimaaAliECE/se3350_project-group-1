@@ -1,4 +1,6 @@
 import React ,{useState}from 'react';
+import CorrectSound from './correct.mp3';
+import WrongSound from './wrong.mp3';
 
 function Button(props) {
   
@@ -7,17 +9,24 @@ function Button(props) {
     
   function buttonClick(){
     if(props.nextVal===props.btnId){
+      var correct = new Audio(CorrectSound);
+      correct.play();
       setEnabled(false);
       setClicked(true);
       props.rowClick(props.value);
     }
+    else{
+      var wrong = new Audio(WrongSound);
+      wrong.play();
+      alert("Wrong - Try Again");
+      
+    }
 
-     
       
   }
-  
+ 
   return (
-  <button   onClick={buttonClick} disabled={!enabled} style={{marginRight:props.padding}}>
+  <button   class="bttn2" onClick={buttonClick} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
      {props.value}
   </button>
   

@@ -5,20 +5,18 @@ import {NavLink} from 'react-router-dom';
 const Step7 = () => {  //create main page for step 1
     return (
         <div>
-          <h1>Step 7/7</h1>
-      
-1  5  6  9  4&emsp; &emsp; 2  3  7  8  10 <br></br>
-&ensp;  &emsp; &#8600; &emsp; &emsp; &emsp; &emsp; &#8601; <br></br>
-&emsp; 1  2  3  4  5  6  7  8  9  10  <br></br>
+          <h1>&emsp;Step 7/8</h1>
+          <div class="thisText">
+&thinsp; 1  &thinsp;  5  &thinsp;  6  &thinsp; 9  &thinsp; &emsp; &emsp; 3 &thinsp; 4 &thinsp; 7 &thinsp; 8 &emsp;&emsp; 2 &thinsp; 10<br></br>
+&ensp;  &emsp; ↓ &emsp; &emsp;  &emsp;  &emsp; &emsp;  &emsp; &#8600;&emsp; &emsp;&emsp;&ensp; &#8601; <br></br>
+&thinsp;  1 &thinsp;  5  &thinsp; 6  &thinsp; 9 &emsp; &emsp; &emsp;&thinsp; 2 &thinsp; 3 &thinsp; 4 &thinsp; 7 &thinsp; 8 &thinsp; 10  <br></br>
 
-    
-<p> Step 7: Rejoin last two subsets into final set</p>
+    </div>
 
-        
-           <NavLink to="/Step6" > Back </NavLink>
-           <NavLink to="/" > Next </NavLink>
-           
-       </div>   
+<p> <i>&emsp;Step 7: Rejoin last two subsets into final set</i></p>
+&emsp;<NavLink to="/Step6" class="bttn" > Back </NavLink> &emsp;&emsp;
+<NavLink to="/Step8" class="bttn"> Next </NavLink>  
+</div>  
     );
 }
 
