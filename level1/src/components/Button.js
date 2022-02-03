@@ -11,13 +11,13 @@ function Button(props) {
       setClicked(true);
       props.rowClick(props.value);
     }
-
-     
-      
+    else{
+      alert("Wrong - Try Again");
+    }   
   }
   
   return (
-  <button   onClick={buttonClick} disabled={!enabled} style={{marginRight:props.padding}}>
+  <button   onClick={buttonClick} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
      {props.value}
   </button>
   
