@@ -5,6 +5,9 @@ import {NavLink} from 'react-router-dom';
 const Step7 = () => {  //create main page for step 1
     return (
         <div>
+        <div>
+         <h1 class='topRectangle'> &emsp;Level 1<button class='quitButton'>Quit</button> <button class='analyticsButton'>Analytics</button></h1>
+         </div>
           <h1>&emsp;Step 7/8</h1>
           <div class="thisText">
 &thinsp; 1  &thinsp;  5  &thinsp;  6  &thinsp; 9  &thinsp; &emsp; &emsp; 3 &thinsp; 4 &thinsp; 7 &thinsp; 8 &emsp;&emsp; 2 &thinsp; 10<br></br>
@@ -15,7 +18,8 @@ const Step7 = () => {  //create main page for step 1
 
 <p> <i>&emsp;Step 7: Rejoin last two subsets into final set</i></p>
 &emsp;<NavLink to="/Step6" class="bttn" > Back </NavLink> &emsp;&emsp;
-<NavLink to="/Step8" class="bttn"> Next </NavLink>  
+<NavLink to="/Step8" class="bttn"> Next </NavLink> &emsp; &emsp;
+           <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink> 
 </div>  
     );
 }

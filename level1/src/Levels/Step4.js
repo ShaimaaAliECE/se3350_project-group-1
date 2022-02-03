@@ -6,6 +6,9 @@ const Step4 = () => { //create main page for step 4
 
     return(
         <div>
+        <div>
+         <h1 class='topRectangle'> &emsp;Level 1<button class='quitButton'>Quit</button> <button class='analyticsButton'>Analytics</button></h1>
+         </div>
             <h1>&emsp;Step 4/8</h1>
             <div class="thisText">
             &emsp;1 5 &emsp;6 &emsp; &emsp;&emsp;  &thinsp;9  &emsp;4  &emsp; &emsp;&emsp;&emsp;8 3  &emsp; 7 &emsp; &emsp;&emsp;&emsp;2  &emsp;10<br></br>
@@ -15,7 +18,8 @@ const Step4 = () => { //create main page for step 4
             <p> <i>&emsp;Step 4: Split exisiting subsets into individual subsets</i></p>
 
            &emsp;<NavLink to="/Step3" class="bttn" > Back </NavLink> &emsp;&emsp;
-           <NavLink to="/Step5" class="bttn"> Next </NavLink>
+           <NavLink to="/Step5" class="bttn"> Next </NavLink> &emsp; &emsp;
+           <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink>
         </div>      
   );
     
