@@ -233,7 +233,7 @@ function Level2() {
       <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} enabled={(clicked > 19) ? true : false} spaces={[3, 5, 8]}></ButtonRow>
       <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} enabled={(clicked > 29) ? true : false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
       <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} enabled={(clicked > 39) ? true : false} spaces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}></ButtonRow>
-      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked > 49) ? true : false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
+      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked > 49) ? true : false} spaces={[2, 3, 5, 7, 8]}></ButtonRow>
       <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} enabled={(clicked > 59) ? true : false} spaces={[3, 5, 7]}></ButtonRow>
       <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked > 69) ? true : false} spaces={[5]}></ButtonRow>
       <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={[]}></ButtonRow>
