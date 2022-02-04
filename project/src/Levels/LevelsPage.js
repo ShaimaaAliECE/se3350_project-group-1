@@ -15,15 +15,15 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
           &emsp; &emsp; 
           <NavLink to="/Level2" class="secondButton">Level 2</NavLink>
           <div class="wrap">
-        <button class="button"> merge sort</button>
+        <button class="button"> MergeSort </button>
         <br></br>
         <br></br>
         <br></br>
-        <button class="button"> quick sort</button>
+        <button class="gbutton"> QuickSort &#128274;</button>
         <br></br>
         <br></br>
         <br></br>
-        <button class="button">bubble sort</button>
+        <button class="gbutton">BubbleSort &#128274;</button>
         
         </div>
       
