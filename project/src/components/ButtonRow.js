@@ -34,7 +34,7 @@ function ButtonRow(props) {
    
     
   return (
-  <div>
+  <div class="wrapper">
 
     {buttonObj.map((button,index) => (
         <Button key={"row"+props.row+"-btn"+button.id} value={props.numbers[button.id]}  rowClick={buttonRowClick} 

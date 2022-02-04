@@ -4,9 +4,6 @@ import { NavLink } from 'react-router-dom';
  
 const Navigation = () => {    //create constant that will navigate from page to page
     return (
-     
-
-       
        <div>
          <div>
          <h1 class='topRectangle'> &emsp;Levels<button class='quitButton'>Quit</button> <button class='analyticsButton'>Analytics</button></h1>
