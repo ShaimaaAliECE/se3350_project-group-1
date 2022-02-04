@@ -9,7 +9,7 @@ const Step5 = () => { //create main page for step 4
         <div>
          <h1 class='topRectangle'> &emsp;Level 1<button class='quitButton'><a href= 'http://localhost:3000/LevelsPage' class="noDec"> Quit</a> </button> <button class='analyticsButton'>Analytics</button></h1>
          </div>
-            <h1>&emsp;Step 5/8</h1>
+            <h1 class="text">&emsp;Step 5/8</h1>
             <div class="thisText">
             &thinsp;1  &emsp; &thinsp; &thinsp; 5 &emsp; &thinsp; &thinsp;6 &emsp;  &thinsp;&thinsp; 9 &emsp; &thinsp; &thinsp;4   &thinsp;&emsp; &thinsp;8 &emsp;  &thinsp; &thinsp; 3  &emsp; &thinsp; &thinsp;7 &emsp;  &thinsp;&thinsp;2 &emsp; &thinsp; &thinsp;10<br></br>
             &thinsp; &thinsp; &#8600;  &thinsp;  &#8601;&thinsp;  &emsp; &emsp; &ensp; &#8600;&thinsp; &#8601; &emsp; &emsp; &ensp;&#8600; &thinsp;&#8601; &thinsp;  &emsp; &emsp; &#8600;  &thinsp;  &#8601; &thinsp;  &emsp;&emsp;&ensp;&#8600;  &thinsp;  &#8601; <br></br>
@@ -18,8 +18,8 @@ const Step5 = () => { //create main page for step 4
 
           
             <p> <i>&emsp;Step 5: Rejoin exisiting subsets into individual subsets in chronological order</i></p>
-            &emsp;<NavLink to="/Step4" class="bttn" > Back </NavLink> &emsp;&emsp;
-           <NavLink to="/Step6" class="bttn"> Next </NavLink> &emsp; &emsp;
+            &emsp;<NavLink to="/Step4" class="bttn" > Back </NavLink> &emsp; &emsp; &emsp; &emsp;&emsp; &emsp;
+           <NavLink to="/Step6" class="bttn"> Next </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp;
            <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink>
         </div>      
   );

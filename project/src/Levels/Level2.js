@@ -226,8 +226,8 @@ function Level2() {
          <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href= 'http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
          </div>
      
-      <p>Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
-      <h3>{instructionArray[instructionsNum]}</h3>
+      <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
+      <h3 class="text">{instructionArray[instructionsNum]}</h3>
 
       <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} enabled={true} spaces={[]}></ButtonRow>
       <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} enabled={(clicked > 9) ? true : false} spaces={[5]} ></ButtonRow>
