@@ -7,7 +7,7 @@ const Step2 = () => { //create main page for step 2
     return(
         <div>
         <div>
-         <h1 class='topRectangle'> &emsp;Level 1<button class='quitButton'>Quit</button> <button class='analyticsButton'>Analytics</button></h1>
+         <h1 class='topRectangle'> &emsp;Level 1<button class='quitButton'><a href= 'http://localhost:3000/LevelsPage' class="noDec"> Quit</a> </button> <button class='analyticsButton'>Analytics</button></h1>
          </div>
          <h1>&emsp;Step 2/8</h1>
             <div class="thisText">
