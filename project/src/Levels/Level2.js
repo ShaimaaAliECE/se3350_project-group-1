@@ -15,129 +15,116 @@ let instructionArray = [
   "Now the elements are sorted in ascending order",
 
 ];
+function getButtonPlacement(arr) {
+  let res = []
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0
+    res.push([])
+    for (let j = 0; j < arr[i].length - 1; j++) {
+      count += arr[i][j].length
+      res[i].push(count)
+    }
+  }
+  return res
+}
 
+function makeLengthEven(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length % 2 != 0) {
+      arr[i].push(-1)
+    }
+  }
+  return arr
+}
+function splitSubArray(arr) {
+  let splitArr = []
+  for (let i = 0; i < arr.length; i++) {
+    let firstHalf = arr[i].splice(0, (arr[i].length / 2))
+    let secondHalf = arr[i]
+    splitArr.push(firstHalf)
+    splitArr.push(secondHalf)
+  }
+  return (splitArr)
+}
+function createPairs(arr) {
+  let unmergedPairs = []
+  for (let i = 0; i < arr.length / 2; i++) { unmergedPairs.push([]) }
+  for (let i = 0; i < arr.length; i++) { unmergedPairs[i >> 1].push(arr[i]) }
+  return (unmergedPairs)
+}
 function merge(left, right) {
 
   let arr = []
-  while (left.length && right.length) {//shifts the numbers depending on value, either to the left or right 
+  while (left.length && right.length) {
     (left[0] < right[0]) ? arr.push(left.shift()) : arr.push(right.shift())
   }
-  return [...arr, ...left, ...right]//returns a merged array
+  return [...arr, ...left, ...right]
+}
+function removePlaceHolders(arr) {
+  let steps = []
+  let res = []
+  for (let i = 0; i < arr.length; i++) {
+    steps.push(arr[i].filter(function (item) { return item !== -1 }))
+  }
+
+  for (let i = 0; i < steps.length; i++) {
+    if (steps[i] != "") {
+      res.push(steps[i])
+    }
+  }
+  return res
 }
 
-function getSteps(arr) {
-  let arrayLength = arr.length
-  let steps = []
-  let numberOfCycles = Math.ceil(Math.log2(arr.length))
-  let splitArr = []
-  steps.push([...arr])//adding the original add to the steps
-  splitArr.push(arr.splice(0, (Math.ceil(arr.length / 2))))
-  splitArr.push(arr)
-  //does the first half of the merge sort (splitting down the array)
-  for (let i = 0; i < numberOfCycles - 1; i++) {//looping for each step of the splitting process until arrays are all in subarrays of size 1
-    arr = splitArr
-    for (let j = 0; j < arr.length; j++) {
-      steps.push([...arr[j]])//adding the splitting steps to the steps array
-    }
-    splitArr = []
-    for (let j = 0; j < arr.length; j++) {
-      let subArrayLength = arr[j].length
-      if (subArrayLength == 3) { arr[j].push([]) }//turns subArrays of length 3 to subarrays of length 4 with an empty cell to help with merging
-      let firstHalf = arr[j].splice(0, (Math.ceil(subArrayLength / 2)))//splitting the array in half
-      splitArr.push(firstHalf)//pushing both halfs
-      splitArr.push(arr[j])
-    }
+function addSteps(steps, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    steps.push([...arr[i]])
   }
-  let combinedArr = []
-  //combining the split arrays
-  for (let j = 0; j < splitArr.length; j++) {
-    for (let k = 0; k < splitArr[j].length; k++) {
-      (splitArr[j][k] == '') ? combinedArr.push([]) : combinedArr.push([splitArr[j][k]])//combining the arrays and removing the empty space values
-    }
-  }
-  for (let i = 0; i < combinedArr.length; i++) {
-    if (combinedArr[i] != '') {
-      steps.push([...combinedArr[i]])//adding the combined arrays to the steps
-    }
-  }
-  //The second part of merge sort (merging)
-  for (let i = 0; i < numberOfCycles; i++) {//loops until all values have been merged
-    let unmergedPairs = []
-    //initializing array
-    for (let j = 0; j < combinedArr.length / 2; j++) { unmergedPairs.push([]) }//initializing array
-    for (let j = 0; j < combinedArr.length; j++) { unmergedPairs[j >> 1].push(combinedArr[j]) }//creating pairs of 2 arrays to be merged later on
-    combinedArr = []
-    let flag = false
-    if (arrayLength % 5 == 0 || arrayLength % 3 == 0) {//if statement may not be nessesary if the problem is fixed
-      for (let j = 0; j < unmergedPairs.length; j++) {
-        //if any values are undefined insert an empty value
-        if (!unmergedPairs[j][0]) {
-          unmergedPairs[j][0] = []
-        }
-        if (!unmergedPairs[j][1]) {
-          unmergedPairs[j][1] = []
-        }
-        if (unmergedPairs[j][0].length + unmergedPairs[j][1].length == 3) {//there is a 2,1 size pair in the row
-          flag = true
-        }
-      }
-    }
-    if (flag) {
-      let flaggedArr = []
-      for (let j = 0; j < unmergedPairs.length; j++) {
-        //set up to merge the pairs of different size and ignore the pairs that are the same size (by merging with [])
-        if (unmergedPairs[j][0].length != unmergedPairs[j][1].length) {
-          flaggedArr.push(unmergedPairs[j])
-        } else {
-          flaggedArr.push([unmergedPairs[j][0], []])
-          flaggedArr.push([[], unmergedPairs[j][1]])
-        }
-      }
-      unmergedPairs = flaggedArr
-    }
-    //merging the pairs
-    for (let j = 0; j < unmergedPairs.length; j++) {
-      let tmp = []
-      if (!unmergedPairs[j][0]) {
-        tmp = merge([], unmergedPairs[j][1])
-      }
-      else if (!unmergedPairs[j][1]) {
-        tmp = merge(unmergedPairs[j][0], [])
-      } else {
-        tmp = merge(unmergedPairs[j][0], unmergedPairs[j][1])
-      }
-      combinedArr.push(tmp)
-      steps.push([...tmp])//adding to the steps
-    }
-  }
-  //eliminating empty spots
+  return steps
+}
+function formatRows(arrayLength, steps) {
   let res = []
-  for (let i = 0; i < steps.length; i++) {
-    res.push([])
-    for (let j = 0; j < steps[i].length; j++) {
-      let curr = steps[i][j]
-      if (curr != '') {
-        res[i].push(curr)
-      }
-    }
-  }
-  steps = res
-  res = []
   let count = 0
   let rowNum = 0
   res.push([])
   //getting the steps formatted into a 3d array of rows
   for (let i = 0; i < steps.length; i++) {
-    res[rowNum].push(steps[i])//pushing the steps to each row
+    res[rowNum].push(steps[i])
     count += steps[i].length
     if (count == arrayLength) {
-      res.push([])//initializing the row
+      res.push([])
       count = 0
       rowNum += 1
     }
   }
-  res.pop()//had to be initialized with an extra space so im removing the left over here
+  res.pop()
   return (res)
+}
+function getSteps(arr) {
+  let arrayLength = arr.length
+  let steps = []
+  let numberOfCycles = Math.ceil(Math.log2(arr.length))
+  arr = [arr]
+  steps = addSteps(steps, arr)
+  for (let i = 0; i < numberOfCycles; i++) {
+    arr = makeLengthEven(arr)
+    arr = splitSubArray(arr)
+    steps = addSteps(steps, arr)
+  }
+
+  for (let i = 0; i < numberOfCycles; i++) {
+    arr = createPairs(arr)
+    let tmp = []
+    for (let j = 0; j < arr.length; j++) {
+
+      tmp.push(merge(arr[j][0], arr[j][1]))
+    }
+    arr = tmp
+    steps = addSteps(steps, arr)
+  }
+  steps = removePlaceHolders(steps)
+  steps = formatRows(arrayLength, steps)
+  return steps
+
 }
 
 
@@ -179,6 +166,7 @@ for (let i = 1; i < correctArray.length; i++) {
   }
   correctOrder.push(tempArr);
 }
+let buttonPlacement = getButtonPlacement(sortedArray)//button array
 
 
 //2D array that maps to the button values
@@ -219,28 +207,32 @@ function Level2() {
     }
 
   }
-
+  /*
+  arrayLength = arr.length
+  rows = 2*Math.ceil(Math.log2(arrayLength))+2
+  for(let i = 0; i <len;i++){
+    //maybe include the first and last row outside this loop
+     <ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i+1} length={arrayLength} correctRow={correctOrder[1]} enabled={(clicked >=i*10) ? true : false} spaces={buttonPlacement[1]} ></ButtonRow>
+  }
+  */
   return (
     <div style={{ alignContent: 'centre' }}>
-    <div>
-         <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href= 'http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
-         </div>
-     
+      <div>
+        <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+      </div>
+
       <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
       <h3 class="text">{instructionArray[instructionsNum]}</h3>
 
-      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} enabled={true} spaces={[]}></ButtonRow>
-      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} enabled={(clicked > 9) ? true : false} spaces={[5]} ></ButtonRow>
-      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} enabled={(clicked > 19) ? true : false} spaces={[3, 5, 8]}></ButtonRow>
-      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} enabled={(clicked > 29) ? true : false} spaces={[2, 3, 4, 5, 7, 8, 9]}></ButtonRow>
-      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} enabled={(clicked > 39) ? true : false} spaces={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}></ButtonRow>
-      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked > 49) ? true : false} spaces={[2, 3, 5, 7, 8]}></ButtonRow>
-      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} enabled={(clicked > 59) ? true : false} spaces={[3, 5, 7]}></ButtonRow>
-      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked > 69) ? true : false} spaces={[5]}></ButtonRow>
-      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={[]}></ButtonRow>
-
-
-
+      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]}></ButtonRow>
+      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} enabled={(clicked > 9) ? true : false} spaces={buttonPlacement[1]} ></ButtonRow>
+      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} enabled={(clicked > 19) ? true : false} spaces={buttonPlacement[2]}></ButtonRow>
+      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} enabled={(clicked > 29) ? true : false} spaces={buttonPlacement[3]}></ButtonRow>
+      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} enabled={(clicked > 39) ? true : false} spaces={buttonPlacement[4]}></ButtonRow>
+      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked > 49) ? true : false} spaces={buttonPlacement[5]}></ButtonRow>
+      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} enabled={(clicked > 59) ? true : false} spaces={buttonPlacement[6]}></ButtonRow>
+      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked > 69) ? true : false} spaces={buttonPlacement[7]}></ButtonRow>
+      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={buttonPlacement[8]}></ButtonRow>
     </div>
   );
 }
