@@ -26,7 +26,7 @@ function Button(props) {
   }
  
   return (
-  <button   class="bttn2" onClick={buttonClick} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+  <button   class={clicked?"bttnCorrect":"bttn2"} onClick={buttonClick} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
      {props.value}
   </button>
   
