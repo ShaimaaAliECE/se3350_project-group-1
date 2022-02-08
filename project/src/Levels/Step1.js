@@ -1,5 +1,9 @@
 import React from 'react'; //import required libraries
+<<<<<<< HEAD
 import {getSteps} from './Level2'; 
+=======
+import Level2 from './Level2'; 
+>>>>>>> 7deb51265222a130814710e686e70277c0c54142
 import {NavLink} from 'react-router-dom';
 
 const Step1 = () => {  //create main page for step 1

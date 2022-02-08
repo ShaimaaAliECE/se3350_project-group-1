@@ -110,7 +110,7 @@ function formatRows(arrayLength, steps) {
   return (res)
 }
 //getting the steps for an array
-export function getSteps(arr) {
+function getSteps(arr) {
   let arrayLength = arr.length
   let steps = []
   //number for cycles for dividing/merging
@@ -140,7 +140,7 @@ export function getSteps(arr) {
 
 let randomNumberArr = []
 for (let i = 0; i < 10; i++) {
-  randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
+  randomNumberArr.push(Math.floor(Math.random() * 20) + 1)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
@@ -194,7 +194,7 @@ for (let i = 1; i < sortedArray.length; i++) {
 
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-function Level2() {
+function Level3() {
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
@@ -240,4 +240,4 @@ function Level2() {
   return (<div>{screen}</div>)
 }
 
-export default Level2;
+export default Level3;
