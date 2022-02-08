@@ -194,7 +194,7 @@ for (let i = 1; i < sortedArray.length; i++) {
 
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-function Level2() {
+function Level3() {
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
@@ -240,4 +240,4 @@ function Level2() {
   return (<div>{screen}</div>)
 }
 
-export default Level2;
+export default Level3;
