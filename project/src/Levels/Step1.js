@@ -1,5 +1,5 @@
 import React from 'react'; //import required libraries
-import Level2 from './Levels/Level2'; 
+import {getSteps} from './Level2'; 
 import {NavLink} from 'react-router-dom';
 
 const Step1 = () => {  //create main page for step 1
@@ -27,6 +27,16 @@ const Step1 = () => {  //create main page for step 1
        </div>   
     );
 }
+
+let randomNumberArr = []
+for (let i = 0; i < 10; i++) {
+  randomNumberArr.push(Math.floor(Math.random() * 20) + 1)
+}
+const randomNumberArray = [...randomNumberArr]
+let sortedArray = getSteps(randomNumberArray);
+
+console.log(sortedArray);
+
 
 export default Step1; //export the constant
 

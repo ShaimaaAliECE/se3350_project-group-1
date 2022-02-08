@@ -110,7 +110,7 @@ function formatRows(arrayLength, steps) {
   return (res)
 }
 //getting the steps for an array
-function getSteps(arr) {
+export function getSteps(arr) {
   let arrayLength = arr.length
   let steps = []
   //number for cycles for dividing/merging
