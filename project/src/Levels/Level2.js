@@ -215,6 +215,23 @@ function Level2() {
      <ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i+1} length={arrayLength} correctRow={correctOrder[1]} enabled={(clicked >=i*10) ? true : false} spaces={buttonPlacement[1]} ></ButtonRow>
   }
   */
+ 
+  let arrayLength = correctOrder[0].length
+  let rows = 2*Math.ceil(Math.log2(arrayLength))
+    const screen = [];
+    screen.push(<div style={{ alignContent: 'centre' }}>
+    <div>
+      <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+    </div>
+
+    <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
+    <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
+    for (let i = 0; i < rows; i++) {
+      screen.push(  <ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i+1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >=i*10) ? true : false} spaces={buttonPlacement[i]} ></ButtonRow>)
+    }
+    screen.push(  <ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows+1} length={arrayLength} correctRow={correctOrder[rows-1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
+    return (<div>{ screen }</div>);
+  /*
   return (
     <div style={{ alignContent: 'centre' }}>
       <div>
@@ -235,6 +252,7 @@ function Level2() {
       <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={buttonPlacement[8]}></ButtonRow>
     </div>
   );
+  */
 }
 
 export default Level2;
