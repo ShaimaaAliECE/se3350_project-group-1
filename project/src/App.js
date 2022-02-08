@@ -23,6 +23,7 @@ import LevelsPage from './Levels/LevelsPage';
 
 import Level2 from './Levels/Level2';
 import Login from './Levels/Login';
+import CustomLevel from './Levels/CustomLevel';
 //create class that will route to the beginning page
 class App extends Component {
   
@@ -42,6 +43,7 @@ class App extends Component {
               <Route exact path="/Level2" component={Level2} />//routing for level2
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />
+              <Route exact path="/CustomLevel" component={CustomLevel} />
             </Switch>
 
         </div>

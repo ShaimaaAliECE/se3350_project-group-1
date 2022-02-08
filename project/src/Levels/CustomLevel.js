@@ -183,7 +183,7 @@ for (let i = 1; i < sortedArray.length; i++) {
 
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-function Level2() {
+function CustomLevel() {
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
@@ -221,7 +221,7 @@ function Level2() {
   const screen = [];
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
-      <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+      <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
 
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
@@ -255,4 +255,4 @@ function Level2() {
   */
 }
 
-export default Level2;
+export default CustomLevel;
