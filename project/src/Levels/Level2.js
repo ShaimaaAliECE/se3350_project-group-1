@@ -15,8 +15,10 @@ let instructionArray = [
   "Now the elements are sorted in ascending order",
 
 ];
+//returns the proper spaces for the button array
 function getButtonPlacement(arr) {
   let res = []
+  //counts the items for each row in the array, not including the last value
   for (let i = 0; i < arr.length; i++) {
     let count = 0
     res.push([])
@@ -27,15 +29,17 @@ function getButtonPlacement(arr) {
   }
   return res
 }
-
+//adding -1 as a place holder to make the length even for proper division into subarrays
 function makeLengthEven(arr) {
   for (let i = 0; i < arr.length; i++) {
+    //if any subarray is odd make it even
     if (arr[i].length % 2 != 0) {
       arr[i].push(-1)
     }
   }
   return arr
 }
+//splits all sub arrays in half
 function splitSubArray(arr) {
   let splitArr = []
   for (let i = 0; i < arr.length; i++) {
@@ -46,27 +50,32 @@ function splitSubArray(arr) {
   }
   return (splitArr)
 }
+//create pairs of adjancent subarrays to be merged
 function createPairs(arr) {
   let unmergedPairs = []
+  //initialize array
   for (let i = 0; i < arr.length / 2; i++) { unmergedPairs.push([]) }
+  //push 2 subarrays into 1 array
   for (let i = 0; i < arr.length; i++) { unmergedPairs[i >> 1].push(arr[i]) }
   return (unmergedPairs)
 }
+//merged the 2 pairs into 1 sorted array
 function merge(left, right) {
-
   let arr = []
   while (left.length && right.length) {
     (left[0] < right[0]) ? arr.push(left.shift()) : arr.push(right.shift())
   }
   return [...arr, ...left, ...right]
 }
+//removing the place holders
 function removePlaceHolders(arr) {
   let steps = []
   let res = []
+  //removing the -1s
   for (let i = 0; i < arr.length; i++) {
     steps.push(arr[i].filter(function (item) { return item !== -1 }))
   }
-
+  //removing the empty arrays
   for (let i = 0; i < steps.length; i++) {
     if (steps[i] != "") {
       res.push(steps[i])
@@ -74,13 +83,14 @@ function removePlaceHolders(arr) {
   }
   return res
 }
-
+//adding the step to the steps array
 function addSteps(steps, arr) {
   for (let i = 0; i < arr.length; i++) {
     steps.push([...arr[i]])
   }
   return steps
 }
+//formatting the steps into rows
 function formatRows(arrayLength, steps) {
   let res = []
   let count = 0
@@ -99,23 +109,25 @@ function formatRows(arrayLength, steps) {
   res.pop()
   return (res)
 }
+//getting the steps for an array
 function getSteps(arr) {
   let arrayLength = arr.length
   let steps = []
+  //number for cycles for dividing/merging
   let numberOfCycles = Math.ceil(Math.log2(arr.length))
   arr = [arr]
   steps = addSteps(steps, arr)
+  //dividing
   for (let i = 0; i < numberOfCycles; i++) {
     arr = makeLengthEven(arr)
     arr = splitSubArray(arr)
     steps = addSteps(steps, arr)
   }
-
+  //merging
   for (let i = 0; i < numberOfCycles; i++) {
     arr = createPairs(arr)
     let tmp = []
     for (let j = 0; j < arr.length; j++) {
-
       tmp.push(merge(arr[j][0], arr[j][1]))
     }
     arr = tmp
@@ -124,9 +136,7 @@ function getSteps(arr) {
   steps = removePlaceHolders(steps)
   steps = formatRows(arrayLength, steps)
   return steps
-
 }
-
 
 let randomNumberArr = []
 for (let i = 0; i < 10; i++) {
@@ -134,6 +144,7 @@ for (let i = 0; i < 10; i++) {
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
+
 console.log(sortedArray);
 
 //2D array that has the values that the buttons should receive
@@ -207,18 +218,11 @@ function Level2() {
     }
 
   }
-  /*
-  arrayLength = arr.length
-  rows = 2*Math.ceil(Math.log2(arrayLength))+2
-  for(let i = 0; i <len;i++){
-    //maybe include the first and last row outside this loop
-     <ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i+1} length={arrayLength} correctRow={correctOrder[1]} enabled={(clicked >=i*10) ? true : false} spaces={buttonPlacement[1]} ></ButtonRow>
-  }
-  */
 
   let arrayLength = correctOrder[0].length
   let rows = 2 * Math.ceil(Math.log2(arrayLength))
   const screen = [];
+  //justify?
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
       <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
@@ -230,29 +234,8 @@ function Level2() {
     screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} ></ButtonRow>)
   }
   screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
-  return (<div>{screen}</div>);
-  /*
-  return (
-    <div style={{ alignContent: 'centre' }}>
-      <div>
-        <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
-      </div>
 
-      <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
-      <h3 class="text">{instructionArray[instructionsNum]}</h3>
-
-      <ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={10} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]}></ButtonRow>
-      <ButtonRow numbers={btnStates[1]} rowClick={rowClick} row={2} length={10} correctRow={correctOrder[1]} enabled={(clicked > 9) ? true : false} spaces={buttonPlacement[1]} ></ButtonRow>
-      <ButtonRow numbers={btnStates[2]} rowClick={rowClick} row={3} length={10} correctRow={correctOrder[2]} enabled={(clicked > 19) ? true : false} spaces={buttonPlacement[2]}></ButtonRow>
-      <ButtonRow numbers={btnStates[3]} rowClick={rowClick} row={4} length={10} correctRow={correctOrder[3]} enabled={(clicked > 29) ? true : false} spaces={buttonPlacement[3]}></ButtonRow>
-      <ButtonRow numbers={btnStates[4]} rowClick={rowClick} row={5} length={10} correctRow={correctOrder[4]} enabled={(clicked > 39) ? true : false} spaces={buttonPlacement[4]}></ButtonRow>
-      <ButtonRow numbers={btnStates[5]} rowClick={rowClick} row={6} length={10} correctRow={correctOrder[5]} enabled={(clicked > 49) ? true : false} spaces={buttonPlacement[5]}></ButtonRow>
-      <ButtonRow numbers={btnStates[6]} rowClick={rowClick} row={7} length={10} correctRow={correctOrder[6]} enabled={(clicked > 59) ? true : false} spaces={buttonPlacement[6]}></ButtonRow>
-      <ButtonRow numbers={btnStates[7]} rowClick={rowClick} row={8} length={10} correctRow={correctOrder[7]} enabled={(clicked > 69) ? true : false} spaces={buttonPlacement[7]}></ButtonRow>
-      <ButtonRow numbers={btnStates[8]} rowClick={rowClick} row={9} length={10} correctRow={correctOrder[0]} enabled={(false) ? true : false} spaces={buttonPlacement[8]}></ButtonRow>
-    </div>
-  );
-  */
+  return (<div>{screen}</div>)
 }
 
 export default Level2;
