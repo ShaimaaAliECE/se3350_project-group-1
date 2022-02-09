@@ -127,10 +127,25 @@ function getSteps(arr) {
 
 }
 
+/////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+function CustomLevel() {
 
 let randomNumberArr = []
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 40; i++) {
   randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
+}
+
+const [data,setData]=useState(null)
+const [numbers,setArray]=useState(false)
+if(numbers){
+  randomNumberArr=[]
+  for (let i = 0; i < data; i++) {
+    randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
+  }
+  console.log(randomNumberArr)
+}
+function getData(val){
+  setData(val.target.value)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
@@ -182,9 +197,6 @@ for (let i = 1; i < sortedArray.length; i++) {
 }
 
 
-/////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-function CustomLevel() {
-
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
   const [clicked, updateClick] = useState(0);
@@ -232,10 +244,11 @@ function CustomLevel() {
     screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} ></ButtonRow>)
   }
   screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
+
   return (
-    
     <div style={{ alignContent: 'centre' }}>
-  
+  <input type ="number" onChange ={getData}/>
+  <button onClick={()=>setArray(true)}>Submit</button>
     <div>
       <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
