@@ -37,7 +37,13 @@ for (let i = 0; i < 10; i++) {
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
 
-console.log(sortedArray);
+//alert(sortedArray);
+let inital = [];
+for (let i = 0; i < 1; i++) {
+   inital[i] = sortedArray[i];
+}
+
+alert(inital)
 
 
 export default Step1; //export the constant
