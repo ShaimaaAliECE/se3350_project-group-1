@@ -24,6 +24,7 @@ import LevelsPage from './Levels/LevelsPage';
 import Level2 from './Levels/Level2';
 import Level3 from './Levels/Level3';
 import Login from './Levels/Login';
+import CustomSelection from './Levels/CustomSelection';
 import CustomLevel from './Levels/CustomLevel';
 //create class that will route to the beginning page
 class App extends Component {
@@ -43,9 +44,11 @@ class App extends Component {
               <Route exact path="/Step8" component={Step8} />
               <Route exact path="/Level2" component={Level2} />//routing for level2
               <Route exact path="/Level3" component={Level3} />//routing for level3
+              <Route exact path="/CustomSelection" component={CustomSelection} />//routing for level3
+              <Route exact path="/CustomLevel" component={CustomLevel} />
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />
-              <Route exact path="/CustomLevel" component={CustomLevel} />
+              
             </Switch>
 
         </div>
