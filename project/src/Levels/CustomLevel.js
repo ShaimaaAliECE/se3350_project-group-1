@@ -190,7 +190,8 @@ for (let i = 1; i < sortedArray.length; i++) {
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function CustomLevel() {
-  console.log(cookies.get('info')); // Pacman
+
+
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
   const [clicked, updateClick] = useState(0);
@@ -213,14 +214,52 @@ function CustomLevel() {
     }
 
   }
-  /*
-  arrayLength = arr.length
-  rows = 2*Math.ceil(Math.log2(arrayLength))+2
-  for(let i = 0; i <len;i++){
-    //maybe include the first and last row outside this loop
-     <ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i+1} length={arrayLength} correctRow={correctOrder[1]} enabled={(clicked >=i*10) ? true : false} spaces={buttonPlacement[1]} ></ButtonRow>
-  }
-  */
+
+  //the timer part
+  window.addEventListener("load", function() {
+    const clock = document.getElementById("time");
+    let time = -1, intervalId;
+    function incrementTime() {
+      time++;
+      clock.textContent =
+        ("0" + Math.trunc(time / 60)).slice(-2) +
+        ":" + ("0" + (time % 60)).slice(-2);
+    }
+    incrementTime();
+    intervalId = setInterval(incrementTime, 1000);
+  });
+
+  //inactivity
+
+  function inactivity() {
+
+    const idleDurationSecs = 5;    // X number of seconds
+    const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
+    let idleTimeout; // variable to hold the timeout, do not modify
+
+    const resetIdleTimeout = function() {
+
+        // Clears the existing timeout
+        if(idleTimeout) clearTimeout(idleTimeout);
+
+        // Set a new idle timeout to load the redirectUrl after idleDurationSecs
+        idleTimeout = setTimeout(() => window.location.href = redirectUrl, idleDurationSecs * 1000);
+    };
+
+    // Init on page load
+    resetIdleTimeout();
+    
+
+    // Reset the idle timeout on any of the events listed below
+    ['click', 'touchstart', 'mousemove'].forEach(evt => 
+        document.addEventListener(evt, resetIdleTimeout, false)
+    );
+
+}
+
+
+inactivity(); //have this function run when the page loads
+
 
   let arrayLength = correctOrder[0].length
   let rows = 2 * Math.ceil(Math.log2(arrayLength))
