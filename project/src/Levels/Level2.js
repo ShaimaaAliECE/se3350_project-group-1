@@ -68,7 +68,7 @@ function merge(left, right) {
   return [...arr, ...left, ...right]
 }
 //removing the place holders
-function removePlaceHolders(arr) {
+export function removePlaceHolders(arr) {
   let steps = []
   let res = []
   //removing the -1s

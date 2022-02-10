@@ -1,6 +1,6 @@
 import React from 'react'; //import required libraries
 
-import {getSteps} from './Level2'; 
+import {getSteps, removePlaceHolders} from './Level2'; 
 
 import {NavLink} from 'react-router-dom';
 
@@ -13,12 +13,14 @@ const Step1 = () => {  //create main page for step 1
           <h1 class="text">&emsp;Step 1/8</h1>
           <div class="thisText">
           
-&emsp;&emsp; &emsp; &emsp; &emsp; 1 &ensp;&thinsp; 5 &ensp;&thinsp; 6 &ensp; &thinsp;9 &ensp;&thinsp; 4  &thinsp;&ensp;8  &thinsp;&ensp;3  &thinsp;&ensp;7 &thinsp;&ensp; 2  &thinsp;&ensp;10  <br></br>
+&emsp;&emsp; &emsp; &emsp; &emsp; inital &ensp;&thinsp; 5 &ensp;&thinsp; 6 &ensp; &thinsp;9 &ensp;&thinsp; 4  &thinsp;&ensp;8  &thinsp;&ensp;3  &thinsp;&ensp;7 &thinsp;&ensp; 2  &thinsp;&ensp;10  <br></br>
 &ensp;  &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &#8601; &emsp; &emsp; &emsp; &emsp; &#8600; &thinsp;<br></br>
 &emsp; &emsp;&emsp; &emsp;1 &ensp;&thinsp;  5 &ensp;&thinsp;  6 &ensp;&thinsp;  9 &ensp;&thinsp;  4&emsp; &emsp;&ensp;&thinsp; &ensp;&thinsp;  8 &ensp;&thinsp; 3 &ensp;&thinsp;  7 &ensp;&thinsp;  2 &ensp;&thinsp;  10 <br></br>
        
 </div>
      <p> <i>&emsp;Step 1: Split Set into two new sublists</i></p>
+
+     {finalarray}
 
 
         
@@ -40,10 +42,11 @@ let sortedArray = getSteps(randomNumberArray);
 //alert(sortedArray);
 let inital = [];
 for (let i = 0; i < 1; i++) {
-   inital[i] = sortedArray[i];
+   inital[i] = sortedArray[i] + "  ";
 }
 
-alert(inital)
+let finalarray = removePlaceHolders(inital); 
+alert(finalarray)
 
 
 export default Step1; //export the constant
