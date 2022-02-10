@@ -44,7 +44,8 @@ function createInfoArray(){
   Upper Bounds<input type="range" id="points" name="points" min="1" max="100"onChange ={getUpper}></input>{dataUpper}<br></br>
   Lower Bounds<input type="range" id="points" name="points" min="1" max="100"onChange ={getLower}></input>{dataLower}<br></br>
   List Size<input type="range" id="points" name="points" min="2" max="50"onChange ={getSize}></input>{dataSize}<br></br>
-  <button type = "submit"onClick={createInfoArray()}>Click me</button>
+ 
+  <button type = "submit"onClick={createInfoArray()}><a  href='http://localhost:3000/CustomLevel'> Submit </a> </button>
   </div></div>)
 }
 export default CustomSelection;

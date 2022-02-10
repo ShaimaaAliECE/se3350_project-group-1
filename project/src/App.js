@@ -45,9 +45,10 @@ class App extends Component {
               <Route exact path="/Level2" component={Level2} />//routing for level2
               <Route exact path="/Level3" component={Level3} />//routing for level3
               <Route exact path="/CustomSelection" component={CustomSelection} />//routing for level3
+              <Route exact path="/CustomLevel" component={CustomLevel} />
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />
-              <Route exact path="/CustomLevel" component={CustomLevel} />
+              
             </Switch>
 
         </div>

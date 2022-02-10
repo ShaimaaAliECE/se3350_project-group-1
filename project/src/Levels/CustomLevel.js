@@ -129,11 +129,18 @@ function getSteps(arr) {
   return steps
 
 }
-
+let upperBounds = 10
+let lowerBounds = 1
+let arraySize = 10
 let infoArr =(cookies.get('info'))
-let upperBounds = parseInt(infoArr[0].dataUpper)
-let lowerBounds= parseInt(infoArr[1].dataLower)
-let arraySize = parseInt(infoArr[2].dataSize)
+
+if(infoArr[0].dataUpper&&infoArr[1].dataLower&&infoArr[2].dataSize){
+    console.log("test")
+    upperBounds = parseInt(infoArr[0].dataUpper)
+    lowerBounds= parseInt(infoArr[1].dataLower)
+    arraySize = parseInt(infoArr[2].dataSize)
+}
+
 let randomNumberArr = []
 for (let i = 0; i < arraySize; i++) {
   randomNumberArr.push(Math.floor(Math.random() *(upperBounds-lowerBounds)) + lowerBounds)
@@ -233,7 +240,7 @@ function CustomLevel() {
 
   function inactivity() {
 
-    const idleDurationSecs = 5;    // X number of seconds
+    const idleDurationSecs = 50;    // X number of seconds
     const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
