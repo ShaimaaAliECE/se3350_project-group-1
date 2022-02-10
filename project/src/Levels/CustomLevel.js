@@ -130,10 +130,13 @@ function getSteps(arr) {
 
 }
 
-
+let infoArr =(cookies.get('info'))
+let upperBounds = parseInt(infoArr[0].dataUpper)
+let lowerBounds= parseInt(infoArr[1].dataLower)
+let arraySize = parseInt(infoArr[2].dataSize)
 let randomNumberArr = []
-for (let i = 0; i < 10; i++) {
-  randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
+for (let i = 0; i < arraySize; i++) {
+  randomNumberArr.push(Math.floor(Math.random() *(upperBounds-lowerBounds)) + lowerBounds)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
