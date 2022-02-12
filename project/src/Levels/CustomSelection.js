@@ -40,10 +40,9 @@ function createInfoArray(){
   </div>
 
   <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
-
-  Upper Bounds<input type="range" id="points" name="points" min="1" max="100"onChange ={getUpper}></input>{dataUpper}<br></br>
-  Lower Bounds<input type="range" id="points" name="points" min="1" max="100"onChange ={getLower}></input>{dataLower}<br></br>
-  List Size<input type="range" id="points" name="points" min="2" max="50"onChange ={getSize}></input>{dataSize}<br></br>
+  Lower Bounds<input type="range"min="1" max="100"onChange ={getLower}></input>{dataLower}<br></br>
+  Upper Bounds<input type="range" min={dataLower} max="100"onChange ={getUpper}></input>{dataUpper}<br></br>
+  List Size<input type="range"  min="2" max="50"onChange ={getSize}></input>{dataSize}<br></br>
  
   <button type = "submit"onClick={createInfoArray()}><a  href='http://localhost:3000/CustomLevel'> Submit </a> </button>
   </div></div>)
