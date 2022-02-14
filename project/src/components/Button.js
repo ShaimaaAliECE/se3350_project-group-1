@@ -2,6 +2,10 @@ import React ,{useState}from 'react';
 import CorrectSound from './correct.mp3';
 import WrongSound from './wrong.mp3';
 
+import {NavLink} from 'react-router-dom';
+
+let mistakeCounter = 0;
+
 function Button(props) {
   
   const [clicked, setClicked]=useState(false);
@@ -18,11 +22,21 @@ function Button(props) {
     else{
       var wrong = new Audio(WrongSound);
       wrong.play();
-      alert("Wrong - Try Again");
+      mistakeCounter++;
+      if(mistakeCounter < 3){
+        alert("Wrong - Try Again");
+        alert("Mistakes = " + mistakeCounter);
+      }
+      else{
+
+        window.location.replace("http://localhost:3000/RetryPage")
+      }
       
+
     }
 
       
+
   }
  
   return (
@@ -33,4 +47,4 @@ function Button(props) {
   );
 }
 
-export default Button;
+export default Button; mistakeCounter;

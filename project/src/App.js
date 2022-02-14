@@ -17,7 +17,9 @@ import Step6 from './Levels/Step6';
 import Step7 from './Levels/Step7';
 import Step8 from './Levels/Step8';
 
+
 import LevelsPage from './Levels/LevelsPage';
+import RetryPage from './Levels/RetryPage';
 
 
 
@@ -50,6 +52,7 @@ class App extends Component {
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />
+              <Route path = "/RetryPage" component = {RetryPage} />
               
             </Switch>
 
