@@ -132,15 +132,22 @@ function getSteps(arr) {
 let upperBounds = 10
 let lowerBounds = 1
 let arraySize = 10
-let infoArr =null||(cookies.get('info'))
+let infoArr =(cookies.get('info'))||null
 
- 
-if(infoArr){
- 
+if (infoArr[0].dataUpper==null){
+  infoArr[0].dataUpper=10
+}
+if (infoArr[1].dataLower==null){
+  infoArr[1].dataLower=1
+}
+if (infoArr[2].dataSize==null){
+  infoArr[2].dataSize=10
+}
+
     upperBounds = parseInt(infoArr[0].dataUpper)
     lowerBounds= parseInt(infoArr[1].dataLower)
     arraySize = parseInt(infoArr[2].dataSize)
-}
+
 
 
 let randomNumberArr = []
@@ -246,13 +253,26 @@ function CustomLevel() {
     const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
+    //to display an alert box before being redirected
+    function redirect()
+    {
+      window.location.href = redirectUrl;
+      alert("Due to inactivity, your session has timed-out");
+      
+    }
+
     const resetIdleTimeout = function() {
 
         // Clears the existing timeout
         if(idleTimeout) clearTimeout(idleTimeout);
 
+        
+
         // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-        idleTimeout = setTimeout(() => window.location.href = redirectUrl, idleDurationSecs * 1000);
+
+        
+        
+        idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
     };
 
     // Init on page load
