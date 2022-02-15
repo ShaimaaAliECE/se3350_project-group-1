@@ -43,7 +43,7 @@ class App extends Component {
               <Route exact path="/Level2" component={Level2} />
               <Route exact path="/Level3" component={Level3} />
               <Route exact path="/CustomLevel" component={CustomLevel} />
-              <Route exact path="/SelectionLevel" component={CustomSelection} />
+              <Route exact path="/CustomSelection" component={CustomSelection} />
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />

@@ -132,15 +132,22 @@ function getSteps(arr) {
 let upperBounds = 10
 let lowerBounds = 1
 let arraySize = 10
-let infoArr =null||(cookies.get('info'))
+let infoArr =(cookies.get('info'))||null
 
- 
-if(infoArr){
- 
+if (infoArr[0].dataUpper==null){
+  infoArr[0].dataUpper=10
+}
+if (infoArr[1].dataLower==null){
+  infoArr[1].dataLower=1
+}
+if (infoArr[2].dataSize==null){
+  infoArr[2].dataSize=10
+}
+
     upperBounds = parseInt(infoArr[0].dataUpper)
     lowerBounds= parseInt(infoArr[1].dataLower)
     arraySize = parseInt(infoArr[2].dataSize)
-}
+
 
 
 let randomNumberArr = []
