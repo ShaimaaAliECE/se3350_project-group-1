@@ -47,4 +47,4 @@ function Button(props) {
   );
 }
 
-export default Button; mistakeCounter;
+export default Button; 
