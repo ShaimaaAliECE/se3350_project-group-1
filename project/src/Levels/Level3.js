@@ -4,15 +4,6 @@ import ButtonRow from "../components/ButtonRow.js";
 
 
 let instructionArray = [
-  "Divide the array down the middle into two parts",
-  "Repeat this division until in array is completely divided",
-  "Repeat this division until in array is completely divided",
-  "Repeat this division until in array is completely divided",
-  "Now that the array is in individual units merge the units together",
-  "Merge the two closest subarrays so they are in ascending order",
-  "Repeat this step for all subarrays until the array is rejoined",
-  "Repeat this step for all subarrays until the array is rejoined",
-  "Now the elements are sorted in ascending order",
 
 ];
 //returns the proper spaces for the button array
@@ -68,7 +59,7 @@ function merge(left, right) {
   return [...arr, ...left, ...right]
 }
 //removing the place holders
-function removePlaceHolders(arr) {
+export function removePlaceHolders(arr) {
   let steps = []
   let res = []
   //removing the -1s
@@ -110,7 +101,7 @@ function formatRows(arrayLength, steps) {
   return (res)
 }
 //getting the steps for an array
-function getSteps(arr) {
+export function getSteps(arr) {
   let arrayLength = arr.length
   let steps = []
   //number for cycles for dividing/merging
@@ -140,7 +131,7 @@ function getSteps(arr) {
 
 let randomNumberArr = []
 for (let i = 0; i < 10; i++) {
-  randomNumberArr.push(Math.floor(Math.random() * 20) + 1)
+  randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
@@ -193,7 +184,7 @@ for (let i = 1; i < sortedArray.length; i++) {
 }
 
 
-/////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+/////////////////////////////// React Component that is for level 3\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function Level3() {
 
   // This is now a 2d array that handles the states of all the buttons;
@@ -225,10 +216,10 @@ function Level3() {
   //justify?
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
-      <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+      <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
 
-    <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
+    <p >Begin!</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
   //creating an array of button rows
   for (let i = 0; i < rows; i++) {

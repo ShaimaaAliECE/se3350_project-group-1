@@ -5,7 +5,7 @@ const Login = () => {    //create constant that will navigate from page to page
     return (
        <div>
          
-         <link rel="stylesheet" href="analytics.css"> </link>
+        
 <div class="topRectangle">
     <div class="usernameText"> <b>User name</b></div>
     <button class="quit">Quit</button>

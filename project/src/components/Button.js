@@ -1,18 +1,41 @@
 import React ,{useState}from 'react';
 import CorrectSound from './correct.mp3';
 import WrongSound from './wrong.mp3';
+import  { Redirect } from 'react-router-dom'
+//do something...
 
-import {NavLink} from 'react-router-dom';
 
-let mistakeCounter = 0;
-
+let count=0;
 function Button(props) {
-  
+ 
   const [clicked, setClicked]=useState(false);
   const [enabled, setEnabled]=useState(true);
-    
+ 
   function buttonClick(){
-    if(props.nextVal===props.btnId){
+    if (count==2)
+    {
+      alert("Last Try!😲");
+    count++;
+  
+     
+      
+    }
+   else if (count>2)
+    {
+      alert("You're done");
+  
+      return (
+        <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/LevelsPage"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+           {props.value}
+        </button>
+        
+        );
+       
+     
+      
+    }
+
+    else if(props.nextVal===props.btnId){
       var correct = new Audio(CorrectSound);
       correct.play();
       setEnabled(false);
@@ -22,15 +45,8 @@ function Button(props) {
     else{
       var wrong = new Audio(WrongSound);
       wrong.play();
-      mistakeCounter++;
-      if(mistakeCounter < 3){
-        alert("Wrong - Try Again");
-        alert("Mistakes = " + mistakeCounter);
-      }
-      else{
-
-        window.location.replace("http://localhost:3000/RetryPage")
-      }
+      alert("Wrong - Try Again");
+      count++;
       
 
     }
