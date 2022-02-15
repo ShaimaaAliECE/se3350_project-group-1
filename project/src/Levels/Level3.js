@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 
 
-//
+
 let instructionArray = [
 
 ];
@@ -59,7 +59,7 @@ function merge(left, right) {
   return [...arr, ...left, ...right]
 }
 //removing the place holders
-function removePlaceHolders(arr) {
+export function removePlaceHolders(arr) {
   let steps = []
   let res = []
   //removing the -1s
@@ -101,7 +101,7 @@ function formatRows(arrayLength, steps) {
   return (res)
 }
 //getting the steps for an array
-function getSteps(arr) {
+export function getSteps(arr) {
   let arrayLength = arr.length
   let steps = []
   //number for cycles for dividing/merging
@@ -131,7 +131,7 @@ function getSteps(arr) {
 
 let randomNumberArr = []
 for (let i = 0; i < 10; i++) {
-  randomNumberArr.push(Math.floor(Math.random() * 20) + 1)
+  randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
@@ -203,7 +203,7 @@ function Level3() {
     //updates how many of the buttons have been clicked so it knows when to change the instructions
     updateClick(clicked + 1);
 
-    //check to seesuctions should change
+    //check to see if instructions should change
     if ((clicked + 1) % 10 === 0 && clicked > 1) {
       updateInstructions(instructionsNum + 1);
     }
@@ -219,13 +219,15 @@ function Level3() {
       <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
 
-    <p >Begin!</p><br></br>
+    <p >Begin!</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
+  //creating an array of button rows
   for (let i = 0; i < rows; i++) {
     screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} ></ButtonRow>)
   }
+  //the final row
   screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
-
+  //returning the screen
   return (<div>{screen}</div>)
 }
 

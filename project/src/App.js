@@ -22,13 +22,11 @@ import LevelsPage from './Levels/LevelsPage';
 import RetryPage from './Levels/RetryPage';
 
 
-import Level3 from './Levels/Level3';
+
 import Level2 from './Levels/Level2';
 import Level3 from './Levels/Level3';
 import Login from './Levels/Login';
-import CustomSelection from './Levels/CustomSelection';
-import CustomLevel from './Levels/CustomLevel';
-import Tutorial from './Levels/Tutorial';
+
 //create class that will route to the beginning page
 class App extends Component {
   

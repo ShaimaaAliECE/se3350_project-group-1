@@ -14,7 +14,15 @@ function Button(props) {
   function buttonClick(){
     if (count==2)
     {
-      alert("Last Try!");
+      alert("Last Try!😲");
+    count++;
+  
+     
+      
+    }
+   else if (count>2)
+    {
+      alert("You're done");
   
       return (
         <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/LevelsPage"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
@@ -22,7 +30,7 @@ function Button(props) {
         </button>
         
         );
-  
+       
      
       
     }
@@ -55,4 +63,4 @@ function Button(props) {
   );
 }
 
-export default Button; mistakeCounter;
+export default Button; 
