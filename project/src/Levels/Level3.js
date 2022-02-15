@@ -131,7 +131,7 @@ export function getSteps(arr) {
 
 let randomNumberArr = []
 for (let i = 0; i < 10; i++) {
-  randomNumberArr.push(Math.floor(Math.random() * 1000) + 1)
+  randomNumberArr.push(Math.floor(Math.random() * 20) + 1)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
