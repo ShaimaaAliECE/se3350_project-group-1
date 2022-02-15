@@ -16,7 +16,9 @@ import Step5 from './Levels/Step5';
 import Step6 from './Levels/Step6';
 import Step7 from './Levels/Step7';
 import Step8 from './Levels/Step8';
-
+import CustomLevel from './Levels/CustomLevel';
+import CustomSelection from './Levels/CustomSelection';
+import Tutorial from './Levels/Tutorial';
 
 import LevelsPage from './Levels/LevelsPage';
 import RetryPage from './Levels/RetryPage';
@@ -40,6 +42,9 @@ class App extends Component {
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/Level2" component={Level2} />
               <Route exact path="/Level3" component={Level3} />
+              <Route exact path="/CustomLevel" component={CustomLevel} />
+              <Route exact path="/SelectionLevel" component={CustomSelection} />
+              <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
