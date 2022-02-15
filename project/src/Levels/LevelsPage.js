@@ -14,6 +14,9 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
          &emsp; <NavLink to="/Step1" class="bttnz">Level 1</NavLink>
           &emsp; &emsp; 
           <NavLink to="/Level2" class="secondButton">Level 2</NavLink>
+          &emsp; &emsp; 
+          <NavLink to="/Level3" class="thirdButton">Level 3</NavLink>
+   
           <div class="wrap">
         <button class="button"> MergeSort </button>
         <br></br>

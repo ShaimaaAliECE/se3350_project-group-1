@@ -20,7 +20,7 @@ import Step8 from './Levels/Step8';
 import LevelsPage from './Levels/LevelsPage';
 
 
-
+import Level3 from './Levels/Level3';
 import Level2 from './Levels/Level2';
 import Login from './Levels/Login';
 //create class that will route to the beginning page
@@ -39,7 +39,8 @@ class App extends Component {
               <Route exact path="/Step6" component={Step6} />
               <Route exact path="/Step7" component={Step7} />
               <Route exact path="/Step8" component={Step8} />
-              <Route exact path="/Level2" component={Level2} />//routing for level2
+              <Route exact path="/Level2" component={Level2} />
+              <Route exact path="/Level3" component={Level3} />
               <Route exact path="/" component={Login} />
               <Route path="/LevelsPage" component={LevelsPage} />
             </Switch>
