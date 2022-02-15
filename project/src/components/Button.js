@@ -40,9 +40,11 @@ function Button(props) {
       alert("Wrong - Try Again");
       count++;
       
+
     }
 
       
+
   }
  
   return (
@@ -53,4 +55,4 @@ function Button(props) {
   );
 }
 
-export default Button;
+export default Button; mistakeCounter;

@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 
 
-//
+
 let instructionArray = [
+  "Divide the array down the middle into two parts",
+  "Repeat this division until in array is completely divided",
+  "Repeat this division until in array is completely divided",
+  "Repeat this division until in array is completely divided",
+  "Now that the array is in individual units merge the units together",
+  "Merge the two closest subarrays so they are in ascending order",
+  "Repeat this step for all subarrays until the array is rejoined",
+  "Repeat this step for all subarrays until the array is rejoined",
+  "Now the elements are sorted in ascending order",
 
 ];
 //returns the proper spaces for the button array
@@ -137,7 +146,20 @@ const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
 
 console.log(sortedArray);
+let twoDimSortedArr =[]
+for(let i = 0; i <sortedArray.length;i++){
+    twoDimSortedArr.push([])
+}
+for(let i = 0; i <sortedArray.length;i++){
+    let line=[]
+    for(let j=0;j<sortedArray[i].length;j++){
+        line.push(...sortedArray[i][j])
+}
 
+twoDimSortedArr[i].push(line)
+}
+
+console.log("dim",twoDimSortedArr)
 //2D array that has the values that the buttons should receive
 let correctArray = [];
 
@@ -184,8 +206,8 @@ for (let i = 1; i < sortedArray.length; i++) {
 }
 
 
-/////////////////////////////// React Component that is for level 3\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-function Level3() {
+/////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+function Tutorial() {
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
@@ -203,7 +225,7 @@ function Level3() {
     //updates how many of the buttons have been clicked so it knows when to change the instructions
     updateClick(clicked + 1);
 
-    //check to seesuctions should change
+    //check to see if instructions should change
     if ((clicked + 1) % 10 === 0 && clicked > 1) {
       updateInstructions(instructionsNum + 1);
     }
@@ -211,22 +233,34 @@ function Level3() {
   }
 
   let arrayLength = correctOrder[0].length
-  let rows = 2 * Math.ceil(Math.log2(arrayLength))
+  let totalRows = 2 * Math.ceil(Math.log2(arrayLength))
   const screen = [];
-  //justify?
+  let rows=1
+
+
+const [dataSize,setDataSize]=useState(null)
+
+  function getSize(val){
+    setDataSize(val.target.value)
+  }
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
-      <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+      <h1 class='topRectangle'> &emsp;Tutorial<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
-
-    <p >Begin!</p><br></br>
-    <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
-  for (let i = 0; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} ></ButtonRow>)
+    Step<input type="range"  min="1" max= {totalRows} onChange ={getSize}></input>{dataSize}<br></br>
+    <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
+    <h3 class="text">{instructionArray[{dataSize}.dataSize]}</h3></div>)
+    
+  //creating an array of button rows
+  
+  for (let i = 0; i < {dataSize}.dataSize; i++) {
+    screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]}></ButtonRow>)
+    
   }
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
-
+  //the final row
+  
+  //returning the screen
   return (<div>{screen}</div>)
 }
 
-export default Level3;
+export default Tutorial;
