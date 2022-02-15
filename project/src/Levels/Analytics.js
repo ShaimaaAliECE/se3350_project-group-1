@@ -1,7 +1,7 @@
 import React from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
-const Analytics = () => {    //create constant that will navigate from page to page
+const Analytics = (props) => {    //create constant that will navigate from page to page
     return (
        <div>
          
@@ -31,7 +31,7 @@ const Analytics = () => {    //create constant that will navigate from page to p
                     </tr>
                     <tr>
                         <th>1</th>
-                        <th>1</th>
+                        <th>{props.json}</th>
                         <th>1</th>
                         <th>N/A</th>
                         <th>N/A</th>
