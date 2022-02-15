@@ -132,14 +132,23 @@ function getSteps(arr) {
 let upperBounds = 10
 let lowerBounds = 1
 let arraySize = 10
-let infoArr =(cookies.get('info'))
+let infoArr =(cookies.get('info'))||null
 
-if(infoArr[0].dataUpper&&infoArr[1].dataLower&&infoArr[2].dataSize){
-    console.log("test")
+if (infoArr[0].dataUpper==null){
+  infoArr[0].dataUpper=10
+}
+if (infoArr[1].dataLower==null){
+  infoArr[1].dataLower=1
+}
+if (infoArr[2].dataSize==null){
+  infoArr[2].dataSize=10
+}
+
     upperBounds = parseInt(infoArr[0].dataUpper)
     lowerBounds= parseInt(infoArr[1].dataLower)
     arraySize = parseInt(infoArr[2].dataSize)
-}
+
+
 
 let randomNumberArr = []
 for (let i = 0; i < arraySize; i++) {
@@ -240,17 +249,30 @@ function CustomLevel() {
 
   function inactivity() {
 
-    const idleDurationSecs = 50;    // X number of seconds
+    const idleDurationSecs = 5;    // X number of seconds
     const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
+
+    //to display an alert box before being redirected
+    function redirect()
+    {
+      window.location.href = redirectUrl;
+      alert("Due to inactivity, your session has timed-out");
+      
+    }
 
     const resetIdleTimeout = function() {
 
         // Clears the existing timeout
         if(idleTimeout) clearTimeout(idleTimeout);
 
+        
+
         // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-        idleTimeout = setTimeout(() => window.location.href = redirectUrl, idleDurationSecs * 1000);
+
+        
+        
+        idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
     };
 
     // Init on page load
@@ -283,6 +305,8 @@ inactivity(); //have this function run when the page loads
     <div>
       <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
+    <p>Timer</p>
+    <div id="time">00:00</div>
 
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3>{screen}</div>
