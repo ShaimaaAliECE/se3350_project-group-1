@@ -11,7 +11,7 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
          
       <div>
          <p> &emsp;Click the level 1 button to begin the merge sort algorithm tutorial </p>
-         &emsp; <NavLink to="/Step1" class="bttnz">Level 1 </NavLink>
+         &emsp; <NavLink to="/Tutorial" class="bttnz">Level 1 </NavLink>
           &emsp; &emsp; 
           <NavLink to="/Level2" class="secondButton">Level 2  </NavLink>
           &emsp; &emsp; 

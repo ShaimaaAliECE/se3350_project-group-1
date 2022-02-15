@@ -22,6 +22,8 @@ import Tutorial from './Levels/Tutorial';
 
 import LevelsPage from './Levels/LevelsPage';
 import RetryPage from './Levels/RetryPage';
+import Tutorial from './Levels/Tutorial';
+
 
 
 
@@ -37,14 +39,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
             <Switch>
-              <Route exact path="/Step1" component={Step1} />
-              <Route exact path="/Step2" component={Step2} />
-              <Route exact path="/Step3" component={Step3} />
-              <Route exact path="/Step4" component={Step4} />
-              <Route exact path="/Step5" component={Step5} />
-              <Route exact path="/Step6" component={Step6} />
-              <Route exact path="/Step7" component={Step7} />
-              <Route exact path="/Step8" component={Step8} />
+              <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/Level2" component={Level2} />
               <Route exact path="/Level3" component={Level3} />
               <Route exact path="/CustomLevel" component={CustomLevel} />
