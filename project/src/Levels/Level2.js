@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
-import jsonfile from '../components/JSON/analytics.json';
-import * as fs from 'fs';
 
-var data=require('../components/JSON/analytics.json');
 
 let instructionArray = [
   "Divide the array down the middle into two parts",
@@ -203,15 +200,7 @@ function Level2() {
   const [clicked, updateClick] = useState(0);
   const [instructionsNum, updateInstructions] = useState(0);
 
-  if(instructionsNum=>90){
-
-    data[1].timesComplete+=1;
-    fs.writeFile('../components/JSON/analytics.json', JSON.stringify(data), function writeJSON(err) {
-      if (err) return console.log(err);
-      console.log(JSON.stringify(data));
-      console.log('writing to ' + "../components/JSON/analytics.json");
-    });
-  }
+  
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {

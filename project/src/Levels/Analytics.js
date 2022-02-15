@@ -1,17 +1,14 @@
 import React from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
-import jsonfile from '../components/JSON/analytics.json';
-
-var data=require('../components/JSON/analytics.json');
 
 const Analytics = (props) => {    //create constant that will navigate from page to page
 
-    for (var i = 0; i < data.length; i++)
-{
-    var obj = data[i];
-    console.log(`level: ${obj.level}, ${obj.totalTime}`);
-}
+//     for (var i = 0; i < data.length; i++)
+// {
+//     var obj = data[i];
+//     console.log(`level: ${obj.level}, ${obj.totalTime}`);
+// }
 
     return (
        <div>
