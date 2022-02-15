@@ -8,15 +8,7 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Step1 from './Levels/Step1'; //import required components from other js files
-import Step2 from './Levels/Step2';
-import Step3 from './Levels/Step3';
-import Step4 from './Levels/Step4';
-import Step5 from './Levels/Step5';
-import Step6 from './Levels/Step6';
-import Step7 from './Levels/Step7';
-import Step8 from './Levels/Step8';
-import CustomLevel from './Levels/CustomLevel';
+import CustomLevel from './Levels/CustomLevel'; //import required components from other js files
 import CustomSelection from './Levels/CustomSelection';
 import Tutorial from './Levels/Tutorial';
 
