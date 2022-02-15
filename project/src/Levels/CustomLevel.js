@@ -132,14 +132,16 @@ function getSteps(arr) {
 let upperBounds = 10
 let lowerBounds = 1
 let arraySize = 10
-let infoArr =(cookies.get('info'))
+//let infoArr =(cookies.get('info'))
 
+/** 
 if(infoArr[0].dataUpper&&infoArr[1].dataLower&&infoArr[2].dataSize){
     console.log("test")
     upperBounds = parseInt(infoArr[0].dataUpper)
     lowerBounds= parseInt(infoArr[1].dataLower)
     arraySize = parseInt(infoArr[2].dataSize)
 }
+*/
 
 let randomNumberArr = []
 for (let i = 0; i < arraySize; i++) {
@@ -240,7 +242,7 @@ function CustomLevel() {
 
   function inactivity() {
 
-    const idleDurationSecs = 50;    // X number of seconds
+    const idleDurationSecs = 5;    // X number of seconds
     const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
@@ -283,6 +285,8 @@ inactivity(); //have this function run when the page loads
     <div>
       <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
+    <p>Timer</p>
+    <div id="time">00:00</div>
 
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3>{screen}</div>
