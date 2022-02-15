@@ -25,7 +25,7 @@ function Button(props) {
       alert("You're done");
   
       return (
-        <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/LevelsPage"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+        <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/RetryPage"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
            {props.value}
         </button>
         
