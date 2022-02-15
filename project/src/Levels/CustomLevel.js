@@ -246,13 +246,26 @@ function CustomLevel() {
     const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
+    //to display an alert box before being redirected
+    function redirect()
+    {
+      window.location.href = redirectUrl;
+      alert("Due to inactivity, your session has timed-out");
+      
+    }
+
     const resetIdleTimeout = function() {
 
         // Clears the existing timeout
         if(idleTimeout) clearTimeout(idleTimeout);
 
+        
+
         // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-        idleTimeout = setTimeout(() => window.location.href = redirectUrl, idleDurationSecs * 1000);
+
+        
+        
+        idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
     };
 
     // Init on page load
