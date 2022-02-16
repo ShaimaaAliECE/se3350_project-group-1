@@ -220,6 +220,57 @@ function Level2() {
 
   }
 
+    //the timer part
+    window.addEventListener("load", function() {
+      const clock = document.getElementById("time");
+      let time = -1, intervalId;
+      function incrementTime() {
+        time++;
+        clock.textContent =
+          ("0" + Math.trunc(time / 60)).slice(-2) +
+          ":" + ("0" + (time % 60)).slice(-2);
+      }
+      incrementTime();
+      intervalId = setInterval(incrementTime, 1000);
+    });
+  
+    function inactivity() {
+  
+      const idleDurationSecs = 10;    // X number of seconds
+      const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
+      let idleTimeout; // variable to hold the timeout, do not modify
+  
+      //to display an alert box before being redirected
+      function redirect()
+      {
+        window.location.href = redirectUrl;
+        alert("Due to inactivity, your session has timed-out");
+        
+      }
+  
+      const resetIdleTimeout = function() {
+  
+          // Clears the existing timeout
+          if(idleTimeout) clearTimeout(idleTimeout);
+    
+          // Set a new idle timeout to load the redirectUrl after idleDurationSecs          
+          idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
+      };
+  
+      // Init on page load
+      resetIdleTimeout();
+      
+  
+      // Reset the idle timeout on any of the events listed below
+      ['click', 'touchstart', 'mousemove'].forEach(evt => 
+          document.addEventListener(evt, resetIdleTimeout, false)
+      );
+  
+  }
+  
+  
+  inactivity(); //have this function run when the page loads
+
   let arrayLength = correctOrder[0].length
   let rows = 2 * Math.ceil(Math.log2(arrayLength))
   const screen = [];
@@ -228,7 +279,8 @@ function Level2() {
     <div>
       <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button>  <button class='analyticsButton'><a class="noDec" href= 'http://localhost:3000/Analytics'> Analytics </a></button></h1>
     </div>
-
+    <p>Timer</p>
+    <div id="time">00:00</div>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
   //creating an array of button rows

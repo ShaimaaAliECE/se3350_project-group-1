@@ -5,19 +5,6 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 
-
-let instructionArray = [
-  "Divide the array down the middle into two parts",
-  "Repeat this division until in array is completely divided",
-  "Repeat this division until in array is completely divided",
-  "Repeat this division until in array is completely divided",
-  "Now that the array is in individual units merge the units together",
-  "Merge the two closest subarrays so they are in ascending order",
-  "Repeat this step for all subarrays until the array is rejoined",
-  "Repeat this step for all subarrays until the array is rejoined",
-  "Now the elements are sorted in ascending order",
-
-];
 function getButtonPlacement(arr) {
   let res = []
   for (let i = 0; i < arr.length; i++) {
@@ -211,7 +198,7 @@ function CustomLevel() {
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
   const [clicked, updateClick] = useState(0);
-  const [instructionsNum, updateInstructions] = useState(0);
+
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -224,10 +211,6 @@ function CustomLevel() {
     //updates how many of the buttons have been clicked so it knows when to change the instructions
     updateClick(clicked + 1);
 
-    //check to see if instructions should change
-    if ((clicked + 1) % 10 === 0 && clicked > 1) {
-      updateInstructions(instructionsNum + 1);
-    }
 
   }
 
@@ -249,7 +232,7 @@ function CustomLevel() {
 
   function inactivity() {
 
-    const idleDurationSecs = 5;    // X number of seconds
+    const idleDurationSecs = 10;    // X number of seconds
     const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
@@ -266,12 +249,7 @@ function CustomLevel() {
         // Clears the existing timeout
         if(idleTimeout) clearTimeout(idleTimeout);
 
-        
-
         // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-
-        
-        
         idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
     };
 
@@ -312,7 +290,7 @@ inactivity(); //have this function run when the page loads
     <div id="time">00:00</div>
 
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
-    <h3 class="text">{instructionArray[instructionsNum]}</h3>{screen}</div>
+    {screen}</div>
   );
   
   /*
