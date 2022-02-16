@@ -21,7 +21,7 @@ function ButtonRow(props) {
       let button={}
       button.id=i;
       if(props.spaces.length>j&&props.spaces[j]-1===i){
-        button.padding='40px';
+        button.padding='20px';
         j++;
       }else{
         button.padding='0px';

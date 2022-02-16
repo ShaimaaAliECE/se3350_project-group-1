@@ -295,10 +295,13 @@ inactivity(); //have this function run when the page loads
   const screen = [];
 
   
-  for (let i = 0; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} ></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10}></ButtonRow>)
+
+  for (let i = 1; i < rows; i++) {
+    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+10)?10:clicked%10):(0)}></ButtonRow>)
   }
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
+  //the final row
+  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+10)?10:clicked%10):(0)}></ButtonRow>)
   return (
     <div style={{ alignContent: 'centre' }}>
   
