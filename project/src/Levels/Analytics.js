@@ -39,7 +39,7 @@ const Analytics = (props) => {    //create constant that will navigate from page
                     </tr>
                     <tr>
                         <th>1</th>
-                        <th>{props.json}</th>
+                        <th>{props.stats[0][1]}</th>
                         <th>1</th>
                         <th>N/A</th>
                         <th>N/A</th>
