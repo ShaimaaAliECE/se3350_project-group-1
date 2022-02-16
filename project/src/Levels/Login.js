@@ -5,7 +5,7 @@ const Login = () => {    //create constant that will navigate from page to page
     return (
        <div>
          <div>
-         <h1 class='topRectangle'> &emsp;Login<button class='quitButton'> <a href= 'http://localhost:3000'> </a> Quit </button> <button class='analyticsButton'>Analytics</button></h1>
+         <h1 class='topRectangle'> &emsp;Login<button class='quitButton'> <a href= 'http://localhost:3000'> </a> Quit </button> <button class='analyticsButton'> <a href= 'http://localhost:3000/Analytics' class="noDec"></a>Analytics</button></h1>
          </div>
       <div>
       <text class = 'email'> Email Address: </text>

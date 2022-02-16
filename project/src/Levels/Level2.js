@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 
 
-
 let instructionArray = [
   "Divide the array down the middle into two parts",
   "Repeat this division until in array is completely divided",
@@ -200,6 +199,8 @@ function Level2() {
   const [btnStates, updateBtns] = useState(buttonStates);
   const [clicked, updateClick] = useState(0);
   const [instructionsNum, updateInstructions] = useState(0);
+
+  
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -225,7 +226,7 @@ function Level2() {
   //justify?
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
-      <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+      <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button>  <button class='analyticsButton'><a class="noDec" href= 'http://localhost:3000/Analytics'> Analytics </a></button></h1>
     </div>
 
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
