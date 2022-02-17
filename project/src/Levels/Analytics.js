@@ -4,11 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Analytics = (props) => {    //create constant that will navigate from page to page
 
-//     for (var i = 0; i < data.length; i++)
-// {
-//     var obj = data[i];
-//     console.log(`level: ${obj.level}, ${obj.totalTime}`);
-// }
+
 
     return (
        <div>
@@ -39,38 +35,38 @@ const Analytics = (props) => {    //create constant that will navigate from page
                     </tr>
                     <tr>
                         <th>1</th>
-                        <th>{props.stats[0][1]}</th>
-                        <th>1</th>
-                        <th>N/A</th>
-                        <th>N/A</th>
+                        <th>{""+props.stats[0].attempts}</th>
+                        <th>{""+props.stats[0].timesComplete}</th>
+                        <th>{""+props.stats[0].bestTime}</th>
+                        <th>{""+props.stats[0].totalTime}</th>
                     </tr>
                     <tr>
                         <th>2</th>
-                        <th>2</th>
-                        <th>2</th>
-                        <th>1:34</th>
-                        <th>3:31</th>
+                        <th>{""+props.stats[1].attempts}</th>
+                        <th>{""+props.stats[1].timesComplete}</th>
+                        <th>{""+props.stats[1].bestTime}</th>
+                        <th>{""+props.stats[1].totalTime}</th>
                     </tr>
                     <tr>
                         <th>3</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>{""+props.stats[2].attempts}</th>
+                        <th>{""+props.stats[2].timesComplete}</th>
+                        <th>{""+props.stats[2].bestTime}</th>
+                        <th>{""+props.stats[2].totalTime}</th>
                     </tr>
                     <tr>
                         <th>4</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>{""+props.stats[3].attempts}</th>
+                        <th>{""+props.stats[3].timesComplete}</th>
+                        <th>{""+props.stats[3].bestTime}</th>
+                        <th>{""+props.stats[3].totalTime}</th>
                     </tr>
                     <tr>
                         <th>5</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>{""+props.stats[4].attempts}</th>
+                        <th>{""+props.stats[4].timesComplete}</th>
+                        <th>{""+props.stats[4].bestTime}</th>
+                        <th>{""+props.stats[4].totalTime}</th>
                     </tr>
                 </table>
             </div>

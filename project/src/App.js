@@ -1,4 +1,4 @@
-import React, {Component} from 'react';  //import reuqired libraries 
+import React, {Component}  from 'react';  //import reuqired libraries 
 
 import "./App.css";
 
@@ -33,32 +33,49 @@ let stats=[
   attempts:0,
   timesComplete:0,
   bestTime:'N/A',
-  totalTime:'N/A'},
+  totalTime:'00:00'},
   {level:'2',
   attempts:0,
   timesComplete:0,
-  bestTime:'N/A',
-  totalTime:'N/A'},
+  bestTime:'00:00',
+  totalTime:'00:00'},
   {level:'3',
   attempts:0,
   timesComplete:0,
-  bestTime:'N/A',
-  totalTime:'N/A'},
+  bestTime:'00:00',
+  totalTime:'00:00'},
   {level:'4',
   attempts:0,
   timesComplete:0,
-  bestTime:'N/A',
-  totalTime:'N/A'},
+  bestTime:'00:00',
+  totalTime:'00:00'},
   {level:'5',
   attempts:0,
   timesComplete:0,
-  bestTime:'N/A',
-  totalTime:'N/A'},
-]
+  bestTime:'00:00',
+  totalTime:'00:00'}
+];
+
+
 
 //create class that will route to the beginning page
 class App extends Component {
-  
+
+  //initializes the state of the page. THe state is used to store the range and size of the custum level.
+  constructor(props){
+    super(props);
+    this.state= {upper:40,lower:1,range:10}
+  ;
+}
+ setUpper=(newUpper)=>{
+  this.setState({upper:newUpper});
+}
+setLower=(newLower)=>{
+  this.setState({lower:newLower});
+}
+setRange=(newRange)=>{
+  this.setState({reange:newRange});
+}
   render(){
     return (
       <BrowserRouter>
@@ -67,11 +84,13 @@ class App extends Component {
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/Level2" component={Level2} />
               <Route exact path="/Level3" component={Level3} />
-              <Route exact path="/CustomLevel" component={CustomLevel} />
-              <Route exact path="/CustomSelection" component={CustomSelection} />
+              
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
-              <Route  path="/Analytics" ><Analytics stats={stats}/></Route>
+              <Route path="/Analytics" ><Analytics stats={stats}/></Route>
+
+              <Route path="/CustomSelection" ><CustomSelection arrTest={this.state} setUpper={this.setUpper} setLower={this.setLower} setRange={this.setRange}/></Route>
+              <Route path="/CustomLevel" ><CustomLevel arrTest ={this.state}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
               <Route path = "/Completed" component = {Completed} />
