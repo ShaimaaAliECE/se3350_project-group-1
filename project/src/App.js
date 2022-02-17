@@ -23,7 +23,9 @@ import Tutorial from './Levels/Tutorial';
 import LevelsPage from './Levels/LevelsPage';
 import RetryPage from './Levels/RetryPage';
 import Completed from './Levels/Completed';
-
+import Level1Complete from './Levels/Level1Complete';
+import OneMistake from './Levels/OneMistake';
+import TwoMistakes from './Levels/TwoMistakes';
 
 
 
@@ -50,6 +52,9 @@ class App extends Component {
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
               <Route path = "/Completed" component = {Completed} />
+              <Route path = "/Level1Complete" component = {Level1Complete} />
+              <Route path = "/OneMistake" component = {OneMistake} />
+              <Route path = "/TwoMistakes" component = {TwoMistakes} />
               
             </Switch>
 

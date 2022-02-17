@@ -2,7 +2,7 @@ import React from 'react'; //import required libraries
 
 import {NavLink} from 'react-router-dom';
 
-const Completed = () => {  //create main page 
+const TwoMistakes = () => {  //create main page 
     return (
         <div>
         <div>
@@ -11,12 +11,11 @@ const Completed = () => {  //create main page
           <div class="thisText">
               
           &emsp; &emsp; <img id = "pic" src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
-          <img src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
-          <img src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png" width="100" height="100" alt="blankStar"/>
+          
                 
 
           
-<h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You have earned 3 stars!</h3>
+<h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You have earned 1 star!</h3>
 <p> Your Time:  &emsp; &emsp; &emsp; Best Time:   </p>
 
        
@@ -30,4 +29,4 @@ const Completed = () => {  //create main page
 }
 
 
-export default Completed; //export the constant
+export default TwoMistakes; //export the constant

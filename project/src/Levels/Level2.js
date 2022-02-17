@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import ButtonRow from "../components/ButtonRow.js";
 
 
@@ -237,6 +238,13 @@ function Level2() {
   //the final row
   screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} ></ButtonRow>)
   //returning the screen
+  /*if (instructionsNum === 8 ){
+    screen.push(<div>
+     <NavLink to="/Completed" class="submitButton" >Submit</NavLink>
+    </div>)
+
+  }*/
+  
   return (<div>{screen}</div>)
 }
 

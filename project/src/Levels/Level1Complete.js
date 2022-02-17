@@ -1,12 +1,12 @@
-import React from 'react'; //import required libraries
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import {NavLink} from 'react-router-dom';
 
-const Completed = () => {  //create main page 
+const RetryPage = () => {  //create main page 
     return (
         <div>
         <div>
-         <h1 class='topRectangle'> &emsp;Level Completed<button class='quitButton'> <a href= 'http://localhost:3000/LevelsPage' class="noDec"> Quit</a>  </button> <button class='analyticsButton'>Analytics</button></h1>
+         <h1 class='topRectangle'> &emsp;Tutorial Completed!<button class='quitButton'> <a href= 'http://localhost:3000/LevelsPage' class="noDec"> Quit</a>  </button> <button class='analyticsButton'>Analytics</button></h1>
          </div>
           <div class="thisText">
               
@@ -16,18 +16,17 @@ const Completed = () => {  //create main page
                 
 
           
-<h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You have earned 3 stars!</h3>
-<p> Your Time:  &emsp; &emsp; &emsp; Best Time:   </p>
+<h3> &emsp; &emsp; &emsp; &emsp;You have unlocked Level 2!&emsp; &emsp; &emsp; &emsp;</h3>
+
 
        
 </div>
         
-&emsp;<NavLink to="/Level2" class='bttn'> Play again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-           <NavLink to="/Level3" class='bttn' > Next Level </NavLink>
+&emsp;<NavLink to="/Tutorial" class='bttn'> Repeat Tutorial </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+           <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink>
+           
        </div>   
-       
     );
 }
 
-
-export default Completed; //export the constant
+export default RetryPage; //export the constant

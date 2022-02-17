@@ -10,7 +10,9 @@ const RetryPage = () => {  //create main page
          </div>
           <div class="thisText">
               
-          &emsp; &emsp; <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/>
+          &emsp; &emsp; <img id = "pic" src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
+          <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
+          <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/>
                 
 
           

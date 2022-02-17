@@ -7,6 +7,7 @@ import Done from './done.mp3'
 
 
 let count=0;
+let right=0;
 function Button(props) {
  
   const [clicked, setClicked]=useState(false);
@@ -24,7 +25,6 @@ function Button(props) {
     }
    else if (count==3)
     {
-     
       var wrong2 = new Audio(Done);
       wrong2.play();
       wrong2.onended= function() {
@@ -38,6 +38,7 @@ function Button(props) {
       setEnabled(false);
       setClicked(true);
       props.rowClick(props.value);
+      right++;
     }
 
 
@@ -46,9 +47,17 @@ function Button(props) {
       var incorrect = new Audio(WrongSound);
       incorrect.play();
       count++;
+     
     }
-   
-      
+     if (count ===0 && right ===80){
+       leave1();
+     }
+     if (count ===1 && right ===80){
+      leave2();
+    }
+    if (count ===2 && right ===80){
+      leave3();
+    }
 
   }
  
@@ -66,5 +75,33 @@ function leave(){
     </button>
     
     );
-}}
+}
+function leave1(){
+  return (
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/Completed"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+       {props.value}
+    </button>
+    
+    );
+}
+function leave2(){
+  return (
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/OneMistake"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+       {props.value}
+    </button>
+    
+    );
+}
+function leave3(){
+  return (
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/TwoMistakes"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+       {props.value}
+    </button>
+    
+    );
+}
+
+
+}
+
 export default Button; 

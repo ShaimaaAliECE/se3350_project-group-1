@@ -2,7 +2,7 @@ import React from 'react'; //import required libraries
 
 import {NavLink} from 'react-router-dom';
 
-const Completed = () => {  //create main page 
+const OneMistake = () => {  //create main page 
     return (
         <div>
         <div>
@@ -12,11 +12,11 @@ const Completed = () => {  //create main page
               
           &emsp; &emsp; <img id = "pic" src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
           <img src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
-          <img src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png" width="100" height="100" alt="blankStar"/>
+          <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/>
                 
 
           
-<h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You have earned 3 stars!</h3>
+<h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You have earned 2 stars!</h3>
 <p> Your Time:  &emsp; &emsp; &emsp; Best Time:   </p>
 
        
@@ -30,4 +30,4 @@ const Completed = () => {  //create main page
 }
 
 
-export default Completed; //export the constant
+export default OneMistake; //export the constant
