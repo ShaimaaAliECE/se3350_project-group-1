@@ -237,7 +237,7 @@ function Level2() {
   
     function inactivity() {
   
-      const idleDurationSecs = 10;    // X number of seconds
+      const idleDurationSecs = 100;    // X number of seconds
       const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
       let idleTimeout; // variable to hold the timeout, do not modify
   

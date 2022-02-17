@@ -21,6 +21,7 @@ function Button(props) {
       setEnabled(false);
       setClicked(true);
       props.rowClick(props.value);
+      right++;
     }
     else if (count==2)
     {
@@ -40,9 +41,6 @@ function Button(props) {
     };
     }
 
-  
-
-
     else{
       alert("Wrong -Try Again");
       var incorrect = new Audio(WrongSound);
@@ -59,7 +57,7 @@ function Button(props) {
     if (count ===2 && right ===80){
       leave3();
     }
-
+    
   }
  
   return (
