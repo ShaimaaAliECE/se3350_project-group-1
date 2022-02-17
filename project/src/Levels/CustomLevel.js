@@ -287,7 +287,6 @@ inactivity(); //have this function run when the page loads
     <div>
       <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
-    <p>Timer</p>
     <div id="time">00:00</div>
 
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
