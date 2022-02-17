@@ -56,6 +56,12 @@ let stats=[
   totalTime:'N/A'},
 ]
 
+let info = [
+  {upper:40},
+  {lower:1},
+  {size:10}
+
+]
 //create class that will route to the beginning page
 class App extends Component {
   
@@ -71,7 +77,9 @@ class App extends Component {
               <Route exact path="/CustomSelection" component={CustomSelection} />
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
-              <Route  path="/Analytics" ><Analytics stats={stats}/></Route>
+              <Route path="/Analytics" ><Analytics stats={stats}/></Route>
+              <Route path="/CustomSelection" component = {CustomSelection}><CustomSelection arrTest ={stats}/></Route>
+              <Route path="/CustomLevel" component = {CustomLevel}><CustomLevel arrTest ={stats}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
               <Route path = "/Completed" component = {Completed} />
