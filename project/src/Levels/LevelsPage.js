@@ -21,6 +21,15 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
                <a href="http://localhost:3000/CustomSelection" class="sixthButton">Custom Level</a> </div>);
 
    
+       /*if(document.referrer === "http://localhost:3000/RetryPage" || ""){
+            screen.push(<div>
+               <NavLink to="/Level2" class="scndButton">Level 2  </NavLink>
+               &emsp; &emsp; 
+               <NavLink to="/Level3" class="thirdButton">Level 3 &#128274; </NavLink>
+               <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274;</NavLink>
+               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
+               <NavLink to="/CustomSelection" class="sixthButton">Custom Level</NavLink></div>);
+         }*/
          //check if level 1 unlocked 
         /* if(document.referrer === "http://localhost:3000/Level1Complete"){
             screen.push(<div>
