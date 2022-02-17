@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
-
+import {NavLink} from 'react-router-dom';
 
 
 let instructionArray = [
@@ -135,6 +135,7 @@ function getSteps(arr) {
   }
   steps = removePlaceHolders(steps)
   steps = formatRows(arrayLength, steps)
+  
   return steps
 }
 
@@ -229,6 +230,7 @@ function Tutorial() {
     if ((clicked + 1) % 10 === 0 && clicked > 1) {
       updateInstructions(instructionsNum + 1);
     }
+    
 
   }
 
@@ -254,9 +256,17 @@ const [dataSize,setDataSize]=useState(null)
   //creating an array of button rows
   
   for (let i = 0; i < {dataSize}.dataSize; i++) {
-    screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]}></ButtonRow>)
+    screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]}></ButtonRow>
+      )
+      if (i===7){
+        screen.push(
+          <NavLink to="/Level1Complete" class="submitButton">Next</NavLink>
+         )
+        }
+      
     
   }
+  
   //the final row
   
   //returning the screen
