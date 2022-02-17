@@ -60,13 +60,22 @@ let stats=[
 
 //create class that will route to the beginning page
 class App extends Component {
+
   //initializes the state of the page. THe state is used to store the range and size of the custum level.
   constructor(props){
     super(props);
     this.state= {upper:40,lower:1,range:10}
   ;
 }
-
+ setUpper=(newUpper)=>{
+  this.setState({upper:newUpper});
+}
+setLower=(newLower)=>{
+  this.setState({lower:newLower});
+}
+setRange=(newRange)=>{
+  this.setState({reange:newRange});
+}
   render(){
     return (
       <BrowserRouter>
@@ -80,7 +89,7 @@ class App extends Component {
               <Route exact path="/" component={Login} />
               <Route path="/Analytics" ><Analytics stats={stats}/></Route>
 
-              <Route path="/CustomSelection" ><CustomSelection arrTest={this.state}/></Route>
+              <Route path="/CustomSelection" ><CustomSelection arrTest={this.state} setUpper={this.setUpper} setLower={this.setLower} setRange={this.setRange}/></Route>
               <Route path="/CustomLevel" ><CustomLevel arrTest ={this.state}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />

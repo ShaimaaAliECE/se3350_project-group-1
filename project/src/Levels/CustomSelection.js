@@ -9,13 +9,16 @@ function CustomSelection(props) {
 
   function getUpper(val) {
     setDataUpper(val.target.value)
+    props.setUpper(val.target.value)
   }
 
   function getLower(val) {
     setDataLower(val.target.value)
+    props.setLower(val.target.value)
   }
   function getSize(val) {
     setDataSize(val.target.value)
+    props.setRange(val.target.value)
   }
   function createInfoArray() {
 

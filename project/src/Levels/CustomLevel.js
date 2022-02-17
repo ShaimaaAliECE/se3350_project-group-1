@@ -116,9 +116,9 @@ function getSteps(arr) {
   return steps
 
 }
-let upperBounds = 10
-let lowerBounds = 1
-let arraySize = 10
+let upperBounds = 100;
+let lowerBounds = 1;
+let arraySize = 10;
 /*let infoArr =(cookies.get('info'))||null
 
 if (infoArr[0].dataUpper==null){
@@ -192,7 +192,8 @@ for (let i = 1; i < sortedArray.length; i++) {
 
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-function CustomLevel() {
+function CustomLevel(props) {
+  const [constructor, setConstructor]=useState(false);
 
 
   // This is now a 2d array that handles the states of all the buttons;
