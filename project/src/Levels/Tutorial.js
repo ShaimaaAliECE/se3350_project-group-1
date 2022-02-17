@@ -253,19 +253,19 @@ const [dataSize,setDataSize]=useState(null)
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[{dataSize}.dataSize]}</h3></div>)
     
+   // screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10}></ButtonRow>)
+   screen.push(<ButtonRow numbers={twoDimSortedArr[0][0]} rowClick={rowClick} row={0 + 10} length={arrayLength} correctRow={correctOrder[0]} enabled={false} spaces={buttonPlacement[0]} numVisible={10}></ButtonRow>)
   //creating an array of button rows
+  for (let i = 1; i < {dataSize}.dataSize; i++) {
+    screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]} numVisible={10}></ButtonRow>)
+    
   
-  for (let i = 0; i < {dataSize}.dataSize; i++) {
-    screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]}></ButtonRow>
-      )
       if (i===7){
         screen.push(
           <NavLink to="/Level1Complete" class="submitButton">Next</NavLink>
          )
         }
-      
-    
-  }
+      }
   
   //the final row
   
