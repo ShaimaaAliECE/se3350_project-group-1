@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 //const info = require("./CustomSelection");
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
+//import Cookies from 'universal-cookie';
+//const cookies = new Cookies();
 
 
 
@@ -132,6 +132,7 @@ function getSteps(arr) {
 let upperBounds = 10
 let lowerBounds = 1
 let arraySize = 10
+/*
 let infoArr =(cookies.get('info'))||null
 
 if (infoArr[0].dataUpper==null){
@@ -149,7 +150,7 @@ if (infoArr[2].dataSize==null){
     arraySize = parseInt(infoArr[2].dataSize)
 
 
-
+*/
 let randomNumberArr = []
 for (let i = 0; i < arraySize; i++) {
   randomNumberArr.push(Math.floor(Math.random() *(upperBounds-lowerBounds)) + lowerBounds)

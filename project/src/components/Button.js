@@ -13,7 +13,15 @@ function Button(props) {
   const [enabled, setEnabled]=useState(true);
  
   function buttonClick(){
-    if (count==2)
+
+     if(props.nextVal===props.btnId){
+      var correct = new Audio(CorrectSound);
+      correct.play();
+      setEnabled(false);
+      setClicked(true);
+      props.rowClick(props.value);
+    }
+    else if (count==2)
     {
       alert("Last Try!");
     count++;
@@ -32,13 +40,7 @@ function Button(props) {
     };
     }
 
-    else if(props.nextVal===props.btnId){
-      var correct = new Audio(CorrectSound);
-      correct.play();
-      setEnabled(false);
-      setClicked(true);
-      props.rowClick(props.value);
-    }
+  
 
 
     else{
