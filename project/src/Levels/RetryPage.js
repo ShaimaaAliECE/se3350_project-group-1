@@ -1,9 +1,10 @@
 import React from 'react'; //import required libraries
 
 import {NavLink} from 'react-router-dom';
-
+const screen = [];
 const RetryPage = () => {  //create main page 
-    return (
+    const screen = [];
+    screen.push (
         <div>
         <div>
          <h1 class='topRectangle'> &emsp;Level Failed<button class='quitButton'> <a href= 'http://localhost:3000/LevelsPage' class="noDec"> Quit</a>  </button> <button class='analyticsButton'>Analytics</button></h1>
@@ -21,12 +22,19 @@ const RetryPage = () => {  //create main page
 
        
 </div>
-        
-&emsp;<NavLink to="/Level2" class='bttn'> Try Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-           <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink>
-           
+                   
        </div>   
     );
+    if (document.referrer === "http://localhost:3000/Level2")
+    {
+        screen.push(<div>&emsp;<NavLink to="/Level2" class='bttn'> Try Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+        <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
+    }
+    if (document.referrer === "http://localhost:3000/Level3"){
+        screen.push(<div>&emsp;<NavLink to="/Level3" class='bttn'> Try Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+        <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
+    }
+    return(<div>{screen}</div>);
 }
 
 export default RetryPage; //export the constant
