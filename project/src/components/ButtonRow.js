@@ -17,7 +17,7 @@ function ButtonRow(props) {
        ];
 
     let j=0;
-    for(let i =0;i<props.length;i++){
+    for(let i =0;i<props.numVisible;i++){
       let button={}
       button.id=i;
       if(props.spaces.length>j&&props.spaces[j]-1===i){
@@ -38,7 +38,7 @@ function ButtonRow(props) {
 
     {buttonObj.map((button,index) => (
         <Button key={"row"+props.row+"-btn"+button.id} value={props.numbers[button.id]}  rowClick={buttonRowClick} 
-            padding={button.padding} nextVal={props.correctRow[count]} btnId={button.id} enabled={props.enabled}></Button>
+            padding={button.padding} nextVal={props.correctRow[count]} btnId={button.id} enabled={props.enabled} ></Button>
         
       ))}
 
@@ -49,3 +49,5 @@ function ButtonRow(props) {
 }
 
 export default ButtonRow;
+
+//visible={(button.id<=props.numVisible)?'none':"you should see this"}

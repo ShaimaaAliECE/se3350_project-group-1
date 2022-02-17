@@ -8,15 +8,7 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Step1 from './Levels/Step1'; //import required components from other js files
-import Step2 from './Levels/Step2';
-import Step3 from './Levels/Step3';
-import Step4 from './Levels/Step4';
-import Step5 from './Levels/Step5';
-import Step6 from './Levels/Step6';
-import Step7 from './Levels/Step7';
-import Step8 from './Levels/Step8';
-import CustomLevel from './Levels/CustomLevel';
+import CustomLevel from './Levels/CustomLevel'; //import required components from other js files
 import CustomSelection from './Levels/CustomSelection';
 import Tutorial from './Levels/Tutorial';
 
@@ -28,11 +20,41 @@ import OneMistake from './Levels/OneMistake';
 import TwoMistakes from './Levels/TwoMistakes';
 
 
+import Analytics from './Levels/Analytics'
 
 
 import Level2 from './Levels/Level2';
 import Level3 from './Levels/Level3';
 import Login from './Levels/Login';
+
+
+let stats=[
+  {level:'1',
+  attempts:0,
+  timesComplete:0,
+  bestTime:'N/A',
+  totalTime:'N/A'},
+  {level:'2',
+  attempts:0,
+  timesComplete:0,
+  bestTime:'N/A',
+  totalTime:'N/A'},
+  {level:'3',
+  attempts:0,
+  timesComplete:0,
+  bestTime:'N/A',
+  totalTime:'N/A'},
+  {level:'4',
+  attempts:0,
+  timesComplete:0,
+  bestTime:'N/A',
+  totalTime:'N/A'},
+  {level:'5',
+  attempts:0,
+  timesComplete:0,
+  bestTime:'N/A',
+  totalTime:'N/A'},
+]
 
 //create class that will route to the beginning page
 class App extends Component {
@@ -49,6 +71,7 @@ class App extends Component {
               <Route exact path="/CustomSelection" component={CustomSelection} />
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
+              <Route  path="/Analytics" ><Analytics stats={stats}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
               <Route path = "/Completed" component = {Completed} />
