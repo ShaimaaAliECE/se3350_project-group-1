@@ -269,7 +269,6 @@ inactivity(); //have this function run when the page loads
     </div>
 
     <p >Begin!</p>
-    <p>Timer</p>
     <div id="time">00:00</div>
     </div>)
   //creating the first row 
