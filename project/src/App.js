@@ -26,7 +26,7 @@ import Analytics from './Levels/Analytics'
 import Level2 from './Levels/Level2';
 import Level3 from './Levels/Level3';
 import Login from './Levels/Login';
-
+import Custom from './Levels/custom';
 
 let stats=[
   {level:'1',
@@ -110,6 +110,7 @@ getRange = ()=>{
               <Route path = "/Level1Complete" component = {Level1Complete} />
               <Route path = "/OneMistake" component = {OneMistake} />
               <Route path = "/TwoMistakes" component = {TwoMistakes} />
+              <Route path = "/Custom" component = {Custom} />
               
             </Switch>
 

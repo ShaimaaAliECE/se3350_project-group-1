@@ -25,6 +25,7 @@ function CustomSelection(props) {
   function createInfoArray() {
     
     let arr = [{ dataUpper }, { dataLower }, { dataSize }]
+   
     //cookies.set('info', arr, { path: '/' });
 // <th>{props.stats[0][1]}</th>   
 
@@ -45,7 +46,7 @@ function CustomSelection(props) {
     Upper Bounds<input type="range" min={dataLower} max="100" onChange={getUpper}></input>{dataUpper||10}<br></br>
     List Size<input type="range" min="2" max="50" onChange={getSize}></input>{dataSize||10}<br></br>
  
-    <button type="submit" onClick={createInfoArray()}><a href='http://localhost:3000/CustomLevel'> Submit </a> </button>
+    <button type="submit" onClick={createInfoArray(),props.clickedFunc}>Submit </button>
 
   </div></div>
   )
