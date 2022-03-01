@@ -196,7 +196,7 @@ for (let i = 1; i < sortedArray.length; i++) {
 /////////////////////////////// React Component that is for Custom\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function CustomLevel(props) {
   const [constructor, setConstructor]=useState(false);
-
+  console.log('the upper is '+props.getUpper+ " lower is " +props.getLower +" and the range is " +props.getRange )
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
   const [clicked, updateClick] = useState(0);
