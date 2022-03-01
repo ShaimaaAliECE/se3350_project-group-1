@@ -63,9 +63,12 @@ class App extends Component {
 
   //initializes the state of the page. THe state is used to store the range and size of the custum level.
   constructor(props){
-    super(props);
+    super(props); 
+    //if(!this.state){
     this.state= {upper:40,lower:1,range:10}
-  ;
+    console.log("running")
+    //}
+  //props getting reset on new page
 }
  setUpper=(newUpper)=>{
   this.setState({upper:newUpper});
@@ -74,9 +77,20 @@ setLower=(newLower)=>{
   this.setState({lower:newLower});
 }
 setRange=(newRange)=>{
-  this.setState({reange:newRange});
+  this.setState({range:newRange});
 }
+getUpper = ()=>{
+  return this.state.upper;
+}
+getLower = ()=>{
+  return this.state.lower;
+}
+getRange = ()=>{
+  return this.state.range;
+}
+
   render(){
+    console.log(this.state.upper,this.state.lower,this.state.range)
     return (
       <BrowserRouter>
         <div>
@@ -84,13 +98,12 @@ setRange=(newRange)=>{
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/Level2" component={Level2} />
               <Route exact path="/Level3" component={Level3} />
-              
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
               <Route path="/Analytics" ><Analytics stats={stats}/></Route>
-
+              <Route path="/CustomLevel" ><CustomLevel  arrTest ={this.state} getUpper = {this.getUpper} getLower = {this.getLower} getRange = {this.getRange}/></Route>
+             
               <Route path="/CustomSelection" ><CustomSelection arrTest={this.state} setUpper={this.setUpper} setLower={this.setLower} setRange={this.setRange}/></Route>
-              <Route path="/CustomLevel" ><CustomLevel arrTest ={this.state}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
               <Route path = "/Completed" component = {Completed} />

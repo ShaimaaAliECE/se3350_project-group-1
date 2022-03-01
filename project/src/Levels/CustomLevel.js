@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
+import {arr} from "./CustomSelection";
+console.log(arr,"newnew")
 //const info = require("./CustomSelection");
 /*import Cookies from 'universal-cookie';
 const cookies = new Cookies();*/
@@ -191,10 +193,9 @@ for (let i = 1; i < sortedArray.length; i++) {
 }
 
 
-/////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+/////////////////////////////// React Component that is for Custom\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function CustomLevel(props) {
   const [constructor, setConstructor]=useState(false);
-
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);

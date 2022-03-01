@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import App from '../App';
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function CustomSelection(props) {
@@ -20,8 +21,9 @@ function CustomSelection(props) {
     setDataSize(val.target.value)
     props.setRange(val.target.value)
   }
-  function createInfoArray() {
 
+  function createInfoArray() {
+    
     let arr = [{ dataUpper }, { dataLower }, { dataSize }]
     //cookies.set('info', arr, { path: '/' });
 // <th>{props.stats[0][1]}</th>   
@@ -31,7 +33,7 @@ function CustomSelection(props) {
   
   }
   //creating an array of button rows
-
+ 
   return (
     <div><div style={{ alignContent: 'centre' }}>
     <div>
@@ -42,9 +44,17 @@ function CustomSelection(props) {
     Lower Bounds<input type="range" min="1" max="100" onChange={getLower}></input>{dataLower||1}<br></br>
     Upper Bounds<input type="range" min={dataLower} max="100" onChange={getUpper}></input>{dataUpper||10}<br></br>
     List Size<input type="range" min="2" max="50" onChange={getSize}></input>{dataSize||10}<br></br>
-
+ 
     <button type="submit" onClick={createInfoArray()}><a href='http://localhost:3000/CustomLevel'> Submit </a> </button>
+
   </div></div>
   )
+ 
 }
+
 export default CustomSelection;
+var element = document.getElementById("lb");
+
+const arr = [element,element,element]
+//trying to get the values of that are stored in the props in App.js outside of the function in custom selection
+export {arr};
