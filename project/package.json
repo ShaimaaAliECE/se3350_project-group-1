@@ -2,7 +2,7 @@
   "name": "level1",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "http://35.225.172.166/level1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
