@@ -90,7 +90,7 @@ getRange = ()=>{
 }
 
   render(){
-    console.log(this.state.upper,this.state.lower,this.state.range)
+    //console.log(this.state.upper,this.state.lower,this.state.range)
     return (
       <BrowserRouter>
         <div>
@@ -102,7 +102,6 @@ getRange = ()=>{
               <Route exact path="/" component={Login} />
               <Route path="/Analytics" ><Analytics stats={stats}/></Route>
               <Route path="/CustomLevel" ><CustomLevel  arrTest ={this.state} getUpper = {this.getUpper} getLower = {this.getLower} getRange = {this.getRange}/></Route>
-             
               <Route path="/CustomSelection" ><CustomSelection arrTest={this.state} setUpper={this.setUpper} setLower={this.setLower} setRange={this.setRange}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />
               <Route path = "/RetryPage" component = {RetryPage} />
