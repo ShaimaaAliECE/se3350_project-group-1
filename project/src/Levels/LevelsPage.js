@@ -18,7 +18,7 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
                <a href='http://localhost:3000/Level3'class="thrdButton">Level 3 </a>
                <a href="http://localhost:3000/LevelsPage" class="fourthButton">Level 4 &#128274; </a>
                <a href="http://localhost:3000/LevelsPage" class="fifthButton">Level 5 &#128274;</a>
-               <a href="http://localhost:3000/CustomSelection" class="sixthButton">Custom Level</a> </div>);
+               <a href="http://localhost:3000/custom" class="sixthButton">Custom Level</a> </div>);
 
    
        /*if(document.referrer === "http://localhost:3000/RetryPage" || ""){
