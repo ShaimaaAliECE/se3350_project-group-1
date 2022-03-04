@@ -7,18 +7,21 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
    
    screen.push (
       <div>
-      <h1 class='topRectangle'> &emsp;Levels<button class='quitButton'><a class="noDec" href= 'http://localhost:3000/'> Logout </a></button><button class='analyticsButton'><a class="noDec" href= 'http://localhost:3000/Analytics'> Analytics </a></button></h1>
+      <h1 class='topRectangle'> &emsp;Levels<button class='quitButton'><NavLink to="/" class="noDec">Logout</NavLink></button><button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics </NavLink></button></h1>
       </div>)
 
      screen.push( <div>
          <p> &emsp;Click the level 1 button to begin the merge sort algorithm tutorial </p>
          &emsp; <NavLink to="/Tutorial" class="bttnz">Level 1 </NavLink>
-          &emsp; &emsp; <a href="http://localhost:3000/Level2" class="scndButton">Level 2  </a>
+          &emsp; &emsp; <NavLink to="/Level2" class="scndButton">Level 2 </NavLink>
                &emsp; &emsp; 
-               <a href='http://localhost:3000/Level3'class="thrdButton">Level 3 </a>
-               <a href="http://localhost:3000/LevelsPage" class="fourthButton">Level 4 &#128274; </a>
-               <a href="http://localhost:3000/LevelsPage" class="fifthButton">Level 5 &#128274;</a>
-               <a href="http://localhost:3000/CustomSelection" class="sixthButton">Custom Level</a> </div>);
+               
+               <NavLink to="/Level3" class="thirdButton">Level 3 </NavLink>
+               <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274; </NavLink>
+              
+               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
+               
+               <NavLink to="/custom" class="sixthButton">Custom Level </NavLink> </div>);
 
    
        /*if(document.referrer === "http://localhost:3000/RetryPage" || ""){
