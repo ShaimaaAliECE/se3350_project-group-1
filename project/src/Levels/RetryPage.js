@@ -7,7 +7,7 @@ const RetryPage = () => {  //create main page
     screen.push (
         <div>
         <div>
-         <h1 class='topRectangle'> &emsp;Level Failed<button class='quitButton'> <a href= 'http://localhost:3000/LevelsPage' class="noDec"> Quit</a>  </button> <button class='analyticsButton'>Analytics</button></h1>
+         <h1 class='topRectangle'> &emsp;Level Failed<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
          </div>
           <div class="thisText">
               
