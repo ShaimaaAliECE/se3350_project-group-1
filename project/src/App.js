@@ -3,7 +3,7 @@ import React, {Component}  from 'react';  //import reuqired libraries
 import "./App.css";
 
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch
 } from 'react-router-dom';
@@ -92,7 +92,7 @@ getRange = ()=>{
   render(){
     //console.log(this.state.upper,this.state.lower,this.state.range)
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
             <Switch>
               <Route exact path="/Tutorial" component={Tutorial} />
@@ -114,7 +114,7 @@ getRange = ()=>{
             </Switch>
 
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
