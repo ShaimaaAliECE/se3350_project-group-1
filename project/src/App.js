@@ -25,6 +25,8 @@ import Analytics from './Levels/Analytics'
 
 import Level2 from './Levels/Level2';
 import Level3 from './Levels/Level3';
+import Level4 from './Levels/Level4';
+import Level5 from './Levels/Level5';
 import Login from './Levels/Login';
 import Custom from './Levels/custom';
 
@@ -98,6 +100,8 @@ getRange = ()=>{
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/Level2" component={Level2} />
               <Route exact path="/Level3" component={Level3} />
+              <Route exact path="/Level4" component={Level4} />
+              <Route exact path="/Level5" component={Level5} />
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
               <Route path="/Analytics" ><Analytics stats={stats}/></Route>

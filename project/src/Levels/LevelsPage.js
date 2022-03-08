@@ -16,8 +16,8 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
           &emsp; &emsp; <NavLink to="/Level2" class="scndButton">Level 2 </NavLink>
                &emsp; &emsp; 
                <NavLink to="/Level3" class="thrdButton">Level 3 </NavLink>
-               <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274; </NavLink>
-               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
+               <NavLink to="/Level4" class="fourthButton">Level 4 &#128274; </NavLink>
+               <NavLink to="/Level5" class="fifthButton">Level 5 &#128274;</NavLink>
                <NavLink to="/custom" class="sixthButton">Custom Level </NavLink> </div>);
 
    
