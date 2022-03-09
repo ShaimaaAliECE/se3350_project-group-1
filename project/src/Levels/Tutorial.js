@@ -4,15 +4,16 @@ import {NavLink} from 'react-router-dom';
 
 
 let instructionArray = [
-  "Divide the array down the middle into two parts",
-  "Repeat this division until in array is completely divided",
-  "Repeat this division until in array is completely divided",
-  "Repeat this division until in array is completely divided",
-  "Now that the array is in individual units merge the units together",
-  "Merge the two closest subarrays so they are in ascending order",
-  "Repeat this step for all subarrays until the array is rejoined",
-  "Repeat this step for all subarrays until the array is rejoined",
-  "Now the elements are sorted in ascending order",
+  "",
+  "Start with the unordered array of elements",
+  "Split the array down the middle into 2 equal halves",
+  "Split the array again, dividing the 2 halves into sections of 3 and 2",
+  "Split the sections of 3 into smaller sections of 2 and 1, and leave the sections of 2 elements as is for now",
+  "Split each smaller section of each subarray into its own individual parts",
+  "Rejoin the previously split array back into sections of 2 and 1, ensuring that the sections with 2 parts are placed in ascending order",
+  "Rejoin the previously split arrays again back into sections of 3 and 2, ensuring that the section that had 1 element is rejoined to the subsection that had 2 elements, placed in ascending order ",
+  "Rejoin the previously split halves, joining the subsections of 2 and 3 elements back together placed in ascending order",
+  "Rejoin the halves, ensuring that the elements are placed in ascending order. Now the elements are sorted in ascending order"
 
 ];
 //returns the proper spaces for the button array
@@ -235,7 +236,7 @@ function Tutorial() {
   }
 
   let arrayLength = correctOrder[0].length
-  let totalRows = 2 * Math.ceil(Math.log2(arrayLength))
+  let totalRows = (2 * Math.ceil(Math.log2(arrayLength))) 
   const screen = [];
   let rows=1
 
@@ -249,25 +250,27 @@ const [dataSize,setDataSize]=useState(null)
     <div>
       <h1 class='topRectangle'> &emsp;Tutorial<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
     </div>
-    Step<input type="range"  min="1" max= {totalRows} onChange ={getSize}></input>{dataSize}<br></br>
+    Step<input type="range"  min="1" max= {totalRows + 1} onChange ={getSize}></input>{dataSize}<br></br>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[{dataSize}.dataSize]}</h3></div>)
     
    // screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10}></ButtonRow>)
    screen.push(<ButtonRow numbers={twoDimSortedArr[0][0]} rowClick={rowClick} row={0 + 10} length={arrayLength} correctRow={correctOrder[0]} enabled={false} spaces={buttonPlacement[0]} numVisible={10}></ButtonRow>)
   //creating an array of button rows
-  for (let i = 1; i < {dataSize}.dataSize; i++) {
-    screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]} numVisible={10}></ButtonRow>)
-    
-  
-      if (i===7){
-        screen.push(
-          <NavLink to="/Level1Complete" class="submitButton">Next</NavLink>
-         )
-        }
+    for (let i = 1; i < {dataSize}.dataSize; i++) {
+      if (i < 8){
+        screen.push(<ButtonRow numbers={twoDimSortedArr[i][0]} rowClick={rowClick} row={i + 10} length={arrayLength} correctRow={correctOrder[i]} enabled={false} spaces={buttonPlacement[i]} numVisible={10}></ButtonRow>)  
       }
+    if (i === 8){
+      //the final row
+      screen.push(<ButtonRow numbers={twoDimSortedArr[8][0]} rowClick={rowClick} row={8 + 10} length={arrayLength} correctRow={correctOrder[7]} enabled={false} spaces={buttonPlacement[8]} numVisible={10}></ButtonRow>)    
+      screen.push(
+      <NavLink to="/Level1Complete" class="submitButton">Next</NavLink>)
+        }
+    }
+    
+
   
-  //the final row
   
   //returning the screen
   return (<div>{screen}</div>)
