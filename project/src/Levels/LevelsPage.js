@@ -37,10 +37,7 @@ function changeAnalytics(level,column,change){
    
 }
 
-function level2Click(level,column,change){
-   changeAnalytics(level,column,change);
-  
-}
+
 
 const LevelsPage = () => {    //create constant that will navigate from page to page
    const screen = [];
@@ -52,13 +49,13 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
 
      screen.push( <div>
          <p> &emsp;Click the level 1 button to begin the merge sort algorithm tutorial </p>
-         &emsp; <NavLink to="/Tutorial" class="bttnz">Level 1 </NavLink>
-          &emsp; &emsp; <NavLink to="/Level2" class="scndButton" onClick={()=>level2Click(2,1,1)}> Level 2</NavLink>
+         &emsp; <NavLink to="/Tutorial" class="bttnz" onClick={()=>changeAnalytics(1,1,1)}>Level 1 </NavLink>
+          &emsp; &emsp; <NavLink to="/Level2" class="scndButton" onClick={()=>changeAnalytics(2,1,1)}> Level 2</NavLink>
                &emsp; &emsp; 
                
-               <NavLink to="/Level3" class="thrdButton">Level 3 </NavLink>
-               <NavLink to="/Level4" class="fourthButton">Level 4 &#128274; </NavLink>
-               <NavLink to="/Level5" class="fifthButton">Level 5 &#128274;</NavLink>
+               <NavLink to="/Level3" class="thrdButton" onClick={()=>changeAnalytics(3,1,1)}>Level 3 </NavLink>
+               <NavLink to="/Level4" class="fourthButton"onClick={()=>changeAnalytics(4,1,1)}>Level 4 &#128274; </NavLink>
+               <NavLink to="/Level5" class="fifthButton"onClick={()=>changeAnalytics(5,1,1)}>Level 5 &#128274;</NavLink>
                <NavLink to="/custom" class="sixthButton">Custom Level </NavLink> </div>);
 
    
