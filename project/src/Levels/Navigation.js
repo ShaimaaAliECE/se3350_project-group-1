@@ -7,6 +7,7 @@ const Navigation = () => {    //create constant that will navigate from page to 
        <div>
          <div>
          <h1 class='topRectangle'> &emsp;Levels<button class='quitButton'> <a href= 'http://localhost:3000' class="noDec"> </a> Quit </button> <button class='analyticsButton'><a class="noDec" href= 'http://localhost:3000/Analytics'> Analytics </a></button></h1>
+         <h1 class='topRectangle'> &emsp;Levels<button class='quitButton'> <NavLink to="/" class="noDec"></NavLink> Quit </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
          </div>
          
       <div>

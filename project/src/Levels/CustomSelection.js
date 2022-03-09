@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function CustomSelection(props) {
@@ -20,9 +21,11 @@ function CustomSelection(props) {
     setDataSize(val.target.value)
     props.setRange(val.target.value)
   }
-  function createInfoArray() {
 
+  function createInfoArray() {
+    
     let arr = [{ dataUpper }, { dataLower }, { dataSize }]
+   
     //cookies.set('info', arr, { path: '/' });
 // <th>{props.stats[0][1]}</th>   
 
@@ -31,20 +34,28 @@ function CustomSelection(props) {
   
   }
   //creating an array of button rows
-
+ 
   return (
     <div><div style={{ alignContent: 'centre' }}>
     <div>
-      <h1 class='topRectangle'> &emsp;Custom Selection<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+    <h1 class='topRectangle'> &emsp;Custom Selection<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
 
     <p >Select the range and size for the merge sort array</p>
     Lower Bounds<input type="range" min="1" max="100" onChange={getLower}></input>{dataLower||1}<br></br>
     Upper Bounds<input type="range" min={dataLower} max="100" onChange={getUpper}></input>{dataUpper||10}<br></br>
     List Size<input type="range" min="2" max="50" onChange={getSize}></input>{dataSize||10}<br></br>
+ 
+    <button type="submit" onClick={createInfoArray(),props.clickedFunc}>Submit </button>
 
-    <button type="submit" onClick={createInfoArray()}><a href='http://localhost:3000/CustomLevel'> Submit </a> </button>
   </div></div>
   )
+ 
 }
+
 export default CustomSelection;
+var element = document.getElementById("lb");
+
+const arr = [element,element,element]
+//trying to get the values of that are stored in the props in App.js outside of the function in custom selection
+export {arr};
