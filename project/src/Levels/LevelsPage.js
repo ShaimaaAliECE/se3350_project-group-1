@@ -2,6 +2,46 @@ import React from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
 
+
+function changeAnalytics(level,column,change){
+   //retreive the analytics string
+   let statsString=localStorage.getItem('Analytics');
+   //convert to json
+   let stats=JSON.parse(statsString);
+
+   
+   switch(column){
+      case 1:
+         stats[level-1].attempts+=change;
+         
+         break;
+      case 2:
+         stats[level-1].timesComplete+=change;
+         
+         break;
+      case 3:
+         stats[level-1].bestTime+=change;
+         
+         break;
+      case 4:
+         stats[level-1].totalTime+=change;
+         
+         break;
+       default:
+         break;
+         
+   }
+
+
+   localStorage.setItem('Analytics', JSON.stringify(stats));
+   
+}
+
+function level2Click(level,column,change){
+   changeAnalytics(level,column,change);
+  
+}
+
 const LevelsPage = () => {    //create constant that will navigate from page to page
    const screen = [];
    
@@ -13,8 +53,9 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
      screen.push( <div>
          <p> &emsp;Click the level 1 button to begin the merge sort algorithm tutorial </p>
          &emsp; <NavLink to="/Tutorial" class="bttnz">Level 1 </NavLink>
-          &emsp; &emsp; <NavLink to="/Level2" class="scndButton">Level 2 </NavLink>
+          &emsp; &emsp; <NavLink to="/Level2" class="scndButton" onClick={()=>level2Click(2,1,1)}> Level 2</NavLink>
                &emsp; &emsp; 
+               
                <NavLink to="/Level3" class="thrdButton">Level 3 </NavLink>
                <NavLink to="/Level4" class="fourthButton">Level 4 &#128274; </NavLink>
                <NavLink to="/Level5" class="fifthButton">Level 5 &#128274;</NavLink>

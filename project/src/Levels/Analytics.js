@@ -1,11 +1,15 @@
-import React from 'react';  //import required libraries
+import React, { useState } from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
 
-const Analytics = (props) => {    //create constant that will navigate from page to page
+//reads form the local storage as a string and parses it to a json object
 
 
-
+const Analytics = () => {    //create constant that will navigate from page to page
+    let statsString=localStorage.getItem('Analytics');
+    let stats=JSON.parse(statsString);
+    const [playerData,setPlayerData]=useState(stats);
+    
     return (
        <div>
          
@@ -35,38 +39,38 @@ const Analytics = (props) => {    //create constant that will navigate from page
                     </tr>
                     <tr>
                         <th>1</th>
-                        <th>{""+props.stats[0].attempts}</th>
-                        <th>{""+props.stats[0].timesComplete}</th>
-                        <th>{""+props.stats[0].bestTime}</th>
-                        <th>{""+props.stats[0].totalTime}</th>
+                        <th>{""+playerData[0].attempts}</th>
+                        <th>{""+playerData[0].timesComplete}</th>
+                        <th>{""+playerData[0].bestTime}</th>
+                        <th>{""+playerData[0].totalTime}</th>
                     </tr>
                     <tr>
                         <th>2</th>
-                        <th>{""+props.stats[1].attempts}</th>
-                        <th>{""+props.stats[1].timesComplete}</th>
-                        <th>{""+props.stats[1].bestTime}</th>
-                        <th>{""+props.stats[1].totalTime}</th>
+                        <th>{""+playerData[1].attempts}</th>
+                        <th>{""+playerData[1].timesComplete}</th>
+                        <th>{""+playerData[1].bestTime}</th>
+                        <th>{""+playerData[1].totalTime}</th>
                     </tr>
                     <tr>
                         <th>3</th>
-                        <th>{""+props.stats[2].attempts}</th>
-                        <th>{""+props.stats[2].timesComplete}</th>
-                        <th>{""+props.stats[2].bestTime}</th>
-                        <th>{""+props.stats[2].totalTime}</th>
+                        <th>{""+playerData[2].attempts}</th>
+                        <th>{""+playerData[2].timesComplete}</th>
+                        <th>{""+playerData[2].bestTime}</th>
+                        <th>{""+playerData[2].totalTime}</th>
                     </tr>
                     <tr>
                         <th>4</th>
-                        <th>{""+props.stats[3].attempts}</th>
-                        <th>{""+props.stats[3].timesComplete}</th>
-                        <th>{""+props.stats[3].bestTime}</th>
-                        <th>{""+props.stats[3].totalTime}</th>
+                        <th>{""+playerData[3].attempts}</th>
+                        <th>{""+playerData[3].timesComplete}</th>
+                        <th>{""+playerData[3].bestTime}</th>
+                        <th>{""+playerData[3].totalTime}</th>
                     </tr>
                     <tr>
                         <th>5</th>
-                        <th>{""+props.stats[4].attempts}</th>
-                        <th>{""+props.stats[4].timesComplete}</th>
-                        <th>{""+props.stats[4].bestTime}</th>
-                        <th>{""+props.stats[4].totalTime}</th>
+                        <th>{""+playerData[4].attempts}</th>
+                        <th>{""+playerData[4].timesComplete}</th>
+                        <th>{""+playerData[4].bestTime}</th>
+                        <th>{""+playerData[4].totalTime}</th>
                     </tr>
                 </table>
             </div>
