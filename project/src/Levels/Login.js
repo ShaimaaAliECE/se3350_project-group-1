@@ -2,7 +2,36 @@ import React from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
 const Login = () => {    //create constant that will navigate from page to page
-  
+   let stats=[
+      {level:'1',
+      attempts:0,
+      timesComplete:0,
+      bestTime:'N/A',
+      totalTime:'00:00'},
+      {level:'2',
+      attempts:0,
+      timesComplete:0,
+      bestTime:'00:00',
+      totalTime:'00:00'},
+      {level:'3',
+      attempts:0,
+      timesComplete:0,
+      bestTime:'00:00',
+      totalTime:'00:00'},
+      {level:'4',
+      attempts:0,
+      timesComplete:0,
+      bestTime:'00:00',
+      totalTime:'00:00'},
+      {level:'5',
+      attempts:0,
+      timesComplete:0,
+      bestTime:'00:00',
+      totalTime:'00:00'}
+    ];
+    
+    //writes the JSON object to the users local storage
+    localStorage.setItem('Analytics', JSON.stringify(stats));
     return (
        <div>
          <div>
