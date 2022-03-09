@@ -29,7 +29,7 @@ import Level4 from './Levels/Level4';
 import Level5 from './Levels/Level5';
 import Login from './Levels/Login';
 import Custom from './Levels/custom';
-
+/*
 let stats=[
   {level:'1',
   attempts:0,
@@ -58,8 +58,9 @@ let stats=[
   totalTime:'00:00'}
 ];
 
-
-
+//writes the JSON object to the users local storage
+localStorage.setItem('Analytics', JSON.stringify(stats));
+*/
 //create class that will route to the beginning page
 class App extends Component {
 
@@ -104,7 +105,7 @@ getRange = ()=>{
               <Route exact path="/Level5" component={Level5} />
               <Route exact path="/Tutorial" component={Tutorial} />
               <Route exact path="/" component={Login} />
-              <Route path="/Analytics" ><Analytics stats={stats}/></Route>
+              <Route path="/Analytics" ><Analytics /></Route>
               <Route path="/CustomLevel" ><CustomLevel  arrTest ={this.state} getUpper = {this.getUpper} getLower = {this.getLower} getRange = {this.getRange}/></Route>
               <Route path="/CustomSelection" ><CustomSelection arrTest={this.state} setUpper={this.setUpper} setLower={this.setLower} setRange={this.setRange}/></Route>
               <Route path="/LevelsPage" component={LevelsPage} />

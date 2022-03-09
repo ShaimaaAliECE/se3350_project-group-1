@@ -2,6 +2,7 @@ import React from 'react';  //import required libraries
  
 import { NavLink } from 'react-router-dom';
 const Login = () => {    //create constant that will navigate from page to page
+  
     return (
        <div>
          <div>
