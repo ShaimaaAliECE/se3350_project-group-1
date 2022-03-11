@@ -40,6 +40,8 @@ function Button(props) {
       wrong2.play();
       wrong2.onended= function() {
         leave();
+        count =0;
+        right =0;
     };
     }
 
@@ -64,7 +66,7 @@ function Button(props) {
     if (count ===2 && right===80){
       leave3();
       count =0;
-      right
+      right =0;
     }
 
   }
