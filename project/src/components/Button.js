@@ -57,19 +57,21 @@ function Button(props) {
     if (count ===2 && right ===80){
       leave3();
     }
-    
+
   }
- 
+  count = 0;
+  right =0;
   return (
   <button   class={clicked?"bttnCorrect":"bttn2"} onClick={buttonClick} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
      {props.value}
   </button>
   
   );
-
+ 
+  
 function leave(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/RetryPage"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/RetryPage/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
@@ -77,7 +79,7 @@ function leave(){
 }
 function leave1(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/Completed"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/Completed/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
@@ -85,7 +87,7 @@ function leave1(){
 }
 function leave2(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/OneMistake"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/OneMistake/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
@@ -93,13 +95,12 @@ function leave2(){
 }
 function leave3(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "/TwoMistakes"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/TwoMistakes/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
     );
 }
-
 
 }
 
