@@ -265,7 +265,7 @@ inactivity(); //have this function run when the page loads
   //justify?
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
-    <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
+    <h1 class='topRectangle'> &emsp;Level 5<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
 
     <p >Begin!</p>
