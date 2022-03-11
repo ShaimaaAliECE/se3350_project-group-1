@@ -2,9 +2,29 @@ import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 import {arr} from "./CustomSelection";
 
-
+let work = true; 
 function CustomLevel(props) {
  
+  (() => {
+  
+    if (work) {
+      work = false;
+        // If there is no item as 'reload'
+        // in localstorage then create one &
+        // reload the page
+        if (!localStorage.getItem('reload')) {
+            localStorage['reload'] = true;
+            window.location.reload();
+        } else {
+  
+            // If there exists a 'reload' item
+            // then clear the 'reload' item in
+            // local storage
+            localStorage.removeItem('reload');
+        }
+    }
+  })();
+
   function getButtonPlacement(arr) {
     let res = []
     for (let i = 0; i < arr.length; i++) {
@@ -215,8 +235,8 @@ function CustomLevel(props) {
 
   function inactivity() {
 
-    const idleDurationSecs = 10;    // X number of seconds
-    const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
+    const idleDurationSecs = 300;    // X number of seconds
+    const redirectUrl = '/#/LevelsPage/';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
     //to display an alert box before being redirected
