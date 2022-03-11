@@ -1,9 +1,10 @@
 import React from 'react'; //import required libraries
-
+import {useHistory} from "react-router-dom";
 import {NavLink} from 'react-router-dom';
 
 const Completed = () => { 
     const screen=[]; //create main page 
+    const history = useHistory();
     screen.push (
         <div>
         <div>
@@ -25,7 +26,7 @@ const Completed = () => {
        </div>   
        
     );
-    if (document.referrer === "http://localhost:3000/Level2")
+    /*if (document.referrer === "http://localhost:3000/Level2")
     {
         screen.push(<div>&emsp;<NavLink to="/Level2" class='bttn'> Play Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
         <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
@@ -33,8 +34,11 @@ const Completed = () => {
     if (document.referrer === "http://localhost:3000/Level3"){
         screen.push(<div>&emsp;<NavLink to="/Level3" class='bttn'> Play Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
         <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
-    }
+    }*/ 
+    screen.push(<div>&emsp;<button  onClick={() => history.goBack()} class='bttn'> Play Again </button>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+    <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
     return(<div>{screen}</div>);
+    
 }
 
 

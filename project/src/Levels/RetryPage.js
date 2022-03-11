@@ -1,9 +1,12 @@
 import React from 'react'; //import required libraries
-
+import {useHistory} from "react-router-dom";
 import {NavLink} from 'react-router-dom';
-const screen = [];
+
+
+//const screen = [];
 const RetryPage = () => {  //create main page 
     const screen = [];
+    const history = useHistory();
     screen.push (
         <div>
         <div>
@@ -17,14 +20,19 @@ const RetryPage = () => {  //create main page
         
 
           
+  
 <h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You made 3 mistakes</h3>
 <p> Your Time:  &emsp; &emsp; &emsp; Best Time:   </p>
-<div>&emsp;<button class='bttn' > Try Again </button>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-<NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>
+
+
+
 </div>
                    
        </div>   
     );
+    screen.push(<div>&emsp;<button  onClick={() => history.goBack()} class='bttn'> Try Again </button>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+    <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
+
     
     return(<div>{screen}</div>);
 }
