@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import ButtonRow from "../components/ButtonRow.js";
 
 
+
 let instructionArray = [
   "Divide the array down the middle into two parts",
   "Repeat this division until in array is completely divided",
@@ -191,7 +192,16 @@ for (let i = 1; i < sortedArray.length; i++) {
   buttonStates.push(nullArray);
 
 }
-
+function componentDidMount() {
+  const reloadCount = sessionStorage.getItem('reloadCount');
+  if(reloadCount < 2) {
+    sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+    window.location.reload();
+  } else {
+    sessionStorage.removeItem('reloadCount');
+  }
+}
+let work = true;
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function Level2() {
@@ -201,7 +211,26 @@ function Level2() {
   const [clicked, updateClick] = useState(0);
   const [instructionsNum, updateInstructions] = useState(0);
 
+//componentDidMount();
+(() => {
   
+  if (work) {
+    work = false;
+      // If there is no item as 'reload'
+      // in localstorage then create one &
+      // reload the page
+      if (!localStorage.getItem('reload')) {
+          localStorage['reload'] = true;
+          window.location.reload();
+      } else {
+
+          // If there exists a 'reload' item
+          // then clear the 'reload' item in
+          // local storage
+          localStorage.removeItem('reload');
+      }
+  }
+})();
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -220,8 +249,10 @@ function Level2() {
     }
 
   }
-
+  
+ 
     //the timer part
+  
     window.addEventListener("load", function() {
       const clock = document.getElementById("time");
       let time = -1, intervalId;
@@ -234,13 +265,25 @@ function Level2() {
       incrementTime();
       intervalId = setInterval(incrementTime, 1000);
     });
-  
+/** 
+    (() => {
+      const clock = document.getElementById("time");
+      let time = -1, intervalId;
+      function incrementTime() {
+        time++;
+        clock.textContent =
+          ("0" + Math.trunc(time / 60)).slice(-2) +
+          ":" + ("0" + (time % 60)).slice(-2);
+      }
+      incrementTime();
+      intervalId = setInterval(incrementTime, 1000);
+    })();
+    */
     function inactivity() {
   
-      const idleDurationSecs = 105;    // X number of seconds
+      const idleDurationSecs = 300;    // X number of seconds
       const redirectUrl = '#/LevelsPage/';  // Redirect idle users to this URL
       let idleTimeout; // variable to hold the timeout, do not modify
-  
       //to display an alert box before being redirected
       function redirect()
       {
@@ -268,15 +311,16 @@ function Level2() {
       );
   
   }
-  
-  
+  //window.location.reload();
+  //componentDidMount(); //have the page refresh once when it opens;
   inactivity(); //have this function run when the page loads
-
+  
   let arrayLength = correctOrder[0].length
   let rows = 2 * Math.ceil(Math.log2(arrayLength))
   const screen = [];
   //justify?
-  screen.push(<div style={{ alignContent: 'centre' }}>
+  screen.push(
+    <div style={{ alignContent: 'centre' }}>
     <div>
     <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
@@ -303,6 +347,7 @@ function Level2() {
   
   return (<div>{screen}</div>)
 }
+
 
 export default Level2;
 
