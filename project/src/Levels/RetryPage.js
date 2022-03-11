@@ -14,26 +14,18 @@ const RetryPage = () => {  //create main page
           &emsp; &emsp; <img id = "pic" src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
           <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
           <img src="//www.clker.com/cliparts/y/8/W/E/z/N/outlined-star-hi.png" width="100" height="100" alt="blankStar"/>
-                
+        
 
           
 <h3> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;You made 3 mistakes</h3>
 <p> Your Time:  &emsp; &emsp; &emsp; Best Time:   </p>
-
-       
+<div>&emsp;<button class='bttn' > Try Again </button>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+<NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>
 </div>
                    
        </div>   
     );
-    if (document.referrer === "http://localhost:3000/Level2")
-    {
-        screen.push(<div>&emsp;<NavLink to="/Level2" class='bttn'> Try Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-        <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
-    }
-    if (document.referrer === "http://localhost:3000/Level3"){
-        screen.push(<div>&emsp;<NavLink to="/Level3" class='bttn'> Try Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-        <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
-    }
+    
     return(<div>{screen}</div>);
 }
 
