@@ -180,7 +180,7 @@ for (let i = 1; i < sortedArray.length; i++) {
   buttonStates.push(nullArray);
 
 }
-let work = true;
+
 
 /////////////////////////////// React Component that is for level 3\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function Level3() {
@@ -189,25 +189,7 @@ function Level3() {
   const [btnStates, updateBtns] = useState(buttonStates);
   const [clicked, updateClick] = useState(0);
 
-  (() => {
-  
-    if (work) {
-      work = false;
-        // If there is no item as 'reload'
-        // in localstorage then create one &
-        // reload the page
-        if (!localStorage.getItem('reload')) {
-            localStorage['reload'] = true;
-            window.location.reload();
-        } else {
-  
-            // If there exists a 'reload' item
-            // then clear the 'reload' item in
-            // local storage
-            localStorage.removeItem('reload');
-        }
-    }
-  })();
+ 
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -275,6 +257,10 @@ function Level3() {
 
 }
 
+//refreshing the page
+function loadRefreshContent() {
+  window.location.reload(false);
+}
 
 inactivity(); //have this function run when the page loads
 
@@ -287,7 +273,7 @@ inactivity(); //have this function run when the page loads
     <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
 
-    <p >Begin!</p>
+    <button onClick={loadRefreshContent}>Start</button>
     <div id="time">00:00</div>
     </div>)
   //creating the first row 

@@ -201,7 +201,7 @@ function componentDidMount() {
     sessionStorage.removeItem('reloadCount');
   }
 }
-let work = true;
+
 
 /////////////////////////////// React Component that is for level 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 function Level2() {
@@ -212,25 +212,7 @@ function Level2() {
   const [instructionsNum, updateInstructions] = useState(0);
 
 //componentDidMount();
-(() => {
-  
-  if (work) {
-    work = false;
-      // If there is no item as 'reload'
-      // in localstorage then create one &
-      // reload the page
-      if (!localStorage.getItem('reload')) {
-          localStorage['reload'] = true;
-          window.location.reload();
-      } else {
 
-          // If there exists a 'reload' item
-          // then clear the 'reload' item in
-          // local storage
-          localStorage.removeItem('reload');
-      }
-  }
-})();
   //called when a button is clicked and updates the state of the buttons so that a button
   //in the next row gets the value of the button clicked
   function rowClick(val, index, row) {
@@ -314,7 +296,13 @@ function Level2() {
   //window.location.reload();
   //componentDidMount(); //have the page refresh once when it opens;
   inactivity(); //have this function run when the page loads
-  
+
+
+  function loadRefreshContent() {
+		window.location.reload(false);
+	}
+
+
   let arrayLength = correctOrder[0].length
   let rows = 2 * Math.ceil(Math.log2(arrayLength))
   const screen = [];
@@ -324,6 +312,7 @@ function Level2() {
     <div>
     <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
+    <button onClick={loadRefreshContent}>Start</button>
     <div id="time">00:00</div>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
