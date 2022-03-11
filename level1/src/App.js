@@ -38,6 +38,8 @@ class App extends Component {
               <Route exact path="/Step3" component={Step3} />
               <Route exact path="/Step4" component={Step4} />
               <Route exact path="/Step5" component={Step5} />
+              <Route exact path="/RetryPage" component={LevelsPage} />
+              <Route exact path="/TwoMistakes" component={LevelsPage} />
               <Route exact path="/Step6" component={Step6} />
               <Route exact path="/Step7" component={Step7} />
               <Route exact path="/Step8" component={Step8} />
