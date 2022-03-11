@@ -23,7 +23,7 @@ const TwoMistakes = () => {  //create main page
        </div>   
        
     );
-    if (document.referrer === "http://localhost:3000/Level2")
+    if (document.referrer === "#/Level2")
     {
         screen.push(<div>&emsp;<NavLink to="/Level2" class='bttn'> Play Again </NavLink>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
         <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
