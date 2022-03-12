@@ -28,6 +28,7 @@ function getButtonPlacement(arr) {
       res[i].push(count)
     }
   }
+
   return res
 }
 //adding -1 as a place holder to make the length even for proper division into subarrays
