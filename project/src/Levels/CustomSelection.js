@@ -37,8 +37,7 @@ function CustomSelection(props) {
     <div>
     <h1 class='topRectangle'> &emsp;Custom Selection<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
-
-    <p >Select the range and size for the merge sort array</p>
+<center><p >Select the range and size for the merge sort array</p></center>
     Lower Bounds<input type="range" min="1" max="200" onChange={getLower}></input>{dataLower}<br></br>
     Upper Bounds<input type="range" min={dataLower} max="200" onChange={getUpper}></input>{dataUpper}<br></br>
     List Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" min="2" max="30" onChange={getSize}></input>{dataSize}<br></br>
