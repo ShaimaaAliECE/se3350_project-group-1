@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import ButtonRow from "../components/ButtonRow.js";
 import Button from "../components/ButtonRow.js";
@@ -234,45 +234,31 @@ function Level2() {
   }
   
  
-    //the timer part
-  
-    window.addEventListener("load", function() {
-      const clock = document.getElementById("time");
-      let time = -1, intervalId;
-      function incrementTime() {
-        time++;
-        clock.textContent =
-          ("0" + Math.trunc(time / 60)).slice(-2) +
-          ":" + ("0" + (time % 60)).slice(-2);
-      }
-      incrementTime();
-      intervalId = setInterval(incrementTime, 1000);
-    });
-/** 
-    (() => {
-      const clock = document.getElementById("time");
-      let time = -1, intervalId;
-      function incrementTime() {
-        time++;
-        clock.textContent =
-          ("0" + Math.trunc(time / 60)).slice(-2) +
-          ":" + ("0" + (time % 60)).slice(-2);
-      }
-      incrementTime();
-      intervalId = setInterval(incrementTime, 1000);
-    })();
-    */
+      //timer code
+  //put the timer code into the effect hooks so it doesn't require a refresh to start.
+  useEffect(() => {
+    const clock = document.getElementById("time");
+    let time = -1, intervalId;
+    function incrementTime() {
+      time++;
+      clock.textContent =
+        ("0" + Math.trunc(time / 60)).slice(-2) +
+        ":" + ("0" + (time % 60)).slice(-2);
+    }
+    incrementTime();
+    intervalId = setInterval(incrementTime, 1000);
+  },[]);
+
     function inactivity() {
   
       const idleDurationSecs = 300;    // X number of seconds
       const redirectUrl = '#/LevelsPage/';  // Redirect idle users to this URL
       let idleTimeout; // variable to hold the timeout, do not modify
-      //to display an alert box before being redirected
+
+      //to redirect to the home page
       function redirect()
       {
-        window.location.href = redirectUrl;
-        alert("Due to inactivity, your session has timed-out");
-        
+        window.location.href = redirectUrl;       
       }
   
       const resetIdleTimeout = function() {
@@ -294,14 +280,9 @@ function Level2() {
       );
   
   }
-  //window.location.reload();
-  //componentDidMount(); //have the page refresh once when it opens;
+
   inactivity(); //have this function run when the page loads
 
-
-  function loadRefreshContent() {
-		window.location.reload(false);
-	}
 
 
   let arrayLength = correctOrder[0].length
@@ -313,7 +294,6 @@ function Level2() {
     <div>
     <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
-    <button onClick={loadRefreshContent} class = "bttnstrt">Start</button>
     <div id="time">00:00</div>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)

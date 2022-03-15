@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 import { NavLink } from 'react-router-dom';
 
@@ -206,9 +206,9 @@ function Level4() {
     updateClick(clicked + 1);
   }
 
-  //the timer part
-  window.addEventListener("load", function() {
-    console.log("test");
+  //timer code
+  //put the timer code into the effect hooks so it doesn't require a refresh to start.
+  useEffect(() => {
     const clock = document.getElementById("time");
     let time = -1, intervalId;
     function incrementTime() {
@@ -219,30 +219,28 @@ function Level4() {
     }
     incrementTime();
     intervalId = setInterval(incrementTime, 1000);
-  });
+  },[]);
 
  
 
   function inactivity() {
-
-    const idleDurationSecs = 100;    // X number of seconds
-    const redirectUrl = 'http://localhost:3000/LevelsPage';  // Redirect idle users to this URL
+  
+    const idleDurationSecs = 300;    // X number of seconds
+    const redirectUrl = '#/LevelsPage/';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
-    //to display an alert box before being redirected
+    //to redirect to the home page
     function redirect()
     {
-      window.location.href = redirectUrl;
-      alert("Due to inactivity, your session has timed-out");
-      
+      window.location.href = redirectUrl;       
     }
 
     const resetIdleTimeout = function() {
 
         // Clears the existing timeout
         if(idleTimeout) clearTimeout(idleTimeout);
-
-        // Set a new idle timeout to load the redirectUrl after idleDurationSecs
+  
+        // Set a new idle timeout to load the redirectUrl after idleDurationSecs          
         idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
     };
 

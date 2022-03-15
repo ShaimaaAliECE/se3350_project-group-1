@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import ButtonRow from "../components/ButtonRow.js";
 import { NavLink } from 'react-router-dom';
 
@@ -206,9 +206,9 @@ function Level3() {
 
   }
 
-  //the timer part
-  window.addEventListener("load", function() {
-    console.log("test");
+  //timer code
+  //put the timer code into the effect hooks so it doesn't require a refresh to start.
+  useEffect(() => {
     const clock = document.getElementById("time");
     let time = -1, intervalId;
     function incrementTime() {
@@ -219,7 +219,7 @@ function Level3() {
     }
     incrementTime();
     intervalId = setInterval(incrementTime, 1000);
-  });
+  },[]);
 
  
 
@@ -229,12 +229,10 @@ function Level3() {
     const redirectUrl = '/#/LevelsPage/';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
-    //to display an alert box before being redirected
+    //to redirect to the home page
     function redirect()
     {
-      window.location.href = redirectUrl;
-      alert("Due to inactivity, your session has timed-out");
-      
+      window.location.href = redirectUrl;      
     }
 
     const resetIdleTimeout = function() {
@@ -257,10 +255,7 @@ function Level3() {
 
 }
 
-//refreshing the page
-function loadRefreshContent() {
-  window.location.reload(false);
-}
+
 
 inactivity(); //have this function run when the page loads
 
@@ -273,7 +268,7 @@ inactivity(); //have this function run when the page loads
     <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
 
-    <button class ="bttnstrt" onClick={loadRefreshContent}>Start</button>
+
     <div id="time">00:00</div>
     </div>)
   //creating the first row 
