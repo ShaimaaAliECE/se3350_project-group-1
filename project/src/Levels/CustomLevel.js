@@ -207,11 +207,9 @@ function CustomLevel(props) {
     const redirectUrl = '/#/LevelsPage/';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
-    //to display an alert box before being redirected
+    //to redirect to the home page
     function redirect() {
       window.location.href = redirectUrl;
-      alert("Due to inactivity, your session has timed-out");
-
     }
 
     const resetIdleTimeout = function () {
