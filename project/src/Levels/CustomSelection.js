@@ -7,32 +7,29 @@ function CustomSelection(props) {
   const [dataUpper, setDataUpper] = useState(null)
   const [dataLower, setDataLower] = useState(null)
   const [dataSize, setDataSize] = useState(null)
+  //all 3 sliders must be updated to proceed
+  const [s1,sets1]=React.useState("")
+  const [s2,sets2]=React.useState("")
+  const [s3,sets3]=React.useState("")
 
   function getUpper(val) {
     setDataUpper(val.target.value)
     props.setUpper(val.target.value)
+    sets1(val.target.value)
   }
 
   function getLower(val) {
     setDataLower(val.target.value)
     props.setLower(val.target.value)
+    sets2(val.target.value)
   }
   function getSize(val) {
     setDataSize(val.target.value)
     props.setRange(val.target.value)
+    sets3(val.target.value)
   }
+ 
 
-  function createInfoArray() {
-    
-    let arr = [{ dataUpper }, { dataLower }, { dataSize }]
-   
-    //cookies.set('info', arr, { path: '/' });
-// <th>{props.stats[0][1]}</th>   
-
-   // console.log(props.arrTest[0].attempts)
-   
-  
-  }
   //creating an array of button rows
  
   return (
@@ -42,11 +39,11 @@ function CustomSelection(props) {
     </div>
 
     <p >Select the range and size for the merge sort array</p>
-    Lower Bounds<input type="range" min="1" max="100" onChange={getLower}></input>{dataLower||1}<br></br>
-    Upper Bounds<input type="range" min={dataLower} max="100" onChange={getUpper}></input>{dataUpper||10}<br></br>
-    List Size<input type="range" min="2" max="50" onChange={getSize}></input>{dataSize||10}<br></br>
+    Lower Bounds<input type="range" min="1" max="200" onChange={getLower}></input>{dataLower}<br></br>
+    Upper Bounds<input type="range" min={dataLower} max="200" onChange={getUpper}></input>{dataUpper}<br></br>
+    List Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" min="2" max="30" onChange={getSize}></input>{dataSize}<br></br>
  
-    <button type="submit" onClick={createInfoArray(),props.clickedFunc}>Submit </button>
+    <button disabled = {!s1||!s2||!s3} type="submit" onClick={props.clickedFunc}>Submit </button>
 
   </div></div>
   )
