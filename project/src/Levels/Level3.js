@@ -257,10 +257,7 @@ function Level3() {
 
 }
 
-//refreshing the page
-function loadRefreshContent() {
-  window.location.reload(false);
-}
+
 
 inactivity(); //have this function run when the page loads
 
@@ -273,7 +270,7 @@ inactivity(); //have this function run when the page loads
     <h1 class='topRectangle'> &emsp;Level 3<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
 
-    <button class ="bttnstrt" onClick={loadRefreshContent}>Start</button>
+
     <div id="time">00:00</div>
     </div>)
   //creating the first row 

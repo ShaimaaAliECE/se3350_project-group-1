@@ -280,14 +280,9 @@ function Level2() {
       );
   
   }
-  //window.location.reload();
-  //componentDidMount(); //have the page refresh once when it opens;
+
   inactivity(); //have this function run when the page loads
 
-
-  function loadRefreshContent() {
-		window.location.reload(false);
-	}
 
 
   let arrayLength = correctOrder[0].length
@@ -299,7 +294,6 @@ function Level2() {
     <div>
     <h1 class='topRectangle'> &emsp;Level 2<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
     </div>
-    <button onClick={loadRefreshContent} class = "bttnstrt">Start</button>
     <div id="time">00:00</div>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
