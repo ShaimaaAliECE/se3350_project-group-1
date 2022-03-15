@@ -50,25 +50,67 @@ function Button(props) {
       var incorrect = new Audio(WrongSound);
       incorrect.play();
       count++;
-     
+      
     }
-    console.log("right=" + right);
-     if (count ===0 && right===80){
+    //testing purposes
+    console.log(props.lvl);
+  
+    //checking for level 2 
+    if(props.lvl === 2 || props.lvl === 3 ){
+      
+      if (count ===0 && right=== 80){
        leave1();
        count =0;
        right =0;
      }
-     if (count ===1 && right===80){
+      else if (count ===1 && right=== 80){
       leave2();
       count=0;
       right =0;
     }
-    if (count ===2 && right===80){
+      else if (count ===2 && right=== 80){
       leave3();
       count =0;
       right =0;
+    } }
+    //checking for level 4
+    if(props.lvl === 4){
+      
+      if (count ===0 && right=== 200){
+       leave1();
+       count =0;
+       right =0;
+     }
+      else if (count ===1 && right=== 200){
+      leave2();
+      count=0;
+      right =0;
     }
+      else if (count ===2 && right=== 200){
+      leave3();
+      count =0;
+      right =0;
+    } }
 
+    //checking level 5 
+    if(props.lvl === 5){
+      
+      if (count ===0 && right=== 600){
+       leave1();
+       count =0;
+       right =0;
+     }
+      else if (count ===1 && right === 600){
+      leave2();
+      count=0;
+      right =0;
+    }
+      else if (count ===2 && right=== 600){
+      leave3();
+      count =0;
+      right =0;
+    } }
+   
   }
   
   
@@ -90,7 +132,7 @@ function leave(){
 }
 function leave1(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/Completed/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button  class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/Completed/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
@@ -98,7 +140,7 @@ function leave1(){
 }
 function leave2(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/OneMistake/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button  class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/OneMistake/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     

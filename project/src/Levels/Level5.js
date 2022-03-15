@@ -3,7 +3,7 @@ import ButtonRow from "../components/ButtonRow.js";
 import { NavLink } from 'react-router-dom';
 
 
-
+let level=5;
 //returns the proper spaces for the button array
 function getButtonPlacement(arr) {
   let res = []
@@ -273,13 +273,13 @@ inactivity(); //have this function run when the page loads
     <div id="time">00:00</div>
     </div>)
   //creating the first row 
-  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize}></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[0]} nameLevel={level} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize}></ButtonRow>)
 
   for (let i = 1; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
+    screen.push(<ButtonRow numbers={btnStates[i]} nameLevel={level} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
   }
   //the final row
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[rows]} nameLevel={level} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
   //returning the screen
   return (<div>{screen}</div>)
 }

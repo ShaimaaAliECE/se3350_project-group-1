@@ -37,8 +37,8 @@ function ButtonRow(props) {
   <div class="wrapper">
 
     {buttonObj.map((button,index) => (
-        <Button key={"row"+props.row+"-btn"+button.id} value={props.numbers[button.id]}  rowClick={buttonRowClick} 
-            padding={button.padding} nextVal={props.correctRow[count]} btnId={button.id} enabled={props.enabled} ></Button>
+        <Button key={"row"+props.row+"-btn"+button.id} value={props.numbers[button.id]}  rowClick={buttonRowClick} lvl ={props.nameLevel}
+            padding={button.padding} nextVal={props.correctRow[count]} btnId={button.id} enabled={props.enabled}  ></Button>
         
       ))}
 
