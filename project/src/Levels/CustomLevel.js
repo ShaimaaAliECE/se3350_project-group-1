@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import ButtonRow from "../components/ButtonRow.js";
-import {arr} from "./CustomSelection";
 
+import ButtonRow from "../components/ButtonRow.js";
+import { arr } from "./CustomSelection";
+import React, { useState, useEffect } from "react";
 
 function CustomLevel(props) {
- 
- 
+
+
 
   function getButtonPlacement(arr) {
     let res = []
@@ -19,7 +19,7 @@ function CustomLevel(props) {
     }
     return res
   }
-  
+
   function makeLengthEven(arr) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].length % 2 != 0) {
@@ -45,7 +45,7 @@ function CustomLevel(props) {
     return (unmergedPairs)
   }
   function merge(left, right) {
-  
+
     let arr = []
     while (left.length && right.length) {
       (left[0] < right[0]) ? arr.push(left.shift()) : arr.push(right.shift())
@@ -58,7 +58,7 @@ function CustomLevel(props) {
     for (let i = 0; i < arr.length; i++) {
       steps.push(arr[i].filter(function (item) { return item !== -1 }))
     }
-  
+
     for (let i = 0; i < steps.length; i++) {
       if (steps[i] != "") {
         res.push(steps[i])
@@ -66,7 +66,7 @@ function CustomLevel(props) {
     }
     return res
   }
-  
+
   function addSteps(steps, arr) {
     for (let i = 0; i < arr.length; i++) {
       steps.push([...arr[i]])
@@ -102,12 +102,12 @@ function CustomLevel(props) {
       arr = splitSubArray(arr)
       steps = addSteps(steps, arr)
     }
-  
+
     for (let i = 0; i < numberOfCycles; i++) {
       arr = createPairs(arr)
       let tmp = []
       for (let j = 0; j < arr.length; j++) {
-  
+
         tmp.push(merge(arr[j][0], arr[j][1]))
       }
       arr = tmp
@@ -116,7 +116,7 @@ function CustomLevel(props) {
     steps = removePlaceHolders(steps)
     steps = formatRows(arrayLength, steps)
     return steps
-  
+
   }
   let upperBounds = 100;
   let lowerBounds = 1;
@@ -124,19 +124,19 @@ function CustomLevel(props) {
   upperBounds = parseInt(props.getUpper)
   lowerBounds = parseInt(props.getLower)
   arraySize = parseInt(props.getRange)
- 
-  
+
+
   let randomNumberArr = []
   for (let i = 0; i < arraySize; i++) {
-    randomNumberArr.push(Math.floor(Math.random() *(upperBounds-lowerBounds)) + lowerBounds)
+    randomNumberArr.push(Math.floor(Math.random() * (upperBounds - lowerBounds)) + lowerBounds)
   }
   const randomNumberArray = [...randomNumberArr]
   let sortedArray = getSteps(randomNumberArray);
   console.log(sortedArray);
-  
+
   //2D array that has the values that the buttons should receive
   let correctArray = [];
-  
+
   for (const row of sortedArray) {
     let tempArr = [];
     for (const array of row) {
@@ -146,10 +146,10 @@ function CustomLevel(props) {
     }
     correctArray.push(tempArr);
   }
-  
+
   //2D array that contains the order in which the buttons have to be pressed to be correct
   let correctOrder = []
-  
+
   for (let i = 1; i < correctArray.length; i++) {
     let tempArr = [];
     for (let j = 0; j < correctArray[i].length; j++) {
@@ -165,8 +165,8 @@ function CustomLevel(props) {
     correctOrder.push(tempArr);
   }
   let buttonPlacement = getButtonPlacement(sortedArray)//button array
-  
-  
+
+
   //2D array that maps to the button values
   let buttonStates = [];
   buttonStates.push(sortedArray[0][0]);
@@ -176,9 +176,9 @@ function CustomLevel(props) {
   }
   for (let i = 1; i < sortedArray.length; i++) {
     buttonStates.push(nullArray);
-  
+
   }
-  const [constructor, setConstructor]=useState(false);
+  const [constructor, setConstructor] = useState(false);
 
   // This is now a 2d array that handles the states of all the buttons;
   const [btnStates, updateBtns] = useState(buttonStates);
@@ -200,7 +200,7 @@ function CustomLevel(props) {
   }
 
   //the timer part
-  window.addEventListener("load", function() {
+  window.addEventListener("load", function () {
     const clock = document.getElementById("time");
     let time = -1, intervalId;
     function incrementTime() {
@@ -222,62 +222,65 @@ function CustomLevel(props) {
     let idleTimeout; // variable to hold the timeout, do not modify
 
     //to display an alert box before being redirected
-    function redirect()
-    {
+    function redirect() {
       window.location.href = redirectUrl;
       alert("Due to inactivity, your session has timed-out");
-      
+
     }
 
-    const resetIdleTimeout = function() {
+    const resetIdleTimeout = function () {
 
-        // Clears the existing timeout
-        if(idleTimeout) clearTimeout(idleTimeout);
+      // Clears the existing timeout
+      if (idleTimeout) clearTimeout(idleTimeout);
 
-        // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-        idleTimeout = setTimeout(() => redirect() , idleDurationSecs * 1000);
+      // Set a new idle timeout to load the redirectUrl after idleDurationSecs
+      idleTimeout = setTimeout(() => redirect(), idleDurationSecs * 1000);
     };
 
     // Init on page load
     resetIdleTimeout();
-    
+
 
     // Reset the idle timeout on any of the events listed below
-    ['click', 'touchstart', 'mousemove'].forEach(evt => 
-        document.addEventListener(evt, resetIdleTimeout, false)
+    ['click', 'touchstart', 'mousemove'].forEach(evt =>
+      document.addEventListener(evt, resetIdleTimeout, false)
     );
 
-}
+  }
 
 
-inactivity(); //have this function run when the page loads
+  inactivity(); //have this function run when the page loads
 
 
   let arrayLength = correctOrder[0].length
   let rows = 2 * Math.ceil(Math.log2(arrayLength))
   const screen = [];
 
-  
-  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize}></ButtonRow>)
+
+  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize}></ButtonRow>)
 
   for (let i = 1; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
+    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked >= (i - 1) * arrayLength) ? ((clicked >= (i - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)}></ButtonRow>)
   }
   //the final row
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked >= (rows - 1) * arrayLength) ? ((clicked >= (rows - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)}></ButtonRow>)
+  const [time, setCount] = useState(0);
+
+  useEffect(() => {setInterval(() => {setCount(prevCount => prevCount + 1)}, 1000)}, [])
+
   return (
     <div style={{ alignContent: 'centre' }}>
-  
-    <div>
-      <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
-    </div>
-    <div id="time">00:00</div>
 
-    <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
-    {screen}</div>
+      <div>
+        <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
+      </div>
+      <div id="time">00:00</div>
+      <div>{time}</div>
+      <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
+      {screen}</div>
   );
-  
-  
+
+
 }
 
 export default CustomLevel;
