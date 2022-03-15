@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import ButtonRow from "../components/ButtonRow.js";
 
@@ -233,34 +233,21 @@ function Level2() {
   }
   
  
-    //the timer part
-  
-    window.addEventListener("load", function() {
-      const clock = document.getElementById("time");
-      let time = -1, intervalId;
-      function incrementTime() {
-        time++;
-        clock.textContent =
-          ("0" + Math.trunc(time / 60)).slice(-2) +
-          ":" + ("0" + (time % 60)).slice(-2);
-      }
-      incrementTime();
-      intervalId = setInterval(incrementTime, 1000);
-    });
-/** 
-    (() => {
-      const clock = document.getElementById("time");
-      let time = -1, intervalId;
-      function incrementTime() {
-        time++;
-        clock.textContent =
-          ("0" + Math.trunc(time / 60)).slice(-2) +
-          ":" + ("0" + (time % 60)).slice(-2);
-      }
-      incrementTime();
-      intervalId = setInterval(incrementTime, 1000);
-    })();
-    */
+      //timer code
+  //put the timer code into the effect hooks so it doesn't require a refresh to start.
+  useEffect(() => {
+    const clock = document.getElementById("time");
+    let time = -1, intervalId;
+    function incrementTime() {
+      time++;
+      clock.textContent =
+        ("0" + Math.trunc(time / 60)).slice(-2) +
+        ":" + ("0" + (time % 60)).slice(-2);
+    }
+    incrementTime();
+    intervalId = setInterval(incrementTime, 1000);
+  },[]);
+
     function inactivity() {
   
       const idleDurationSecs = 300;    // X number of seconds

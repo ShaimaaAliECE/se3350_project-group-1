@@ -199,20 +199,6 @@ function CustomLevel(props) {
 
   }
 
-  //the timer part
-  window.addEventListener("load", function () {
-    const clock = document.getElementById("time");
-    let time = -1, intervalId;
-    function incrementTime() {
-      time++;
-      clock.textContent =
-        ("0" + Math.trunc(time / 60)).slice(-2) +
-        ":" + ("0" + (time % 60)).slice(-2);
-    }
-    incrementTime();
-    intervalId = setInterval(incrementTime, 1000);
-  });
-
   //inactivity
 
   function inactivity() {
@@ -268,6 +254,9 @@ function CustomLevel(props) {
 
   //timer code
   //put the timer code into the effect hooks so it doesn't require a refresh to start.
+
+  
+
   useEffect(() => {
     const clock = document.getElementById("time");
     let time = -1, intervalId;
@@ -279,7 +268,7 @@ function CustomLevel(props) {
     }
     incrementTime();
     intervalId = setInterval(incrementTime, 1000);
-  });
+  },[]);
 
 
   return (
