@@ -254,9 +254,6 @@ function CustomLevel(props) {
 
   //timer code
   //put the timer code into the effect hooks so it doesn't require a refresh to start.
-
-  
-
   useEffect(() => {
     const clock = document.getElementById("time");
     let time = -1, intervalId;

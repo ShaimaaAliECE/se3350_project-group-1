@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 import { NavLink } from 'react-router-dom';
 
@@ -206,9 +206,9 @@ function Level4() {
 
   }
 
-  //the timer part
-  window.addEventListener("load", function() {
-    console.log("test");
+  //timer code
+  //put the timer code into the effect hooks so it doesn't require a refresh to start.
+  useEffect(() => {
     const clock = document.getElementById("time");
     let time = -1, intervalId;
     function incrementTime() {
@@ -219,7 +219,7 @@ function Level4() {
     }
     incrementTime();
     intervalId = setInterval(incrementTime, 1000);
-  });
+  },[]);
 
  
 
