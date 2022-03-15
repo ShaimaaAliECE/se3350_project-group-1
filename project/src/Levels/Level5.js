@@ -126,10 +126,11 @@ export function getSteps(arr) {
   steps = formatRows(arrayLength, steps)
   return steps
 }
-
+let arrayRange = 100
+let arraySize = 50
 let randomNumberArr = []
-for (let i = 0; i < 50; i++) {
-  randomNumberArr.push(Math.floor(Math.random() * 20) + 1)
+for (let i = 0; i < arraySize; i++) {
+  randomNumberArr.push(Math.floor(Math.random() * arrayRange) + 1)
 }
 const randomNumberArray = [...randomNumberArr]
 let sortedArray = getSteps(randomNumberArray);
@@ -272,13 +273,13 @@ inactivity(); //have this function run when the page loads
     <div id="time">00:00</div>
     </div>)
   //creating the first row 
-  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={50}></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize}></ButtonRow>)
 
   for (let i = 1; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+50)?50:clicked%50):(0)}></ButtonRow>)
+    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
   }
   //the final row
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+50)?50:clicked%50):(0)}></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+arraySize)?arraySize:clicked%arraySize):(0)}></ButtonRow>)
   //returning the screen
   return (<div>{screen}</div>)
 }
