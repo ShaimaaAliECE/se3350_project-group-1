@@ -264,9 +264,23 @@ function CustomLevel(props) {
   }
   //the final row
   screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked >= (rows - 1) * arrayLength) ? ((clicked >= (rows - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)}></ButtonRow>)
-  const [time, setCount] = useState(0);
 
-  useEffect(() => {setInterval(() => {setCount(prevCount => prevCount + 1)}, 1000)}, [])
+
+  //timer code
+  //put the timer code into the effect hooks so it doesn't require a refresh to start.
+  useEffect(() => {
+    const clock = document.getElementById("time");
+    let time = -1, intervalId;
+    function incrementTime() {
+      time++;
+      clock.textContent =
+        ("0" + Math.trunc(time / 60)).slice(-2) +
+        ":" + ("0" + (time % 60)).slice(-2);
+    }
+    incrementTime();
+    intervalId = setInterval(incrementTime, 1000);
+  });
+
 
   return (
     <div style={{ alignContent: 'centre' }}>
@@ -275,7 +289,7 @@ function CustomLevel(props) {
         <h1 class='topRectangle'> &emsp;Custom Level<button class='quitButton'><a class="noDec" href='http://localhost:3000/LevelsPage'> Quit </a> </button> <button class='analyticsButton'>Analytics</button></h1>
       </div>
       <div id="time">00:00</div>
-      <div>{time}</div>
+      
       <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
       {screen}</div>
   );
