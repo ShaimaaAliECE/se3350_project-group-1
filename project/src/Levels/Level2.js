@@ -273,7 +273,6 @@ function Level2() {
 
   }
   
-<<<<<<< HEAD
  
       //timer code
   //put the timer code into the effect hooks so it doesn't require a refresh to start.
@@ -290,38 +289,6 @@ function Level2() {
     intervalId = setInterval(incrementTime, 1000);
   },[]);
 
-=======
-  
-  
-    //the timer part
-  
-    window.addEventListener("load", function() {
-      const clock = document.getElementById("time");
-      let time = -1, intervalId;
-      function incrementTime() {
-        time++;
-        clock.textContent =
-          ("0" + Math.trunc(time / 60)).slice(-2) +
-          ":" + ("0" + (time % 60)).slice(-2);
-      }
-      incrementTime();
-      intervalId = setInterval(incrementTime, 1000);
-    });
-/** 
-    (() => {
-      const clock = document.getElementById("time");
-      let time = -1, intervalId;
-      function incrementTime() {
-        time++;
-        clock.textContent =
-          ("0" + Math.trunc(time / 60)).slice(-2) +
-          ":" + ("0" + (time % 60)).slice(-2);
-      }
-      incrementTime();
-      intervalId = setInterval(incrementTime, 1000);
-    })();
-    */
->>>>>>> splitBtn
     function inactivity() {
   
       const idleDurationSecs = 300;    // X number of seconds
@@ -376,7 +343,6 @@ function Level2() {
   
   //creating an array of button rows
   //creating the first row 
-<<<<<<< HEAD
   screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10} nameLevel = {level}></ButtonRow>)
 
   for (let i = 1; i < rows; i++) {
@@ -384,15 +350,6 @@ function Level2() {
   }
   //the final row
   screen.push(<ButtonRow numbers={btnStates[rows]} nameLevel = {level} rowClick={rowClick} row={rows + 1} length={arrayLength}  correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+10)?10:clicked%10):(0)}></ButtonRow>)
-=======
-  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10} split={splitState}></ButtonRow>)
-
-  for (let i = 1; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+10)?10:clicked%10):(0)} split={splitState}></ButtonRow>)
-  }
-  //the final row
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+10)?10:clicked%10):(0)} split={splitState}></ButtonRow>)
->>>>>>> splitBtn
   //returning the screen
   /*if (instructionsNum === 8 ){
     screen.push(<div>
