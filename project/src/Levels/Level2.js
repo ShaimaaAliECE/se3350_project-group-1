@@ -336,7 +336,8 @@ function Level2() {
     </div>
     <div id="time">00:00</div>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
-    <h3 class="text">{instructionArray[instructionsNum]}</h3></div>)
+    <h3 class="text">{instructionArray[instructionsNum]}</h3>
+   </div>)
   
   //Split button. Changes the state of split to true.
   screen.push(<button  onClick={()=>{splitState?updateSplit(false):updateSplit(true)}}>{splitState?"Split":"Not Split"}</button>);
@@ -350,6 +351,7 @@ function Level2() {
   }
   //the final row
   screen.push(<ButtonRow numbers={btnStates[rows]} nameLevel = {level} rowClick={rowClick} row={rows + 1} length={arrayLength}  correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+10)?10:clicked%10):(0)}></ButtonRow>)
+  
   //returning the screen
   /*if (instructionsNum === 8 ){
     screen.push(<div>
@@ -357,7 +359,7 @@ function Level2() {
     </div>)
 
   }*/
-  
+
   return (<div>{screen}</div>)
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 import {NavLink} from 'react-router-dom';
+import {newstate} from '../Levels/LevelsPage.js';
 
 
 let instructionArray = [
@@ -264,14 +265,14 @@ const [dataSize,setDataSize]=useState(null)
       }
     if (i === 8){
       //the final row
+     
       screen.push(<ButtonRow numbers={twoDimSortedArr[8][0]} rowClick={rowClick} row={8 + 10} length={arrayLength} correctRow={correctOrder[7]} enabled={false} spaces={buttonPlacement[8]} numVisible={10}></ButtonRow>)    
       screen.push(
-      <NavLink to="/Level1Complete" class="submitButton">Next</NavLink>)
+      <NavLink to="/Level1Complete" class="submitButton" onClick={()=>newstate(2)}>Next</NavLink>)
         }
     }
     
 
-  
   
   //returning the screen
   return (<div>{screen}</div>)

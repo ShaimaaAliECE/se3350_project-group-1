@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import Levels from './LevelsPage';
 
 const RetryPage = () => {  //create main page 
     return (
