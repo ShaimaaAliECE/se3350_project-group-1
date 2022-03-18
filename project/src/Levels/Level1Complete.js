@@ -10,9 +10,9 @@ const RetryPage = () => {  //create main page
          </div>
           <div class="thisText">
               
-          &emsp; &emsp; <img id = "pic" src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
-          <img src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
-          <img src="//pngset.com/images/review-star-yellow-star-no-background-symbol-star-symbol-cross-axe-transparent-png-1390703.png" width="100" height="100" alt="blankStar"/>
+          &emsp; &emsp; <img id = "pic" src="http://www.clker.com/cliparts/K/N/J/9/5/E/star-md.png"  width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
+          <img src="http://www.clker.com/cliparts/K/N/J/9/5/E/star-md.png" width="100" height="100" alt="blankStar"/> &emsp; &emsp; 
+          <img src="http://www.clker.com/cliparts/K/N/J/9/5/E/star-md.png" width="100" height="100" alt="blankStar"/>
                 
 
           
