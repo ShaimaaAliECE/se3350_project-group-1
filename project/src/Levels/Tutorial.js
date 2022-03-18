@@ -251,8 +251,8 @@ const [dataSize,setDataSize]=useState(null)
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
     <h1 class='topRectangle'> &emsp;Tutorial<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
-    </div>
-    Step<input type="range"  min="1" max= {totalRows + 1} onChange ={getSize}></input>{dataSize}<br></br>
+    </div> 
+    Step<input type="range"  min="1" defaultValue={1} max= {totalRows + 1} onChange  ={getSize}></input>{dataSize}<br></br>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[{dataSize}.dataSize]}</h3></div>)
     
