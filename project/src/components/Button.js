@@ -18,25 +18,37 @@ function Button(props) {
  
   function buttonClick(){
 
-     if(props.nextVal===props.btnId){
-      var correct = new Audio(CorrectSound);
-      correct.play();
-      setEnabled(false);
-      setClicked(true);
-      props.rowClick(props.value);
-      right++;
+     if(props.nextVal===props.btnId && props.splitState==props.correctSplitState){
+      
+        var correct = new Audio(CorrectSound);
+        correct.play();
+        setEnabled(false);
+        setClicked(true);
+        props.rowClick(props.value);
+        right++;
+      
+      
     }
     
     else if (count===2)
     {
       alert("Last Try!");
-    count++;
- FontFaceSetLoadEvent()
- count++;
+      count++;
+      FontFaceSetLoadEvent()
+      count++;
      
       
     }
-   else if (count===3)
+    
+
+    else if (count==0||count==1){
+      alert("Wrong -Try Again");
+      var incorrect = new Audio(WrongSound);
+      incorrect.play();
+      count++;
+      
+    }
+    if (count===3)
     {
       var wrong2 = new Audio(Done);
       wrong2.play();
@@ -45,14 +57,6 @@ function Button(props) {
         count =0;
         right =0;
     };
-    }
-
-    else{
-      alert("Wrong -Try Again");
-      var incorrect = new Audio(WrongSound);
-      incorrect.play();
-      count++;
-      
     }
     //testing purposes
     console.log(props.lvl);
