@@ -8,6 +8,7 @@ import Done from './done.mp3'
 
 let count=0;
 let right=0;
+let attempt=0;
 
 function Button(props) {
  
@@ -29,8 +30,8 @@ function Button(props) {
     {
       alert("Last Try!");
     count++;
- FontFaceSetLoadEvent()
- count++;
+    FontFaceSetLoadEvent()
+    count++;
      
       
     }
@@ -50,8 +51,9 @@ function Button(props) {
       var incorrect = new Audio(WrongSound);
       incorrect.play();
       count++;
-      
+      attempt++;
     }
+
     //testing purposes
     console.log(props.lvl);
   
@@ -59,20 +61,29 @@ function Button(props) {
     if(props.lvl === 2 || props.lvl === 3 ){
       
       if (count ===0 && right=== 80){
+        attempt++;
        leave1();
        count =0;
        right =0;
+
      }
+    
       else if (count ===1 && right=== 80){
+        attempt++;
       leave2();
       count=0;
       right =0;
     }
       else if (count ===2 && right=== 80){
+        attempt++;
       leave3();
       count =0;
       right =0;
-    } }
+    } 
+    console.log("right=" +right)
+  }
+
+    console.log("attempt: " +attempt);
     //checking for level 4
     if(props.lvl === 4){
       
@@ -155,6 +166,7 @@ function leave3(){
     );
     
 }
+
 
 }
 

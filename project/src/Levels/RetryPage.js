@@ -30,7 +30,7 @@ const RetryPage = () => {  //create main page
                    
        </div>   
     );
-    screen.push(<div>&emsp;<button  onClick={() => history.goBack()} class='bttn'> Try Again </button>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+    screen.push(<div>&emsp;<button  onClick={() => history.go(-1)} class='bttn'> Try Again </button>&emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
     <NavLink to="/LevelsPage" class='bttn' > Levels </NavLink></div>)
 
     
