@@ -214,7 +214,7 @@ function componentDidMount() {
     let row=Math.floor(clicks/rowLength)+1;
     let split=false;
     
-    if(row>0 && row<=80){
+    if(row>0&&splitArray[row]!=undefined){
       for( let i =0;i<splitArray[row].length;i++){
         if(clicks%rowLength==splitArray[row][i]){
           split=true;
@@ -278,6 +278,7 @@ function Level2() {
     }
     incrementTime();
     intervalId = setInterval(incrementTime, 1000);
+    console.log(time); //just to check to see how long this is incremented. 
   },[]);
 
     function inactivity() {
