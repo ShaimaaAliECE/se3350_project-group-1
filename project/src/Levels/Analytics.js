@@ -76,7 +76,7 @@ const Analytics = () => {    //create constant that will navigate from page to p
             </div>
 
             <div>
-                <button class="levels">Levels</button>
+                <button class="levels"><NavLink to="/LevelsPage" class="noDec">Levels</NavLink></button>
             </div> 
         </div>
     );
