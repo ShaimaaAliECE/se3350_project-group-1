@@ -11,6 +11,7 @@ import changeAnalytics from '../Levels/LevelsPage.js';
 
 let count=0;
 let right=0;
+let attempt=0;
 
 function Button(props) {
  
@@ -66,6 +67,7 @@ function Button(props) {
     if(props.lvl === 2  ){
       
       if (count ===0 && right=== 80){
+        attempt++;
        leave1();
        count =0;
        right =0;
@@ -74,7 +76,9 @@ function Button(props) {
           newstate(3);
        }
      }
+    
       else if (count ===1 && right=== 80){
+        attempt++;
       leave2();
       count=0;
       right =0;
@@ -84,6 +88,7 @@ function Button(props) {
       }
     }
       else if (count ===2 && right=== 80){
+        attempt++;
       leave3();
       count =0;
       right =0;
@@ -231,6 +236,7 @@ function leave3(){
     );
     
 }
+
 
 function changeWindow1(){
   window.location.href = "#/Completed/"

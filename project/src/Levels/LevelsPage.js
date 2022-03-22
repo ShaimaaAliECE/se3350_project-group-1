@@ -164,55 +164,7 @@ const LevelsPage = () => {    //create constant that will navigate from page to 
                  </div>);
       }
    
-       /*if(document.referrer === "http://localhost:3000/RetryPage" || ""){
-            screen.push(<div>
-               <NavLink to="/Level2" class="scndButton">Level 2  </NavLink>
-               &emsp; &emsp; 
-               <NavLink to="/Level3" class="thirdButton">Level 3 &#128274; </NavLink>
-               <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274;</NavLink>
-               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
-               <NavLink to="/CustomSelection" class="sixthButton">Custom Level</NavLink></div>);
-         }*/
-         //check if level 1 unlocked 
-        /* if(document.referrer === "http://localhost:3000/Level1Complete"){
-            screen.push(<div>
-               <NavLink to="/Level2" class="scndButton">Level 2  </NavLink>
-               &emsp; &emsp; 
-               <NavLink to="/Level3" class="thirdButton">Level 3 &#128274; </NavLink>
-               <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274;</NavLink>
-               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
-               <NavLink to="/CustomSelection" class="sixthButton">Custom Level</NavLink></div>);
-         }
-
-         else if(document.referrer === "http://localhost:3000/Level2"){
-            screen.push(<div>
-               <NavLink to="/Level2" class="scndButton">Level 2  </NavLink>
-               &emsp; &emsp; 
-               <NavLink to="/Level3" class="thrdButton">Level 3 </NavLink>
-               <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274;</NavLink>
-               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
-               <NavLink to="/CustomSelection" class="sixthButton">Custom Level</NavLink></div>);
-         }
-         else if(document.referrer === "http://localhost:3000/Level3"){
-            screen.push(<div>
-               <NavLink to="/Level2" class="scndButton">Level 2  </NavLink>
-               &emsp; &emsp; 
-               <NavLink to="/Level3" class="thrdButton">Level 3 </NavLink>
-               <NavLink to="/LevelsPage" class="fourthButton">Level 4 </NavLink>
-               <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
-               <NavLink to="/CustomSelection" class="sixthButton">Custom Level</NavLink></div>);
-         }
-
-         else {
-          screen.push(<div>
-          <NavLink to="/Level2" class="secondButton">Level 2 &#128274; </NavLink>
-          &emsp; &emsp; 
-          <NavLink to="/Level3" class="thirdButton">Level 3&#128274; </NavLink>
-          <NavLink to="/LevelsPage" class="fourthButton">Level 4 &#128274;</NavLink>
-          <NavLink to="/LevelsPage" class="fifthButton">Level 5 &#128274;</NavLink>
-          <NavLink to="/CustomSelection" class="sixthButton">Custom Level</NavLink></div>);
-          }
-          */
+       
 
             screen.push(
          <div class="wrap">
