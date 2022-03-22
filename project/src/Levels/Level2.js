@@ -247,6 +247,7 @@ function Level2() {
     }
     incrementTime();
     intervalId = setInterval(incrementTime, 1000);
+    console.log(time); //just to check to see how long this is incremented. 
   },[]);
 
     function inactivity() {
