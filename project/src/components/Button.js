@@ -1,8 +1,10 @@
 import React ,{useState}from 'react';
 import CorrectSound from './correct.mp3';
 import WrongSound from './wrong.mp3';
-import  { Redirect } from 'react-router-dom'
-import Done from './done.mp3'
+import  { Redirect } from 'react-router-dom';
+import Done from './done.mp3';
+import {newstate} from '../Levels/LevelsPage.js';
+import {getstate} from '../Levels/LevelsPage.js';
 //do something...
 
 
@@ -16,25 +18,37 @@ function Button(props) {
  
   function buttonClick(){
 
-     if(props.nextVal===props.btnId){
-      var correct = new Audio(CorrectSound);
-      correct.play();
-      setEnabled(false);
-      setClicked(true);
-      props.rowClick(props.value);
-      right++;
+     if(props.nextVal===props.btnId && props.splitState==props.correctSplitState){
+      
+        var correct = new Audio(CorrectSound);
+        correct.play();
+        setEnabled(false);
+        setClicked(true);
+        props.rowClick(props.value);
+        right++;
+      
+      
     }
     
     else if (count===2)
     {
       alert("Last Try!");
-    count++;
- FontFaceSetLoadEvent()
- count++;
+      count++;
+      FontFaceSetLoadEvent()
+      count++;
      
       
     }
-   else if (count===3)
+    
+
+    else if (count==0||count==1){
+      alert("Wrong -Try Again");
+      var incorrect = new Audio(WrongSound);
+      incorrect.play();
+      count++;
+      
+    }
+    if (count===3)
     {
       var wrong2 = new Audio(Done);
       wrong2.play();
@@ -44,35 +58,72 @@ function Button(props) {
         right =0;
     };
     }
-
-    else{
-      alert("Wrong -Try Again");
-      var incorrect = new Audio(WrongSound);
-      incorrect.play();
-      count++;
-      
-    }
     //testing purposes
     console.log(props.lvl);
   
     //checking for level 2 
-    if(props.lvl === 2 || props.lvl === 3 ){
+    if(props.lvl === 2  ){
       
       if (count ===0 && right=== 80){
        leave1();
        count =0;
        right =0;
+       if (getstate()<=2)
+       {
+          newstate(3);
+       }
      }
       else if (count ===1 && right=== 80){
       leave2();
       count=0;
       right =0;
+      if (getstate()<=2)
+      {
+         newstate(3);
+      }
     }
       else if (count ===2 && right=== 80){
       leave3();
       count =0;
       right =0;
+      if (getstate()<=2)
+      {
+         newstate(3);
+      }
     } }
+//for level3
+    if(props.lvl === 3 ){
+      
+      if (count ===0 && right=== 80){
+       leave1();
+       count =0;
+       right =0;
+       if (getstate()<=3)
+       {
+          newstate(4);
+       }
+     }
+      else if (count ===1 && right=== 80){
+      leave2();
+      count=0;
+      right =0;
+      if (getstate()<=3)
+      {
+         newstate(4);
+      }
+    }
+      else if (count ===2 && right=== 80){
+      leave3();
+      count =0;
+      right =0;
+      if (getstate()<=3)
+       {
+          newstate(4);
+       }
+    }
+  } 
+
+
     //checking for level 4
     if(props.lvl === 4){
       
@@ -80,16 +131,28 @@ function Button(props) {
        leave1();
        count =0;
        right =0;
+       if (getstate()<=4)
+       {
+          newstate(5);
+       }
      }
       else if (count ===1 && right=== 200){
       leave2();
       count=0;
       right =0;
+      if (getstate()<=4)
+      {
+         newstate(5);
+      }
     }
       else if (count ===2 && right=== 200){
       leave3();
       count =0;
       right =0;
+      if (getstate()<=4)
+      {
+         newstate(5);
+      }
     } }
 
     //checking level 5 
@@ -99,16 +162,28 @@ function Button(props) {
        leave1();
        count =0;
        right =0;
+       if (getstate()<=5)
+       {
+          newstate(6);
+       }
      }
       else if (count ===1 && right === 600){
       leave2();
       count=0;
       right =0;
+      if (getstate()<=5)
+      {
+         newstate(6);
+      }
     }
       else if (count ===2 && right=== 600){
       leave3();
       count =0;
       right =0;
+      if (getstate()<=5)
+      {
+         newstate(6);
+      }
     } }
    
   }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ButtonRow from "../components/ButtonRow.js";
 import {NavLink} from 'react-router-dom';
+import {newstate} from '../Levels/LevelsPage.js';
 
 
 let instructionArray = [
@@ -250,8 +251,8 @@ const [dataSize,setDataSize]=useState(null)
   screen.push(<div style={{ alignContent: 'centre' }}>
     <div>
     <h1 class='topRectangle'> &emsp;Tutorial<button class='quitButton'> <NavLink to="/LevelsPage" class="noDec">Quit</NavLink> </button> <button class='analyticsButton'><NavLink to="/Analytics" class="noDec">Analytics</NavLink></button></h1>
-    </div>
-    Step<input type="range"  min="1" max= {totalRows + 1} onChange ={getSize}></input>{dataSize}<br></br>
+    </div> 
+    Step<input type="range"  min="1" defaultValue={1} max= {totalRows + 1} onChange  ={getSize}></input>{dataSize}<br></br>
     <p >Merge Sort is a divide and conquer algorithm, meaning it splits a larger problem into multiple smaller problems</p>
     <h3 class="text">{instructionArray[{dataSize}.dataSize]}</h3></div>)
     
@@ -264,14 +265,14 @@ const [dataSize,setDataSize]=useState(null)
       }
     if (i === 8){
       //the final row
+     
       screen.push(<ButtonRow numbers={twoDimSortedArr[8][0]} rowClick={rowClick} row={8 + 10} length={arrayLength} correctRow={correctOrder[7]} enabled={false} spaces={buttonPlacement[8]} numVisible={10}></ButtonRow>)    
       screen.push(
-      <NavLink to="/Level1Complete" class="submitButton">Next</NavLink>)
+      <NavLink to="/Level1Complete" class="submitButton" onClick={()=>newstate(2)}>Next</NavLink>)
         }
     }
     
 
-  
   
   //returning the screen
   return (<div>{screen}</div>)
