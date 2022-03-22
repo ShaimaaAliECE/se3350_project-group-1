@@ -5,6 +5,7 @@ import  { Redirect } from 'react-router-dom';
 import Done from './done.mp3';
 import {newstate} from '../Levels/LevelsPage.js';
 import {getstate} from '../Levels/LevelsPage.js';
+import changeAnalytics from '../Levels/LevelsPage.js';
 //do something...
 
 
@@ -212,7 +213,7 @@ function leave(){
 }
 function leave1(){
   return (
-    <button  class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/Completed/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button  class={clicked?"bttnCorrect":"bttn2"} onclick= {keepCount1()} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
@@ -220,7 +221,7 @@ function leave1(){
 }
 function leave2(){
   return (
-    <button  class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/OneMistake/"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button  class={clicked?"bttnCorrect":"bttn2"} onclick= {keepCount2()} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
@@ -228,12 +229,47 @@ function leave2(){
 }
 function leave3(){
   return (
-    <button   class={clicked?"bttnCorrect":"bttn2"} onClick={window.location.href = "#/TwoMistakes"} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
+    <button   class={clicked?"bttnCorrect":"bttn2"} onclick= {keepCount3()} disabled={!enabled || !props.enabled} style={{marginRight:props.padding}}>
        {props.value}
     </button>
     
     );
     
+}
+
+
+function changeWindow1(){
+  window.location.href = "#/Completed/"
+}
+
+function changeWindow2(){
+  window.location.href = "#/OneMistake/"
+}
+
+function changeWindow3(){
+  window.location.href = "#/TwoMistakes"
+}
+
+function updateAnalytics(){
+  changeAnalytics(props.lvl, 2, 1);
+}
+
+function keepCount1(){
+  alert("calling keep count 1");
+  changeWindow1();
+  updateAnalytics();
+}
+
+function keepCount2(){
+  alert("calling keep count 2");
+  changeWindow2();
+  updateAnalytics();
+}
+
+function keepCount3(){
+  alert("calling keep count 3");
+  changeWindow3();
+  updateAnalytics();
 }
 
 
