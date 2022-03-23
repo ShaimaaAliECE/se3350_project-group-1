@@ -1,6 +1,8 @@
 import React from 'react';  //import required libraries
  import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
+import changeAnalytics from './changeAnalytics';
+
 
 //holds the sates for the differnent levels
 class Levels extends React.Component {
@@ -47,43 +49,6 @@ export function getstate() {
    return abc.getState();
  
 }
-function changeAnalytics(level,column,change){
-
-   //retreive the analytics string
-      let statsString=localStorage.getItem('Analytics');
-      //convert to json
-      let stats=JSON.parse(statsString);
-     
-      switch(column)
-      {
-         case 1:
-            stats[level-1].attempts+=change;
-            
-            break;
-         case 2:
-            stats[level-1].timesComplete+=change;
-            
-            break;
-         case 3:
-            stats[level-1].bestTime+=change;
-            
-            break;
-         case 4:
-            stats[level-1].totalTime+=change;
-            
-            break;
-            default:
-            break;
-      }
-   
-
-
-   localStorage.setItem('Analytics', JSON.stringify(stats));
-   
-}
-
-
-
 
 const LevelsPage = () => {    //create constant that will navigate from page to page
    const screen = [];
