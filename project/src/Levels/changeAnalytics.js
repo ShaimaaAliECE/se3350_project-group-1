@@ -20,7 +20,9 @@ function changeAnalytics(level,column,change){
              
              break;
           case 4:
-             stats[level-1].totalTime = change;
+             let tempChange = ("0" + Math.trunc(change / 60)).slice(-2) +
+             ":" + ("0" + (change % 60)).slice(-2);
+             stats[level-1].totalTime = tempChange;
              
              break;
              default:
