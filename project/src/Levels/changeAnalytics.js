@@ -20,7 +20,7 @@ function changeAnalytics(level,column,change){
              
              break;
           case 4:
-             stats[level-1].totalTime+=change;
+             stats[level-1].totalTime = change;
              
              break;
              default:

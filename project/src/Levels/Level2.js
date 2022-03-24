@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import ButtonRow from "../components/ButtonRow.js";
 import Button from "../components/ButtonRow.js";
+import changeAnalytics from './changeAnalytics';
 
 
 let level = 2;
@@ -239,6 +240,7 @@ function Level2() {
   const [clicked, updateClick] = useState(0);
   const [instructionsNum, updateInstructions] = useState(0);
   const [splitState, updateSplit] = useState(false);
+  const [timers, saveTime] = React.useState(0)
 
 //componentDidMount();
 
@@ -265,21 +267,24 @@ function Level2() {
   }
   
  
-      //timer code
-  //put the timer code into the effect hooks so it doesn't require a refresh to start.
-  useEffect(() => {
-    const clock = document.getElementById("time");
-    let time = -1, intervalId;
-    function incrementTime() {
-      time++;
-      clock.textContent =
-        ("0" + Math.trunc(time / 60)).slice(-2) +
-        ":" + ("0" + (time % 60)).slice(-2);
-    }
-    incrementTime();
-    intervalId = setInterval(incrementTime, 1000);
-    console.log(time); //just to check to see how long this is incremented. 
-  },[]);
+
+  //timer code
+//put the timer code into the effect hooks so it doesn't require a refresh to start.
+useEffect(() => {
+const clock = document.getElementById("time");
+let time = -1, intervalId;
+function incrementTime() {
+  time++;
+  clock.textContent =
+    ("0" + Math.trunc(time / 60)).slice(-2) +
+    ":" + ("0" + (time % 60)).slice(-2);
+  saveTime(timers => timers + 1);
+}
+incrementTime();
+intervalId = setInterval(incrementTime, 1000);
+},[]);
+
+changeAnalytics(2,4,timers);
 
     function inactivity() {
   
