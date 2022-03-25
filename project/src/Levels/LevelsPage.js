@@ -41,7 +41,6 @@ abc.changeState();
  }
  else 
    abc.changeState(num);
-   alert("TEST! The current state is: "+abc.getState());//for testing just to make sure everything is okay
 }
 //returns state
 export function getstate() {
