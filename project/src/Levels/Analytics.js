@@ -35,7 +35,7 @@ const Analytics = () => {    //create constant that will navigate from page to p
                         <th>Attempts</th>
                         <th>Times Complete</th>
                         <th>Best Time</th>
-                        <th>Total Time</th>
+                        <th>Recent Time</th>
                     </tr>
                     <tr>
                         <th>1</th>
