@@ -69,6 +69,7 @@ function Button(props) {
       
       if (count ===0 && right=== 80){
         attempt++;
+        changeAnalytics(2,3,props.timer);
         changeAnalytics(2,4,props.timer);
        leave1();
        count =0;
@@ -81,6 +82,7 @@ function Button(props) {
     
       else if (count ===1 && right=== 80){
         attempt++;
+        changeAnalytics(2,3,props.timer);
         changeAnalytics(2,4,props.timer);
       leave2();
       count=0;
@@ -92,6 +94,7 @@ function Button(props) {
     }
       else if (count ===2 && right=== 80){
         attempt++;
+        changeAnalytics(2,3,props.timer);
         changeAnalytics(2,4,props.timer);
       leave3();
       count =0;
@@ -105,6 +108,7 @@ function Button(props) {
     if(props.lvl === 3 ){
       
       if (count ===0 && right=== 80){
+        changeAnalytics(3,3,props.timer);
         changeAnalytics(3,4,props.timer);
        leave1();
        count =0;
@@ -115,6 +119,7 @@ function Button(props) {
        }
      }
       else if (count ===1 && right=== 80){
+        changeAnalytics(3,3,props.timer);
         changeAnalytics(3,4,props.timer);
       leave2();
       count=0;
@@ -125,6 +130,7 @@ function Button(props) {
       }
     }
       else if (count ===2 && right=== 80){
+        changeAnalytics(3,3,props.timer);
         changeAnalytics(3,4,props.timer);
       leave3();
       count =0;
@@ -141,6 +147,7 @@ function Button(props) {
     if(props.lvl === 4){
       
       if (count ===0 && right=== 200){
+        changeAnalytics(4,3,props.timer);
         changeAnalytics(4,4,props.timer);
        leave1();
        count =0;
@@ -151,6 +158,7 @@ function Button(props) {
        }
      }
       else if (count ===1 && right=== 200){
+        changeAnalytics(4,3,props.timer);
         changeAnalytics(4,4,props.timer);
       leave2();
       count=0;
@@ -161,6 +169,7 @@ function Button(props) {
       }
     }
       else if (count ===2 && right=== 200){
+        changeAnalytics(4,3,props.timer);
         changeAnalytics(4,4,props.timer);
       leave3();
       count =0;
@@ -175,6 +184,7 @@ function Button(props) {
     if(props.lvl === 5){
       
       if (count ===0 && right=== 600){
+        changeAnalytics(5,3,props.timer);
         changeAnalytics(5,4,props.timer);
        leave1();
        count =0;
@@ -185,6 +195,7 @@ function Button(props) {
        }
      }
       else if (count ===1 && right === 600){
+        changeAnalytics(5,3,props.timer);
         changeAnalytics(5,4,props.timer);
       leave2();
       count=0;
@@ -195,6 +206,7 @@ function Button(props) {
       }
     }
       else if (count ===2 && right=== 600){
+        changeAnalytics(5,3,props.timer);
         changeAnalytics(5,4,props.timer);
       leave3();
       count =0;

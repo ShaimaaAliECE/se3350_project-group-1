@@ -7,7 +7,7 @@ const Login = () => {    //create constant that will navigate from page to page
       attempts:0,
       timesComplete:0,
       bestTime:'N/A',
-      totalTime:'00:00'},
+      totalTime:'N/A'},
       {level:'2',
       attempts:0,
       timesComplete:0,
