@@ -40,7 +40,7 @@ const Analytics = () => {    //create constant that will navigate from page to p
                     <tr>
                         <th>1</th>
                         <th>{""+playerData[0].attempts}</th>
-                        <th>{""+playerData[0].timesComplete}</th>
+                        <th>{"N/A"}</th>
                         <th>{""+playerData[0].bestTime}</th>
                         <th>{""+playerData[0].totalTime}</th>
                     </tr>
