@@ -334,6 +334,7 @@ function Level2() {
   //Split button. Changes the state of split to true.
   screen.push(<button  onClick={()=>{splitState?updateSplit(false):updateSplit(true)}}>{splitState?"Split":"Not Split"}</button>);
   
+
   //creating an array of button rows
   //creating the first row 
   screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10} nameLevel = {level} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow >)

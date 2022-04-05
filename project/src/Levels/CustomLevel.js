@@ -3,6 +3,8 @@ import ButtonRow from "../components/ButtonRow.js";
 import { arr } from "./CustomSelection";
 import React, { useState, useEffect } from "react";
 
+let clicker =0;
+let level = 6;
 function CustomLevel(props) {
 
 
@@ -218,6 +220,7 @@ function CustomLevel(props) {
     updateSplit(false);
     //updates how many of the buttons have been clicked so it knows when to change the instructions
     updateClick(clicked + 1);
+    clicker++;
 
 
   }
@@ -257,6 +260,7 @@ function CustomLevel(props) {
 
 
   inactivity(); //have this function run when the page loads
+  
 
 
   let arrayLength = correctOrder[0].length
@@ -266,13 +270,13 @@ function CustomLevel(props) {
   //Split button. Changes the state of split to true.
   screen.push(<button  onClick={()=>{splitState?updateSplit(false):updateSplit(true)}}>{splitState?"Split":"Not Split"}</button>);
 
-  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,arraySize)}></ButtonRow>)
+  screen.push(<ButtonRow nameLevel={level} total={arraySize*rows} numbers={btnStates[0]} rowClick={rowClick} row={1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={arraySize} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,arraySize)}></ButtonRow>)
 
   for (let i = 1; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked >= (i - 1) * arrayLength) ? ((clicked >= (i - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,arraySize)}></ButtonRow>)
+    screen.push(<ButtonRow nameLevel={level} total={arraySize*rows} numbers={btnStates[i]} rowClick={rowClick} row={i + 1} length={arrayLength} correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked >= (i - 1) * arrayLength) ? ((clicked >= (i - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,arraySize)}></ButtonRow>)
   }
   //the final row
-  screen.push(<ButtonRow numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked >= (rows - 1) * arrayLength) ? ((clicked >= (rows - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,arraySize)}></ButtonRow>)
+  screen.push(<ButtonRow nameLevel={level} total={arraySize*rows} numbers={btnStates[rows]} rowClick={rowClick} row={rows + 1} length={arrayLength} correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked >= (rows - 1) * arrayLength) ? ((clicked >= (rows - 1) * arrayLength + arraySize) ? arraySize : clicked % arraySize) : (0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,arraySize)}></ButtonRow>)
 
 
   //timer code

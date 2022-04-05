@@ -61,7 +61,7 @@ function Button(props) {
     }
     //testing purposes
     console.log(props.lvl);
-  
+    console.log(props.ttl);
     //checking for level 2 
     if(props.lvl === 2  ){
       
@@ -182,6 +182,37 @@ function Button(props) {
       }
     }
       else if (count ===2 && right=== 600){
+      leave3();
+      count =0;
+      right =0;
+      if (getstate()<=5)
+      {
+         newstate(6);
+      }
+    } }
+
+    //checking for custom level 
+    if(props.lvl === 6){
+      
+      if (count ===0 && right=== props.ttl){
+       leave1();
+       count =0;
+       right =0;
+       if (getstate()<=5)
+       {
+          newstate(6);
+       }
+     }
+      else if (count ===1 && right === props.ttl){
+      leave2();
+      count=0;
+      right =0;
+      if (getstate()<=5)
+      {
+         newstate(6);
+      }
+    }
+      else if (count ===2 && right=== props.ttl){
       leave3();
       count =0;
       right =0;
