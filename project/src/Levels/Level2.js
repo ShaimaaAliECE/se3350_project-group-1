@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import ButtonRow from "../components/ButtonRow.js";
 import Button from "../components/ButtonRow.js";
+import changeAnalytics from './changeAnalytics';
 
 
 let level = 2;
@@ -239,6 +240,7 @@ function Level2() {
   const [clicked, updateClick] = useState(0);
   const [instructionsNum, updateInstructions] = useState(0);
   const [splitState, updateSplit] = useState(false);
+  const [timers, saveTime] = React.useState(0)
 
 //componentDidMount();
 
@@ -265,21 +267,24 @@ function Level2() {
   }
   
  
-      //timer code
-  //put the timer code into the effect hooks so it doesn't require a refresh to start.
-  useEffect(() => {
-    const clock = document.getElementById("time");
-    let time = -1, intervalId;
-    function incrementTime() {
-      time++;
-      clock.textContent =
-        ("0" + Math.trunc(time / 60)).slice(-2) +
-        ":" + ("0" + (time % 60)).slice(-2);
-    }
-    incrementTime();
-    intervalId = setInterval(incrementTime, 1000);
-    console.log(time); //just to check to see how long this is incremented. 
-  },[]);
+
+  //timer code
+//put the timer code into the effect hooks so it doesn't require a refresh to start.
+useEffect(() => {
+const clock = document.getElementById("time");
+let time = -1, intervalId;
+function incrementTime() {
+  time++;
+  clock.textContent =
+    ("0" + Math.trunc(time / 60)).slice(-2) +
+    ":" + ("0" + (time % 60)).slice(-2);
+  saveTime(timers => timers + 1);
+}
+incrementTime();
+intervalId = setInterval(incrementTime, 1000);
+},[]);
+
+//changeAnalytics(2,4,timers);
 
     function inactivity() {
   
@@ -337,13 +342,13 @@ function Level2() {
 
   //creating an array of button rows
   //creating the first row 
-  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10} nameLevel = {level} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow >)
+  screen.push(<ButtonRow numbers={btnStates[0]} rowClick={rowClick} row={ 1} length={arrayLength} correctRow={correctOrder[0]} enabled={true} spaces={buttonPlacement[0]} numVisible={10} time = {timers} nameLevel = {level} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow >)
 
   for (let i = 1; i < rows; i++) {
-    screen.push(<ButtonRow numbers={btnStates[i]} nameLevel = {level} rowClick={rowClick} row={i + 1} length={arrayLength}  correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+10)?10:clicked%10):(0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow>)
+    screen.push(<ButtonRow numbers={btnStates[i]} time = {timers} nameLevel = {level} rowClick={rowClick} row={i + 1} length={arrayLength}  correctRow={correctOrder[i]} enabled={(clicked >= i * arrayLength) ? true : false} spaces={buttonPlacement[i]} numVisible={(clicked>=(i-1)*arrayLength)?((clicked>=(i-1)*arrayLength+10)?10:clicked%10):(0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow>)
   }
   //the final row
-  screen.push(<ButtonRow numbers={btnStates[rows]} nameLevel = {level} rowClick={rowClick} row={rows + 1} length={arrayLength}  correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+10)?10:clicked%10):(0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow>)
+  screen.push(<ButtonRow numbers={btnStates[rows]} time = {timers} nameLevel = {level} rowClick={rowClick} row={rows + 1} length={arrayLength}  correctRow={correctOrder[rows - 1]} enabled={(false) ? true : false} spaces={buttonPlacement[rows]} numVisible={(clicked>=(rows-1)*arrayLength)?((clicked>=(rows-1)*arrayLength+10)?10:clicked%10):(0)} splitState={splitState} correctSplitState={checkForSplit(buttonPlacement,clicked,10)}></ButtonRow>)
   
   //returning the screen
   /*if (instructionsNum === 8 ){

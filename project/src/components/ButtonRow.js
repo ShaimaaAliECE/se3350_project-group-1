@@ -32,12 +32,12 @@ function ButtonRow(props) {
       
     
    
-    
   return (
   <div class="wrapper">
 
     {buttonObj.map((button,index) => (
-        <Button key={"row"+props.row+"-btn"+button.id} value={props.numbers[button.id]}  rowClick={buttonRowClick} lvl ={props.nameLevel} ttl ={props.total}
+
+        <Button key={"row"+props.row+"-btn"+button.id} value={props.numbers[button.id]}  rowClick={buttonRowClick} timer = {props.time} lvl ={props.nameLevel} ttl ={props.total}
             padding={button.padding} nextVal={props.correctRow[count]} btnId={button.id} enabled={props.enabled}  splitState={props.splitState} correctSplitState={props.correctSplitState}></Button>
         
       ))}
@@ -47,7 +47,6 @@ function ButtonRow(props) {
   </div>
   );
 }
-
 export default ButtonRow;
 
 //visible={(button.id<=props.numVisible)?'none':"you should see this"}

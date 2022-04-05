@@ -15,8 +15,8 @@ const Analytics = () => {    //create constant that will navigate from page to p
          
             
             <div class="topRectangle">
-                <div class="usernameText"> <b>User name</b></div>
-                <button class="quit">Quit</button>
+                <div class="usernameText"> <b>User name</b> <button class='quitButton'><NavLink to="/" class="noDec">Quit</NavLink></button></div>
+                
                 
             </div>
 
@@ -35,12 +35,12 @@ const Analytics = () => {    //create constant that will navigate from page to p
                         <th>Attempts</th>
                         <th>Times Complete</th>
                         <th>Best Time</th>
-                        <th>Total Time</th>
+                        <th>Recent Time</th>
                     </tr>
                     <tr>
                         <th>1</th>
                         <th>{""+playerData[0].attempts}</th>
-                        <th>{""+playerData[0].timesComplete}</th>
+                        <th>{"N/A"}</th>
                         <th>{""+playerData[0].bestTime}</th>
                         <th>{""+playerData[0].totalTime}</th>
                     </tr>
@@ -76,7 +76,7 @@ const Analytics = () => {    //create constant that will navigate from page to p
             </div>
 
             <div>
-                <button class="levels">Levels</button>
+                <button class="levels"><NavLink to="/LevelsPage" class="noDec">Levels</NavLink></button>
             </div> 
         </div>
     );

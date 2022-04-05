@@ -7,7 +7,7 @@ const Login = () => {    //create constant that will navigate from page to page
       attempts:0,
       timesComplete:0,
       bestTime:'N/A',
-      totalTime:'00:00'},
+      totalTime:'N/A'},
       {level:'2',
       attempts:0,
       timesComplete:0,
@@ -30,8 +30,15 @@ const Login = () => {    //create constant that will navigate from page to page
       totalTime:'00:00'}
     ];
     
-    //writes the JSON object to the users local storage
-    localStorage.setItem('Analytics', JSON.stringify(stats));
+    //writes the JSON object to the users local storage if it doesn't already exist.
+    
+      if(localStorage.getItem('Analytics')==null){
+         localStorage.setItem('Analytics', JSON.stringify(stats));
+      }
+    
+     
+    
+    
     return (
        <div>
          <div>
